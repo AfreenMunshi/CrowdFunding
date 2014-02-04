@@ -1,0 +1,40 @@
+<h1>Listing campaigns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Info</th>
+      <th>Days</th>
+      <th>Target</th>
+      <th>Start date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @campaigns.each do |campaign| %>
+      <tr>
+        <td><%= campaign.title %></td>
+        <td><%= campaign.info %></td>
+        <td><%= campaign.days %></td>
+        <td><%= campaign.target %></td>
+        <td><%= campaign.start_date %></td>
+        <td><%= link_to 'Show', campaign %></td>
+        <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
+        
+        <td><%= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       
+        <% if user_signed_in? %>
+        <td><%= link_to 'Donate', donate_path(campaign.id) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Campaign', new_campaign_path %>

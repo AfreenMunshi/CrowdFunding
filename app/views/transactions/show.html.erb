@@ -1,0 +1,26 @@
+<% if @transaction.verified %>
+	<p> Thanks for the contribution </p>
+<% else %>
+	<p> Please verify your transaction </p>
+<% end %>
+
+
+<p>
+  <strong>Campaign:</strong>
+  <%= @transaction.campaign.title %>
+</p>
+<p>
+  <strong>Amount:</strong>
+  <%= @transaction.amount %>
+</p>
+
+<% if !@transaction.verified %>
+	<%= form_tag(verify_transaction_path(@transaction.id), method: :post) do %>
+		Enter OTP code <%= number_field_tag 'code' %>
+		<%= submit_tag 'Save' %>
+	<% end %>
+
+	<%= link_to 'Regenerate OTP code', otp_regenerate_path(@transaction), method: :post %> |
+<% end %>
+
+<%= link_to 'Back', transactions_path %>

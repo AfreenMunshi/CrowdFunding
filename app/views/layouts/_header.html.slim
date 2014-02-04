@@ -1,0 +1,24 @@
+.ui.small.menu
+  a.item href='/' class=(active_class('campaigns', 'index'))
+    i.home.icon
+    | Home
+  .right.menu
+    - if user_signed_in?
+      .item
+
+        = "Welcome #{current_user.email}"
+
+      = link_to new_campaign_path, method: :get, class: "item #{active_class('campaigns', 'new')}"
+        i.upload.basic.icon
+        | New Campaign
+
+      = link_to destroy_user_session_path, method: :delete, class: "item #{active_class('devise/sessions', 'destroy')}"
+        i.sign.out.icon 
+        | Sign Out
+    - else
+      = link_to new_user_registration_path, class: "item #{active_class('devise/registrations', 'new')}"
+        | Sign up
+        i.sign.in.icon
+      = link_to new_user_session_path, class: "item #{active_class('devise/sessions', 'new')}"
+        | Sign in
+        i.user.icon

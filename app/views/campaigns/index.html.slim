@@ -1,0 +1,17 @@
+.ui.stackable.items
+  - @campaigns.each do |campaign|
+    .item
+      a.image href="/campaigns/#{campaign.id}"
+        img src=(campaign.banner.url)
+      .content
+        .name
+          = campaign.title
+        p.description
+          | by&nbsp;
+          span.orange.text
+            = campaign.user.email
+          br
+          | on&nbsp;
+          = date_display(campaign.created_at)
+          br
+          = campaign.info.try(:lines).try(:first).slice(0, 60)
