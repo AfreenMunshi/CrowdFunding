@@ -1,0 +1,13 @@
+h1 Your transaction history
+table
+  thead
+    tr
+      th Amount
+      th Campaign
+  tbody
+    - @transactions.each do |transaction|
+      tr
+        - if current_user.id == transaction.user_id
+          td= transaction.amount
+          td= transaction.campaign.title
+br

@@ -41,7 +41,9 @@
 
 <%= link_to 'Donate', donate_path(@campaign.id) %>
 <% if user_signed_in? %>
+  <% if current_user.id == @campaign.user_id %>
         <td><%= link_to 'Edit', edit_campaign_path(@campaign) %></td>
+  <% end %>
 <% end %>
 <%= link_to 'Back', campaigns_path %>
 

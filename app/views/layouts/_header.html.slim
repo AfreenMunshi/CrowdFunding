@@ -12,6 +12,10 @@
         i.upload.basic.icon
         | New Campaign
 
+      = link_to transactions_path, method: :get, class: "item #{active_class('transactions', 'index')}"
+        i.thumbs.up.outline.icon
+        | My history
+
       = link_to destroy_user_session_path, method: :delete, class: "item #{active_class('devise/sessions', 'destroy')}"
         i.sign.out.icon 
         | Sign Out

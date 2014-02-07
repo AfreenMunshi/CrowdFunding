@@ -1,5 +1,6 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :index]
 
   def verify
     @transaction = Transaction.find(params[:tran_id])
@@ -17,7 +18,7 @@ class TransactionsController < ApplicationController
     @campaign  = @transaction.campaign
     number_to_send_to = '+919930443487'
     send_otp_code(number_to_send_to)
-    flash[:notice] = "Sent new OTP code to ur cell"
+    flash[:notice] = "Sent new OTP code to ur Mobile"
     redirect_to @transaction
   end
 
