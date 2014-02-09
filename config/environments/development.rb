@@ -29,4 +29,11 @@ CF::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+
+  #App specific information
+CLIENT_ID = 23325
+CLIENT_SECRET = "ea16c1af53"
+USE_STAGE = true
+WEPAY = WePay.new(CLIENT_ID, CLIENT_SECRET, USE_STAGE)
 end

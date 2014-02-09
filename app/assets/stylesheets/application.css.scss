@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require_tree 
  */
 
 @import "semantic-ui";
@@ -23,8 +23,15 @@ body { background-color: #eee !important; }
 	background-color: #fff;
 	box-shadow: 0px 1px 13px #888888;
 }
+.ui.items .item > .content > .description{ height:135px; }
 
-.ui.items > .item{ width:280px; }
-.ui.items .item > .image > img{ height:260px }
+.ui.items > .item{ width:230px; }
+.ui.items .item > .image > img{ height:125px; }
 
 .orange.text { color: orange; }
+
+.ui.thin.progress { height: 10px; padding: 1px; }
+
+i.social.icon {
+font-size: 3em;
+}

@@ -1,0 +1,35 @@
+- content_for :title do
+  = @campaign.title
+p
+  strong Title:
+  = @campaign.title
+p
+  strong Info:
+  = @campaign.info
+p
+  strong Days:
+  = @campaign.days
+p
+  strong Target:
+  = @campaign.target
+p
+  strong Start date:
+  = @campaign.start_date
+p
+  b Banner:
+  image src=(@campaign.banner.url)
+p
+  b Video:
+  video controls="" height="240" width="320"
+    source src=(@campaign.video.url type=@campaign.video.content_type)
+
+a href=@campaign.socialplug target="_blank"
+  i.social.facebook.sign.icon
+
+- if user_signed_in?
+  - if current_user.id != @campaign.user_id
+    td= link_to 'Donate', donate_path(@campaign.id)
+  - if current_user.id == @campaign.user_id
+    td= link_to 'Edit', edit_campaign_path(@campaign)
+= link_to 'Back', campaigns_path
+

@@ -19,3 +19,4 @@
 /log/*.log
 /tmp
 /public/system
+/public/bin/

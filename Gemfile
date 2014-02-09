@@ -10,6 +10,12 @@ gem 'active_model_otp'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'twilio-ruby'
+gem 'groupdate'
+gem 'faker'
+gem "chartkick"
+gem 'pdfkit'
+
+gem 'wepay'
 
 # Use Uglifier as compressor for JavaScript assets
 # gem 'uglifier', '>= 1.3.0'

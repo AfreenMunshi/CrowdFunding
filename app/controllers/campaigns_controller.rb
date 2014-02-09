@@ -4,7 +4,14 @@ class CampaignsController < ApplicationController
 
   # GET /campaigns
   def index
-    @campaigns = Campaign.all
+    if params[:category_id]
+      # binding.pry
+      @campaigns = Campaign.all.where(category_id: params[:category_id])
+      # binding.pry
+    else
+      @campaigns = Campaign.all
+    end 
+    # render 'categories/index'
   end
 
   # GET /campaigns/1
@@ -56,6 +63,6 @@ class CampaignsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def campaign_params
-      params.require(:campaign).permit(:title, :info, :days, :target, :start_date, :user_id, :banner, :video)
+      params.require(:campaign).permit(:title, :info, :days, :target, :start_date, :user_id, :banner, :video, :category_id, :socialplug)
     end
 end

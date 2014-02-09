@@ -13,3 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require semantic-ui
+// require ./lib/googlecharts
+
+
+$(function(){
+	$('.ui.dropdown').dropdown();
+});
+	

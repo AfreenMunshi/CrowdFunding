@@ -1,6 +1,8 @@
 class Campaign < ActiveRecord::Base
 	belongs_to :user #association User.first.campaigns, campaign.user
-
+	belongs_to :category
+	
+	has_many :transactions
 	has_attached_file :banner #papeclip
 	has_attached_file :video #papeclip
 

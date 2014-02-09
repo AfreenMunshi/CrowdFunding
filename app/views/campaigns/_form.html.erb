@@ -39,6 +39,17 @@
     <%= f.label :video %><br />
     <%= f.file_field :video %>
   </div>
+
+  <div class="field">
+    Select Campaign Category:
+    <%= f.collection_select :category_id, Category.all.order(:name),:id,:name %>
+  </div>
+
+  <div class="field">
+     <%= f.label :socialplug %><br>
+    <%= f.text_field :socialplug %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

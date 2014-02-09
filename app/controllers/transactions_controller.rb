@@ -7,6 +7,8 @@ class TransactionsController < ApplicationController
     is_verified = @transaction.authenticate_otp(params[:code], drift: 60)
     if is_verified
       @transaction.update_attributes(verified: true)
+      c=@transaction.campaign
+      c.update_attributes(collected: c.collected + @transaction.amount)
     else
       flash[:notice] = 'InValid Code'
     end
@@ -93,4 +95,6 @@ class TransactionsController < ApplicationController
     def transaction_params
       params.require(:transaction).permit(:amount, :user_id, :campaign_id)
     end
+
+    
 end

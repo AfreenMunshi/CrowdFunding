@@ -1,3 +1,7 @@
+- if params[:category_id].present?
+  .ui.header
+    = Category.find(params[:category_id]).name
+
 .ui.stackable.items
   - @campaigns.each do |campaign|
     .item
@@ -9,9 +13,48 @@
         p.description
           | by&nbsp;
           span.orange.text
-            = campaign.user.email
+            = campaign.user.name
           br
           | on&nbsp;
           = date_display(campaign.created_at)
           br
-          = campaign.info.try(:lines).try(:first).slice(0, 60)
+          = campaign.info.split(' ').slice(0, 15).join(' ')
+          | &#133;
+
+          br
+          - percent = (campaign.collected*100.0/campaign.target).round(2)
+          .ui.successful.thin.progress
+            .bar style="width:#{percent > 100 ? 100 : percent}%;"
+
+          br
+
+          .ui.celled.grid
+            .row
+              .column style=""
+                p 
+                  |Funded
+                  br
+                  = percent
+                  | %
+              .column style=""
+                p 
+                  |Target
+                  br
+                  = campaign.target
+            .row
+              .column
+                p style='text-align: center'
+                  = distance_of_time_in_words_to_now(campaign.created_at + campaign.days.days)                
+                  | &nbsp;to go
+
+
+a href="https://www.facebook.com/bucks.backer" target="_blank"
+  i.social.facebook.sign.icon
+a href="http://www.linkedin.com/" target="_blank"
+  i.social.linkedin.sign.icon
+a href="http://www.twitter.com/" target="_blank"
+  i.social.twitter.sign.icon
+a href="http://www.bucksbacker.blogspot.in/" target="_blank"
+  i.social.rss.sign.icon
+a href="http://www.github.com/" target="_blank"
+  i.social.github.sign.icon

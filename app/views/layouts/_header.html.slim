@@ -1,20 +1,29 @@
 .ui.small.menu
-  a.item href='/' class=(active_class('campaigns', 'index'))
+  a.item href='/' class=(category_active_class('all'))
     i.home.icon
     | Home
+
+  .ui.dropdown.item class="#{category_active_class('category')}"
+    | Language
+    i.dropdown.icon
+    .menu
+      - for category in @categories
+        = link_to category_campaign_path(category.id), method: :get, class: "item #{category_active_class(category.id)}"
+          = category.name
+
   .right.menu
     - if user_signed_in?
       .item
 
-        = "Welcome #{current_user.email}"
+        = "Welcome #{current_user.name}"
 
       = link_to new_campaign_path, method: :get, class: "item #{active_class('campaigns', 'new')}"
         i.upload.basic.icon
         | New Campaign
 
-      = link_to transactions_path, method: :get, class: "item #{active_class('transactions', 'index')}"
-        i.thumbs.up.outline.icon
-        | My history
+      = link_to dashboard_path(current_user.id), method: :get, class: "item #{active_class('users', 'show')}"
+        i.thumbs.user.icon
+        | Dashboard
 
       = link_to destroy_user_session_path, method: :delete, class: "item #{active_class('devise/sessions', 'destroy')}"
         i.sign.out.icon 

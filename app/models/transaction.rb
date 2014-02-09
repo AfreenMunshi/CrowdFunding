@@ -3,4 +3,6 @@ class Transaction < ActiveRecord::Base
 	belongs_to :campaign
 
 	has_one_time_password
+
+	
 end

@@ -1,0 +1,19 @@
+
+- content_for :name do
+  = @user.name
+p
+  strong Name:
+  = @user.name
+p
+  strong Email:
+  = @user.email
+p
+  strong Birth Day:
+  = @user.bday
+
+
+- if (@is_admin && (!@user.has_valid_wepay_access_token? || !@user.has_wepay_account?))
+  p
+    b Please create an account to manage your money:
+    - redirect_uri = url_for(:controller => 'users', :action => 'oauth', :user_id => @user.id, :host => request.host_with_port)
+    a.btn.btn-primary href=(@user.wepay_authorization_url(redirect_uri))
