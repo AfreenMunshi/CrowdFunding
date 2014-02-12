@@ -31,5 +31,4 @@ a href=@campaign.socialplug target="_blank"
     td= link_to 'Donate', donate_path(@campaign.id)
   - if current_user.id == @campaign.user_id
     td= link_to 'Edit', edit_campaign_path(@campaign)
-= link_to 'Back', campaigns_path
 

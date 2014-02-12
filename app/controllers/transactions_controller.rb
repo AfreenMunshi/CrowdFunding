@@ -1,6 +1,7 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, only: [:new, :index]
+  wepay = WePay.new(client_id, client_secret, use_stage, true, api_version)
 
   def verify
     @transaction = Transaction.find(params[:tran_id])
@@ -37,6 +38,20 @@ class TransactionsController < ApplicationController
   def new
     @transaction = Transaction.new
     @transaction.campaign_id = params[:campaign_id]
+
+    # wepay = WePay.new(client_id, client_secret, use_stage)
+
+    # redirect_uri = "http://myexamplesite.com/wepay"
+    # url = wepay.oauth2_authorize_url(redirect_uri)
+    # redirect_to(url)
+
+    # response = wepay.oauth2_token(code, redirect_uri)
+    # access_token = response['access_token']
+
+    # response = wepay.call('/user', access_token)
+
+    # response = wepay.call('/account/create', access_token, {:name => "test account", "description" => "this is only a test" })
+
   end
 
   # GET /transactions/1/edit

@@ -32,8 +32,11 @@ class CampaignsController < ApplicationController
   def create
     @campaign = Campaign.new(campaign_params)
     @campaign.user_id = current_user.id
+    @user=@campaign.user
 
     if @campaign.save
+        # Tell the UserMailer to send a welcome email after save
+        CampaignMailer.welcome_email(@user).deliver
       redirect_to @campaign, notice: 'Campaign was successfully created.'
     else
       render action: 'new'

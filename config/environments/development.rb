@@ -32,8 +32,8 @@ CF::Application.configure do
 
 
   #App specific information
-CLIENT_ID = 23325
-CLIENT_SECRET = "ea16c1af53"
-USE_STAGE = true
-WEPAY = WePay.new(CLIENT_ID, CLIENT_SECRET, USE_STAGE)
+client_id = 23325
+client_secret = "ea16c1af53"
+use_stage = true
+
 end
