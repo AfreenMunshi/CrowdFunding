@@ -46,6 +46,10 @@
                 p style='text-align: center'
                   = distance_of_time_in_words_to_now(campaign.created_at + campaign.days.days)                
                   | &nbsp;to go
+            .row
+              .column
+                | Tags: #{raw campaign.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')}
+
 
 
 a href="https://www.facebook.com/bucks.backer" target="_blank"

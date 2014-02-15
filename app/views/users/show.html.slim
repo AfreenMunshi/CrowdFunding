@@ -1,12 +1,48 @@
+.two.column.stackable.ui.grid
+  .column
+    .ui.segment
+			p
+			  b 
+			  	| Name : &nbsp;
+			  = @user.name
+			p
+			  b 
+			  	| Email : &nbsp;
+			  = @user.email
+			p
+			  b 
+			  	| Birth Day : &nbsp;
+			  = @user.bday
 
-- content_for :name do
-  = @user.name
-p
-  strong Name:
-  = @user.name
-p
-  strong Email:
-  = @user.email
-p
-  strong Birth Day:
-  = @user.bday
+  .column
+    .ui.segment
+      b Your transaction history:	
+      table
+				thead
+ 					tr
+	   				th Amount
+	    			th Campaign
+				tbody
+  				- @user.transactions.each do |transaction|
+    				tr
+      				- if current_user.id == transaction.user_id
+	        			td= transaction.amount
+	        			td= transaction.campaign.title
+
+
+
+
+
+
+
+/ - content_for :name do
+/   = @user.name
+/ p
+/   strong Name:
+/   = @user.name
+/ p
+/   strong Email:
+/   = @user.email
+/ p
+/   strong Birth Day:
+/   = @user.bday

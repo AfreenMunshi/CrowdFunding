@@ -41,6 +41,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+    <%= f.text_field :tag_list %>
+  </div>
+
+  <div class="field">
     Select Campaign Category:
     <%= f.collection_select :category_id, Category.all.order(:name),:id,:name %>
   </div>
@@ -48,6 +53,10 @@
   <div class="field">
      <%= f.label :socialplug %><br>
     <%= f.text_field :socialplug %>
+  </div>
+
+  <div>
+     <%= recaptcha_tags %>
   </div>
 
   <div class="actions">
