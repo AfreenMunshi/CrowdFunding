@@ -15,8 +15,12 @@ CF::Application.routes.draw do
   post '/verify/:tran_id', to: 'transactions#verify', as: :verify_transaction
   post '/regenerate_otp/:tran_id', to: 'transactions#generate_otp_code', as: :otp_regenerate
   get '/:category_id/campaigns', to: 'campaigns#index', as: :category_campaign
-#get 'users/:id' => 'users#show'
   get '/users/:action(/:id)', :controller => 'users'
+  
+get 'tags/:tag', to: 'campaigns#index', as: :tag
+
+
+
 
   # get '/transactions/pending', to: 'transactions#pending', as: :pending_transactions
 

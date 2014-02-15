@@ -4,14 +4,13 @@ class CampaignsController < ApplicationController
 
   # GET /campaigns
   def index
-    if params[:category_id]
-      # binding.pry
+    if params[:tag]
+      @campaigns = Campaign.tagged_with(params[:tag])
+    elsif params[:category_id]
       @campaigns = Campaign.all.where(category_id: params[:category_id])
-      # binding.pry
     else
       @campaigns = Campaign.all
     end 
-    # render 'categories/index'
   end
 
   # GET /campaigns/1
@@ -32,9 +31,9 @@ class CampaignsController < ApplicationController
   def create
     @campaign = Campaign.new(campaign_params)
     @campaign.user_id = current_user.id
-    @user=@campaign.user
+    @user = @campaign.user
 
-    if @campaign.save
+    if verify_recaptcha(@campaign) && @campaign.save!
         # Tell the UserMailer to send a welcome email after save
         CampaignMailer.welcome_email(@user).deliver
       redirect_to @campaign, notice: 'Campaign was successfully created.'
@@ -66,6 +65,6 @@ class CampaignsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def campaign_params
-      params.require(:campaign).permit(:title, :info, :days, :target, :start_date, :user_id, :banner, :video, :category_id, :socialplug)
+      params.require(:campaign).permit(:title, :info, :days, :target, :start_date, :user_id, :banner, :video, :category_id, :socialplug, :tag_list)
     end
 end

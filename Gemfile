@@ -20,7 +20,9 @@ gem "chartkick"
 gem 'pdfkit'
 gem "i18n"
 gem 'wepay'
-
+gem 'acts-as-taggable-on'
+gem "recaptcha", :require => "recaptcha/rails"
+gem 'select2-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 # gem 'uglifier', '>= 1.3.0'

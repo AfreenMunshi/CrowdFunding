@@ -3,6 +3,9 @@ class Campaign < ActiveRecord::Base
 	belongs_to :category
 	
 	has_many :transactions
+
+	acts_as_taggable # Alias for acts_as_taggable_on :tags
+
 	has_attached_file :banner #papeclip
 	has_attached_file :video #papeclip
 

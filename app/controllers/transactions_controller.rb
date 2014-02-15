@@ -1,7 +1,7 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, only: [:new, :index]
-  wepay = WePay.new(client_id, client_secret, use_stage, true, api_version)
+  #wepay = WePay.new(client_id, client_secret, use_stage, true, api_version)
 
   def verify
     @transaction = Transaction.find(params[:tran_id])
@@ -62,12 +62,10 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
     @transaction.user_id = current_user.id
-
     if @transaction.save
       @campaign  = @transaction.campaign
       number_to_send_to = '+919930443487'
       send_otp_code(number_to_send_to)
-
       redirect_to @transaction
     else
       render action: 'new'

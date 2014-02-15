@@ -19,4 +19,3 @@
 $(function(){
 	$('.ui.dropdown').dropdown();
 });
-	
