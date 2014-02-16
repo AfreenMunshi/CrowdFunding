@@ -14,8 +14,9 @@
 //= require jquery_ujs
 //= require semantic-ui
 // require ./lib/googlecharts
-
+//= require select2
 
 $(function(){
 	$('.ui.dropdown').dropdown();
+	//$('.tags_input').select2({tags:['yello','green', 'blua', 'white', 'black']})
 });

@@ -19,8 +19,10 @@ class CampaignsController < ApplicationController
 
   # GET /campaigns/new
   def new
-
     @campaign = Campaign.new
+    all_tags = ActsAsTaggableOn::Tagging.includes(:tag).where(taggable_type: 'Campaign').map(&:tag)
+    #= "'dsa','ds'"
+    @comma_tags_string = all_tags.map{|t| "'#{t.name}'" }.join(',') 
   end
 
   # GET /campaigns/1/edit

@@ -10,8 +10,10 @@
  *
  *= require_self
  *= require_tree 
-
+ *= require select2
  */
+
+
 
 @import "semantic-ui";
 
@@ -33,6 +35,9 @@ body { background-color: #eee !important; }
 
 .ui.thin.progress { height: 10px; padding: 1px; }
 
-i.social.icon {
-font-size: 3em;
-}
+i.social.icon { font-size: 3em; }
+.select2-container-multi .select2-choices .select2-search-field input { min-width:105px; }
+
+a.label { text-decoration:none; }
+.ui.label { margin: 2px; }
+.camplabel { font-size: 10px !important; }

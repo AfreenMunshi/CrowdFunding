@@ -48,7 +48,8 @@
                   | &nbsp;to go
             .row
               .column
-                | Tags: #{raw campaign.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')}
+                - campaign.tag_list.each do |t|
+                  = link_to t, tag_path(t), class: 'ui small purple label camplabel'
 
 
 

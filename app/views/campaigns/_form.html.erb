@@ -42,7 +42,7 @@
 
   <div class="field">
     <%= f.label :tag_list, "Tags (separated by commas)" %><br />
-    <%= f.text_field :tag_list %>
+    <%= f.text_field :tag_list, class: 'tags_input' %>
   </div>
 
   <div class="field">
@@ -63,3 +63,12 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<!-- need to write js here.. coz we need to pass tags to selct 2 .. so pure js nai hai.. rails code bhi hai
+pure rails cannot me executed in .js file -->
+
+<script type="text/javascript">
+$(function(){
+  $('.tags_input').select2({tags:[<%= @comma_tags_string.html_safe %>]})
+});
+</script>

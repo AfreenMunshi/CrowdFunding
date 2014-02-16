@@ -39,6 +39,8 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new
     @transaction.campaign_id = params[:campaign_id]
 
+    
+
     # wepay = WePay.new(client_id, client_secret, use_stage)
 
     # redirect_uri = "http://myexamplesite.com/wepay"
