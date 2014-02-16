@@ -19,7 +19,7 @@ class TransactionsController < ApplicationController
   def generate_otp_code
     @transaction = Transaction.find(params[:tran_id])
     @campaign  = @transaction.campaign
-    number_to_send_to = ''
+    number_to_send_to = '+919930443487'
     send_otp_code(number_to_send_to)
     flash[:notice] = "Sent new OTP code to ur Mobile"
     redirect_to @transaction
@@ -64,7 +64,7 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
     @transaction.user_id = current_user.id
-    binding.pry
+
     if @transaction.save
       @campaign  = @transaction.campaign
       number_to_send_to = '+919930443487'
@@ -95,7 +95,7 @@ class TransactionsController < ApplicationController
       client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
 
       # Create and send an SMS message
-      binding.pry
+ 
       client.account.sms.messages.create(
         from: TWILIO_CONFIG['from'],
         to: number_to_send_to,

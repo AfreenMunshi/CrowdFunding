@@ -1,3 +1,12 @@
+#wrapper
+  .slider-wrapper.theme-default
+    .ribbon
+    #slider.ramblingSlider
+      = image_tag "VioLogo.jpg"
+      = image_tag "VioBanner.jpg"
+      
+
+
 - if params[:category_id].present?
   .ui.header
     = Category.find(params[:category_id]).name
@@ -60,3 +69,5 @@ a href="http://www.bucksbacker.blogspot.in/" target="_blank"
   i.social.rss.sign.icon
 a href="http://www.github.com/" target="_blank"
   i.social.github.sign.icon
+
+

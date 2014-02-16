@@ -16,7 +16,17 @@
 // require ./lib/googlecharts
 //= require select2
 
+//= require jquery
+//= require jquery.rambling.slider
+
 $(function(){
 	$('.ui.dropdown').dropdown();
 	//$('.tags_input').select2({tags:['yello','green', 'blua', 'white', 'black']})
 });
+
+
+ 
+  $(window).load(function(){
+    $('#slider').ramblingSlider();
+  });
+ 

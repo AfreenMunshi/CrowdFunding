@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/gonzedge/rambling-slider-rails
+  revision: 813490342407f0a70036b294377d2bf342969bf4
+  specs:
+    rambling-slider-rails (0.2.0)
+      jquery-rails (>= 2.0.0, <= 3.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -158,6 +165,7 @@ DEPENDENCIES
   pdfkit
   pry-rails
   rails (= 4.0.2)
+  rambling-slider-rails!
   recaptcha
   sass-rails (~> 4.0.0)
   select2-rails
