@@ -1,6 +1,6 @@
 Recaptcha.configure do |config|
-  config.public_key  = '6Lfmqu4SAAAAAET1n4uLNP28QeBPkVrWxOOcjVQ4'
-  config.private_key = '6Lfmqu4SAAAAAOa8dV-rWTmO2xxTEEIlMAQaVmws'
+  config.public_key  = ''
+  config.private_key = ''
   #config.proxy = 'http://myproxy.com.au:8080'
 end
 

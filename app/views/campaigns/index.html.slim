@@ -46,10 +46,7 @@
                 p style='text-align: center'
                   = distance_of_time_in_words_to_now(campaign.created_at + campaign.days.days)                
                   | &nbsp;to go
-            .row
-              .column
-                - campaign.tag_list.each do |t|
-                  = link_to t, tag_path(t), class: 'ui small purple label camplabel'
+ 
 
 
 

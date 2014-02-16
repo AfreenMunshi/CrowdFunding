@@ -1,34 +1,70 @@
 - content_for :title do
   = @campaign.title
-p
-  strong Title:
-  = @campaign.title
-p
-  strong Info:
-  = @campaign.info
-p
-  strong Days:
-  = @campaign.days
-p
-  strong Target:
-  = @campaign.target
-p
-  strong Start date:
-  = @campaign.start_date
-p
-  b Banner:
-  image src=(@campaign.banner.url)
-p
-  b Video:
-  video controls="" height="240" width="320"
-    source src=(@campaign.video.url type=@campaign.video.content_type)
 
-a href=@campaign.socialplug target="_blank"
-  i.social.facebook.sign.icon
+.ui.celled.grid
+  .row
+    .two.wide.column style=""
+      image src=(@campaign.banner.url)
+    .three.wide.column style=""
+      strong = @campaign.title
+      br
+      br
+      | by&nbsp;
+      = @campaign.user.name
+  .row
+    .five.wide.column
+      video controls="" height="240" width="320"
+        source src=(@campaign.video.url type=@campaign.video.content_type)
+    .three.wide.column
+      .row
+        p 
+        .ui.celled.grid
+            .row
+              .column style=""
+                p 
+                  |Funded
+                  - percent = (@campaign.collected*100.0/@campaign.target).round(2)
+                  br
+                  = percent
+                  | %
+              .column style=""
+                p 
+                  |Target
+                  br
+                  = @campaign.target
+            .row
+              .column
+                
+                .ui.successful.thin.progress
+                  .bar style="width:#{percent > 100 ? 100 : percent}%;"
+                p style='text-align: center'
+                  = distance_of_time_in_words_to_now(@campaign.created_at + @campaign.days.days)                
+                  | &nbsp;to go
+        br
+        - if user_signed_in?
+          - if current_user.id != @campaign.user_id
+            a href="/donate/#{@campaign.id}"
+              .ui.animated.fade.button
+                .visible.content Contribute Now
+                .hidden.content
+                  | Go For It
+        br
+        br
+        - @campaign.tag_list.each do |t|
+            = link_to t, tag_path(t), class: 'ui small purple label camplabel'
+
+  .row
+    .two.wide.column style=""
+      p = @campaign.info
+  .row
+    .two.wide.column style=""
+      | Also Find this Campaign on :-
+      a href=@campaign.socialplug target="_blank"
+        i.social.facebook.sign.icon
+
+
+
 
 - if user_signed_in?
-  - if current_user.id != @campaign.user_id
-    td= link_to 'Donate', donate_path(@campaign.id)
   - if current_user.id == @campaign.user_id
     td= link_to 'Edit', edit_campaign_path(@campaign)
-

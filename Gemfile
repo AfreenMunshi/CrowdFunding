@@ -46,7 +46,7 @@ gem 'devise'
 gem 'cancan'
 gem "paperclip", "~> 3.0"
 
-gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+gem 'semantic-ui-sass'
 gem 'slim', "~> 2.0.2"
 
 group :doc do

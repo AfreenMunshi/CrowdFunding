@@ -18,10 +18,10 @@ class Campaign < ActiveRecord::Base
 
 	validates_attachment :banner, presence: true,
 	  content_type: { :content_type => ["image/jpg", 'image/png', 'image/jpeg'] },
-	  size: { :in => 0..100.kilobytes }
+	  size: { :in => 0..400.kilobytes }
 
   validates_attachment :video, presence: true,
 	  content_type: { :content_type => "video/mp4" },
-	  size: { :in => 0..6000.kilobytes }
+	  size: { :in => 0..10000.kilobytes }
 
 end

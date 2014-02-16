@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-CF::Application.config.secret_key_base = '46f665f1aebdffbf087deb9c5b01fb8f807cd7fbf9670aa19297457f7e2def3447d6d8ba6cff3c8ae141818262c44fee48b40496a524320186d4641361af9855'
+CF::Application.config.secret_key_base = ''
