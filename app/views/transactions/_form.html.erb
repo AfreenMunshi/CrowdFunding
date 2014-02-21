@@ -11,9 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :amount %><br>
-    <%= f.number_field :amount %>
+<div class="ui form segment">
+
+<div class="field">
+    <label>Amount</label>
+    <div class="ui labeled icon input">
+      <%= f.text_field :amount %>
+      
+    </div>
   </div>
  
   <div class="field">
@@ -22,7 +27,11 @@
   <div class="field">
     <%= f.hidden_field :campaign_id %>
   </div>
+
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", class: 'ui blue submit button' %>
   </div>
+
+</div>
 <% end %>

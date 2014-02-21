@@ -12,7 +12,7 @@
     = Category.find(params[:category_id]).name
 
 .ui.stackable.items
-  - @campaigns.each do |campaign|
+  - @campaigns.first(4).each do |campaign|
     .item
       a.image href="/campaigns/#{campaign.id}"
         img src=(campaign.banner.url)

@@ -146,6 +146,9 @@ GEM
     warden (1.2.3)
       rack (>= 1.0)
     wepay (0.0.1)
+    zebra-datepicker-rails (1.8.7)
+      railties (>= 3.0)
+      sass-rails
 
 PLATFORMS
   ruby
@@ -174,3 +177,4 @@ DEPENDENCIES
   sqlite3
   twilio-ruby
   wepay
+  zebra-datepicker-rails

@@ -25,6 +25,8 @@ gem "recaptcha", :require => "recaptcha/rails"
 gem 'select2-rails'
 
 gem 'rambling-slider-rails', :git => 'https://github.com/gonzedge/rambling-slider-rails'
+gem 'zebra-datepicker-rails'
+
 
 # Use Uglifier as compressor for JavaScript assets
 # gem 'uglifier', '>= 1.3.0'

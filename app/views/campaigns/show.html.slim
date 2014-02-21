@@ -3,19 +3,19 @@
 
 .ui.celled.grid
   .row
-    .two.wide.column style=""
-      image src=(@campaign.banner.url)
-    .three.wide.column style=""
+    .column.pic style=""
+      img.circular.ui.image src=(@campaign.banner.url)
+    .column style=""
       strong = @campaign.title
       br
       br
       | by&nbsp;
       = @campaign.user.name
   .row
-    .five.wide.column
-      video controls="" height="240" width="320"
-        source src=(@campaign.video.url type=@campaign.video.content_type)
-    .three.wide.column
+    .column.two
+      video controls="" height="470" width="650"
+        source src=@campaign.video.url type=@campaign.video.content_type
+    .column
       .row
         p 
         .ui.celled.grid
@@ -54,10 +54,10 @@
             = link_to t, tag_path(t), class: 'ui small purple label camplabel'
 
   .row
-    .two.wide.column style=""
+    .column style=""
       p = @campaign.info
   .row
-    .two.wide.column style=""
+    .column style=""
       | Also Find this Campaign on :-
       a href=@campaign.socialplug target="_blank"
         i.social.facebook.sign.icon

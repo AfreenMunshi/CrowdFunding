@@ -16,8 +16,21 @@
 
 <% if !@transaction.verified %>
 	<%= form_tag(verify_transaction_path(@transaction.id), method: :post) do %>
-		Enter OTP code <%= number_field_tag 'code' %>
-		<%= submit_tag 'Save' %>
+
+<div class="ui form segment">
+
+<div class="field">
+    
+    <div class="ui labeled icon input">
+     Enter OTP code 
+		<%= number_field_tag 'code' %>
+		 
+		<%= submit_tag 'Save' , class: 'ui blue submit button'%>
+      
+    </div>
+  </div>
+
+		</div>
 	<% end %>
 
 	<%= link_to 'Regenerate OTP code', otp_regenerate_path(@transaction), method: :post %> |

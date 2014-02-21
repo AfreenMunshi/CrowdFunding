@@ -14,7 +14,7 @@
  *= require jquery.rambling.slider
  */
 
-
+@import "zebra-datepicker/default";
 
 @import "semantic-ui";
 
@@ -42,3 +42,15 @@ i.social.icon { font-size: 3em; }
 a.label { text-decoration:none; }
 .ui.label { margin: 2px; }
 .camplabel { font-size: 10px !important; }
+
+ui.grid > .row > img, .ui.grid > .row > .column > img { height: 80px; width: 80px; }
+
+.ui.celled.grid > .column:first-child, .ui.celled.grid > .row > .column.two:first-child { height: 500px; }
+.column.pic { width: 0.7% !important; }
+
+.ui.form { width: 300px; } 
+
+.ui.form.recap { width: 350px; } 
+
+.full_width { width:100% !important; }
+.Zebra_DatePicker_Icon_Wrapper{display:block !important;}

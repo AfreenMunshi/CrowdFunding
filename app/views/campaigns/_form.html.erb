@@ -11,57 +11,98 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="ui form recap segment">
+
+
+<div class="field">
+    <label>Title</label>
+    <div class="ui labeled icon input">
+      <%= f.text_field :title %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :info %><br>
-    <%= f.text_field :info %>
+
+<div class="field">
+    <label>Information</label>
+    <div class="ui labeled icon input">
+      <%= f.text_field :info %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :days %><br>
-    <%= f.text_field :days %>
+
+<div class="field">
+    <label>Days</label>
+    <div class="ui labeled icon input">
+      <%= f.number_field :days %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :target %><br>
-    <%= f.number_field :target %>
+
+
+<div class="field">
+    <label>Monetary Target</label>
+    <div class="ui labeled icon input">
+      <%= f.number_field :target %>
+    </div>
   </div>
+
+
   <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.date_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :banner %><br />
-    <%= f.file_field :banner %>
-  </div>
-  <div class="field">
-    <%= f.label :video %><br />
-    <%= f.file_field :video %>
+    <label>Start Date</label>
+    <div class="ui left labeled input">
+
+      <input type="text" data-behaviour='datepicker' name="start_date" />
+
+      <script type="text/javascript">
+        $('[data-behaviour=datepicker]').Zebra_DatePicker({
+         direction: 1 
+         });
+      </script>
+    </div>
   </div>
 
   <div class="field">
+    <label>Campaign Banner</label>
+    <div class="ui labeled icon input">
+      <%= f.file_field :banner %>
+    </div>
+  </div>
+
+<div class="field">
+    <label>Campaign Video</label>
+    <div class="ui labeled icon input">
+      <%= f.file_field :video %>
+    </div>
+  </div>
+
+
+<div class="field">
     <%= f.label :tag_list, "Tags (separated by commas)" %><br />
-    <%= f.text_field :tag_list, class: 'tags_input' %>
+    <div class="ui labeled icon input">
+      <%= f.text_field :tag_list, class: 'tags_input' %>
+    </div>
   </div>
 
   <div class="field">
-    Select Campaign Category:
+    <div class="ui labeled icon input">
+      Select Campaign Category:
     <%= f.collection_select :category_id, Category.all.order(:name),:id,:name %>
+    </div>
   </div>
 
-  <div class="field">
-     <%= f.label :socialplug %><br>
-    <%= f.text_field :socialplug %>
+<div class="field">
+    <label>Social Plug</label>
+    <div class="ui labeled icon input">
+      <%= f.text_field :socialplug %>
+    </div>
   </div>
 
   <div>
      <%= recaptcha_tags %>
   </div>
-
+<br>
   <div class="actions">
-    <%= f.submit %>
+   <%= f.submit "Submit", class: 'ui blue submit button' %>
   </div>
+
+</div>
 <% end %>
 
 <!-- need to write js here.. coz we need to pass tags to selct 2 .. so pure js nai hai.. rails code bhi hai

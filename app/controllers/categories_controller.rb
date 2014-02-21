@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   # GET /categories
   def index
     @categories = Category.all
-    I18n.locale = "hi"
+    # I18n.locale = "hi"
   end
 
   # GET /categories/1
