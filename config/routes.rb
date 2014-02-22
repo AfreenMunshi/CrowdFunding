@@ -19,8 +19,8 @@ CF::Application.routes.draw do
   
 get 'tags/:tag', to: 'campaigns#index', as: :tag
 
-
-
+post '/store_bank_account', to: 'balanced#store_bank_account', as: :store_bank_account
+get '/new_card', to: 'users#new_card'
 
   # get '/transactions/pending', to: 'transactions#pending', as: :pending_transactions
 

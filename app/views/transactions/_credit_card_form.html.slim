@@ -1,0 +1,17 @@
+= form_tag "/store_credit_card", :method => :post, :id => "credit-card-form", :class => "form-horizontal" do
+  .control-group
+    = label_tag "cc-number", "Card Number", :class => "control-label"
+    .controls
+      = text_field_tag "cc-number", nil, :placeholder => "Enter Credit Card Number", :class => "cc-number", :autocomplete => "off"
+  .control-group
+    = label_tag "cc-em", "Expiration", :class => "control-label"
+    .controls
+      = text_field_tag "cc-em", nil, :placeholder => "Expiration Month", :class => "cc-em", :autocomplete => "off"
+      = text_field_tag "cc-em", nil, :placeholder => "Expiration Year", :class => "cc-ey", :autocomplete => "off"
+  .control-group
+    = label_tag "cc-csc", "Security Code", :class => "control-label"
+    .controls
+      = text_field_tag "cc-csc", nil, :placeholder => "Security Code", :class => "cc-csc", :autocomplete => "off"
+  .control-group
+    .controls
+      = submit_tag "Submit", :class => "btn btn-primary btn-large"

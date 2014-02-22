@@ -18,6 +18,7 @@
 //= require zebra-datepicker/core
 //= require jquery
 //= require jquery.rambling.slider
+//= require bank_account_submission
 
 $(function(){
 	$('.ui.dropdown').dropdown();
