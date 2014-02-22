@@ -4,14 +4,17 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
 = form_for @campaign, html: { multipart: true } do |f|
   .ui.small.steps style='width:100%'
     .ui.step.active  style='width:33%'
-      i.green.delete.icon
+      i.white.info.letter.icon
       | Campaign Info
+      i.green.checkmark.circular.inverted.icon
     .ui.step  style='width:33%'
-      i.green.delete.icon
+      i.white.photo.icon
       | Campaign Assets
+      i.green.checkmark.circular.inverted.icon
     .ui.step  style='width:33%'
-      i.green.delete.icon
+      i.white.payment.icon
       | Bank Details
+      i.green.checkmark.circular.inverted.icon
 
   .ui.form.segment
     - if @campaign.errors.any?
@@ -24,6 +27,10 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
             li= msg
 
     .form-step
+      .ui.small.ribbon.teal.label
+        | Yo mate. Wats up!
+      br
+      br
       .field
         label Title
         .ui.labeled.icon.input
@@ -46,6 +53,11 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
         | Next
 
     .form-step.hide
+      .ui.small.ribbon.teal.label
+        | No selfies please. &nbsp;
+        i.icon.smile.white.large
+      br
+      br
       .field
         label Campaign Banner
         .ui.labeled.icon.input
@@ -72,32 +84,37 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
         i.right.arrow.icon
         | Next
 
-      .form-step.hide
-        - if current_user.balanced_account_uri.nil?
-          .field
-            = label_tag "ba-name", "Account Holder's Name"
-            .ui.labeled.icon.input
-              = text_field_tag "ba-name", nil, :placeholder => "Account Holder's Name", :class => "ba-name", :autocomplete => "off"
-          .field
-            = label_tag "ba-rn", "Routing Number"
-            .ui.labeled.icon.input
-              = text_field_tag "ba-rn", nil, :placeholder => "Routing Number", :class => "ba-rn", :autocomplete => "off"
-          .field
-            = label_tag "ba-an", "Account Number"
-            .ui.labeled.icon.input
-              = text_field_tag "ba-an", nil, :placeholder => "Account Number", :class => "ba-an", :autocomplete => "off"
-          .field
-            = label_tag "ba-type", "Type"
-            .ui.labeled.icon.input
-              = select_tag "ba-type", "<option value='' disabled selected style='display:none;'>Select Account Type</option><option value=\"checking\">CHECKING</option><option value=\"savings\">SAVINGS</option>".html_safe
-        - else
-          | details
+    .form-step.hide
+      .ui.small.ribbon.teal.label
+        i.icon.money.white.large
+        | For your dreams. &nbsp;
+        i.icon.money.white.large
+      br
+      br
+      - if current_user.balanced_account_uri.nil?
+        .field
+          = label_tag "ba-name", "Account Holder's Name"
+          .ui.labeled.icon.input
+            = text_field_tag "ba-name", nil, :placeholder => "Account Holder's Name", :class => "ba-name", :autocomplete => "off"
+        .field
+          = label_tag "ba-rn", "Routing Number"
+          .ui.labeled.icon.input
+            = text_field_tag "ba-rn", nil, :placeholder => "Routing Number", :class => "ba-rn", :autocomplete => "off"
+        .field
+          = label_tag "ba-an", "Account Number"
+          .ui.labeled.icon.input
+            = text_field_tag "ba-an", nil, :placeholder => "Account Number", :class => "ba-an", :autocomplete => "off"
+        .field
+          = label_tag "ba-type", "Type"
+          .ui.labeled.icon.input
+            = select_tag "ba-type", "<option value='' disabled selected style='display:none;'>Select Account Type</option><option value=\"checking\">CHECKING</option><option value=\"savings\">SAVINGS</option>".html_safe
+      - else
+        | details
 
       div
         = recaptcha_tags
-      br
-        .actions
-          = f.submit "Submit", class: 'ui blue submit button'
+
+      = f.submit "Create campaign", class: 'ui red submit button right floated'
 
     / need to write js here.. coz we need to pass tags to selct 2 .. so pure js nai hai.. rails code bhi hai
     / pure rails cannot me executed in .js file

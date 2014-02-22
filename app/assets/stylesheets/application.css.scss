@@ -21,6 +21,8 @@
 body { background-color: #eee !important; }
 .no_top_margin {margin-top:0; }
 .hide { display:none; }
+.show { display:block; }
+.inline-block { display:inline-block !important; }
 
 .main_container {
 	width: 80%;
@@ -60,6 +62,9 @@ ui.grid > .row > img, .ui.grid > .row > .column > img { height: 80px; width: 80p
 
 .new_campaign .step { cursor:default; }
 
-#new_campaign .ui.step i.icon { display:none; }
-#new_campaign .ui.step.done i.icon { display: inline-block; }
+#new_campaign .ui.step { font-style:italic; padding-left: 26px !important; }
+#new_campaign .ui.step.active, #new_campaign .ui.step.done { font-style:normal; }
+#new_campaign .ui.step.done { padding: 6px 9px; line-height: 25px; }
+#new_campaign .ui.step i.checkmark.icon { display:none; float: right; }
+#new_campaign .ui.step.done i.checkmark.icon { display: inline-block; }
 
