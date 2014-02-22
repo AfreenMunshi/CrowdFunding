@@ -10,7 +10,7 @@ class CampaignsController < ApplicationController
       @campaigns = Campaign.all.where(category_id: params[:category_id])
     else
       @campaigns = Campaign.all
-    end 
+    end
   end
 
   # GET /campaigns/1
@@ -22,7 +22,11 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.new
     all_tags = ActsAsTaggableOn::Tagging.includes(:tag).where(taggable_type: 'Campaign').map(&:tag)
     #= "'dsa','ds'"
-    @comma_tags_string = all_tags.map{|t| "'#{t.name}'" }.join(',') 
+    @comma_tags_string = all_tags.map{|t| "'#{t.name}'" }.join(',')
+
+    if current_user.balanced_account_uri.present?
+      @bank_details = nil #bake call to xyz
+    end
   end
 
   # GET /campaigns/1/edit
@@ -34,8 +38,11 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.new(campaign_params)
     @campaign.user_id = current_user.id
     @user = @campaign.user
+    if params[:balancedBankAccountURI].present?
+      @user.update_attributes(balanced_account_uri: params[:balancedBankAccountURI])
+    end
 
-    if verify_recaptcha(@campaign) && @campaign.save!
+    if verify_recaptcha(@campaign) && @user.balanced_account_uri.present? && @campaign.save!
         # Tell the UserMailer to send a welcome email after save
         CampaignMailer.welcome_email(@user).deliver
       redirect_to @campaign, notice: 'Campaign was successfully created.'

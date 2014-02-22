@@ -2,22 +2,22 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
 
 
 = form_tag "/store_bank_account", :method => :post, :id => "bank-account-form", :class => "form-horizontal" do
-  .control-group
+  .field
     = label_tag "ba-name", "Account Holder's Name", :class => "control-label"
-    .controls
+    .ui.labeled.icon.input
       = text_field_tag "ba-name", nil, :placeholder => "Account Holder's Name", :class => "ba-name", :autocomplete => "off"
-  .control-group
+  .field
     = label_tag "ba-rn", "Routing Number", :class => "control-label"
-    .controls
+    .ui.labeled.icon.input
       = text_field_tag "ba-rn", nil, :placeholder => "Routing Number", :class => "ba-rn", :autocomplete => "off"
-  .control-group
+  .field
     = label_tag "ba-an", "Account Number", :class => "control-label"
-    .controls
+    .ui.labeled.icon.input
       = text_field_tag "ba-an", nil, :placeholder => "Account Number", :class => "ba-an", :autocomplete => "off"
-  .control-group
+  .field
     = label_tag "ba-type", "Type", :class => "control-label"
-    .controls
+    .ui.labeled.icon.input
       = select_tag "ba-type", "<option value='' disabled selected style='display:none;'>Select Account Type</option><option value=\"checking\">CHECKING</option><option value=\"savings\">SAVINGS</option>".html_safe
-  .control-group
-    .controls
+  .field
+    .ui.labeled.icon.input
       = submit_tag "Submit", :class => "btn btn-primary btn-large"

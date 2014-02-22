@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree 
+ *= require_tree
  *= require select2
  *= require jquery.rambling.slider
  */
@@ -19,6 +19,9 @@
 @import "semantic-ui";
 
 body { background-color: #eee !important; }
+.no_top_margin {margin-top:0; }
+.hide { display:none; }
+
 .main_container {
 	width: 80%;
 	margin: 10px auto !important;
@@ -48,9 +51,15 @@ ui.grid > .row > img, .ui.grid > .row > .column > img { height: 80px; width: 80p
 .ui.celled.grid > .column:first-child, .ui.celled.grid > .row > .column.two:first-child { height: 500px; }
 .column.pic { width: 0.7% !important; }
 
-.ui.form { width: 300px; } 
+/*.ui.form { width: 300px; }*/
 
-.ui.form.recap { width: 350px; } 
+/*.ui.form.recap { width: 350px; } */
 
 .full_width { width:100% !important; }
 .Zebra_DatePicker_Icon_Wrapper{display:block !important;}
+
+.new_campaign .step { cursor:default; }
+
+#new_campaign .ui.step i.icon { display:none; }
+#new_campaign .ui.step.done i.icon { display: inline-block; }
+

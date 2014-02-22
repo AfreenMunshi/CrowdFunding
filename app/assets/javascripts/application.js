@@ -17,6 +17,7 @@
 //= require select2
 //= require zebra-datepicker/core
 //= require jquery
+//= require campaigns
 //= require jquery.rambling.slider
 //= require bank_account_submission
 

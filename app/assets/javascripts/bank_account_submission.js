@@ -1,18 +1,18 @@
 $(function(){
 	var marketplaceUri = '/v1/marketplaces/TEST-MP5SfoEAaHHoGv3gPnhi5zxU';
 	var requestBinUrl = '/store_bank_account'
-	 
+
 	var debug = function(tag, content) {
 	  $('<' + tag + '>' + content + '</' + tag + '>').appendTo('#result');
 	  console.log(content)
 	};
-	 
+
 	try {
 		balanced.init(marketplaceUri);
 	} catch (e) {
 		debug('code', 'balanced.init error!');
 	}
-	 
+
 	function balancedCallback(response) {
 		var tag = (response.status < 300) ? 'pre' : 'code';
 		debug(tag, JSON.stringify(response));
@@ -37,10 +37,10 @@ $(function(){
 				break;
 		}
 	}
-	 
+
 	var tokenizeBankAccount = function(e) {
 		e.preventDefault();
-	 
+
 		var $form = $('#bank-account-form');
 		var bankAccountData = {
 			name: $form.find('.ba-name').val(),
@@ -48,10 +48,10 @@ $(function(){
 			bank_code: $form.find('.ba-rn').val(),
 			type: $form.find('select').val()
 		};
-	 
+
 		balanced.bankAccount.create(bankAccountData, balancedCallback);
 	};
- 
 
-	$('#bank-account-form').submit(tokenizeBankAccount);
+
+	$('#new_campaign').submit(tokenizeBankAccount);
 });

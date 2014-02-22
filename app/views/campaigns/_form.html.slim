@@ -1,0 +1,107 @@
+script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascript"
+
+
+= form_for @campaign, html: { multipart: true } do |f|
+  .ui.small.steps style='width:100%'
+    .ui.step.active  style='width:33%'
+      i.green.delete.icon
+      | Campaign Info
+    .ui.step  style='width:33%'
+      i.green.delete.icon
+      | Campaign Assets
+    .ui.step  style='width:33%'
+      i.green.delete.icon
+      | Bank Details
+
+  .ui.form.segment
+    - if @campaign.errors.any?
+      #error_explanation
+        h2
+          = pluralize(@campaign.errors.count, "error")
+          | prohibited this campaign from being saved:
+        ul
+          - @campaign.errors.full_messages.each do |msg|
+            li= msg
+
+    .form-step
+      .field
+        label Title
+        .ui.labeled.icon.input
+          = f.text_field :title
+      .field
+        label Information
+        .ui.labeled.icon.input
+          = f.text_field :info
+      .field
+        label Days
+        .ui.labeled.icon.input
+          = f.number_field :days
+      .field
+        label Monetary Target
+        .ui.labeled.icon.input
+          = f.number_field :target
+
+      .ui.tiny.teal.right.labeled.icon.button.floated.next_button
+        i.right.arrow.icon
+        | Next
+
+    .form-step.hide
+      .field
+        label Campaign Banner
+        .ui.labeled.icon.input
+          = f.file_field :banner
+      .field
+        label Campaign Video
+        .ui.labeled.icon.input
+          = f.file_field :video
+      .field
+        = f.label :tag_list, "Tags (separated by commas)"
+        br/
+        .ui.labeled.icon.input
+          = f.text_field :tag_list, class: 'tags_input'
+      .field
+        .ui.labeled.icon.input
+          | Select Campaign Category:
+          | #{f.collection_select :category_id, Category.all.order(:name),:id,:name}
+      .field
+        label Social Plug
+        .ui.labeled.icon.input
+          = f.text_field :socialplug
+
+      .ui.tiny.teal.right.labeled.icon.button.floated.next_button
+        i.right.arrow.icon
+        | Next
+
+      .form-step.hide
+        - if current_user.balanced_account_uri.nil?
+          .field
+            = label_tag "ba-name", "Account Holder's Name"
+            .ui.labeled.icon.input
+              = text_field_tag "ba-name", nil, :placeholder => "Account Holder's Name", :class => "ba-name", :autocomplete => "off"
+          .field
+            = label_tag "ba-rn", "Routing Number"
+            .ui.labeled.icon.input
+              = text_field_tag "ba-rn", nil, :placeholder => "Routing Number", :class => "ba-rn", :autocomplete => "off"
+          .field
+            = label_tag "ba-an", "Account Number"
+            .ui.labeled.icon.input
+              = text_field_tag "ba-an", nil, :placeholder => "Account Number", :class => "ba-an", :autocomplete => "off"
+          .field
+            = label_tag "ba-type", "Type"
+            .ui.labeled.icon.input
+              = select_tag "ba-type", "<option value='' disabled selected style='display:none;'>Select Account Type</option><option value=\"checking\">CHECKING</option><option value=\"savings\">SAVINGS</option>".html_safe
+        - else
+          | details
+
+      div
+        = recaptcha_tags
+      br
+        .actions
+          = f.submit "Submit", class: 'ui blue submit button'
+
+    / need to write js here.. coz we need to pass tags to selct 2 .. so pure js nai hai.. rails code bhi hai
+    / pure rails cannot me executed in .js file
+  javascript:
+    $(function(){
+      $('.tags_input').select2({tags:[ #{@comma_tags_string.try(:html_safe)} ]})
+    });
