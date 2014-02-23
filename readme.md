@@ -1,5 +1,5 @@
 
-the first commit is there..
+the first commit is there
 
 git status
 
