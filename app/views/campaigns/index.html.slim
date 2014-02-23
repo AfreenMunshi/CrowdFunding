@@ -2,7 +2,7 @@
   .ui.header
     = Category.find(params[:category_id]).name
 
-.ui.stackable.items.segment.no_radius style='padding: 16px 170px;'
+.ui.basic.stackable.items.segment.no_radius.paged
   - @campaigns.first(4).each do |campaign|
     .item
       a.image href="/campaigns/#{campaign.id}"

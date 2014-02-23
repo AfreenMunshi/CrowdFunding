@@ -1,7 +1,7 @@
 - content_for :title do
   = @campaign.title
 
-.ui.celled.grid
+.ui.celled.grid.paged
   .row
     .column.pic style=""
       img.circular.ui.image src=(@campaign.banner.url)
@@ -17,28 +17,28 @@
         source src=@campaign.video.url type=@campaign.video.content_type
     .column
       .row
-        p 
+        p
         .ui.celled.grid
             .row
               .column style=""
-                p 
+                p
                   |Funded
                   - percent = (@campaign.collected*100.0/@campaign.target).round(2)
                   br
                   = percent
                   | %
               .column style=""
-                p 
+                p
                   |Target
                   br
                   = @campaign.target
             .row
               .column
-                
+
                 .ui.successful.thin.progress
                   .bar style="width:#{percent > 100 ? 100 : percent}%;"
                 p style='text-align: center'
-                  = distance_of_time_in_words_to_now(@campaign.created_at + @campaign.days.days)                
+                  = distance_of_time_in_words_to_now(@campaign.created_at + @campaign.days.days)
                   | &nbsp;to go
         br
         - if user_signed_in?

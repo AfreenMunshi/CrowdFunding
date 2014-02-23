@@ -7,7 +7,7 @@
     .ui.dropdown.item class="#{category_active_class('category')}"
       | Campaign Categories
       i.dropdown.icon
-      .menu
+      .menu.category
         - for category in @categories
           = link_to category_campaign_path(category.id), method: :get, class: "item #{category_active_class(category.id)}"
             = category.name
