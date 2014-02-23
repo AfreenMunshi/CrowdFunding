@@ -28,7 +28,11 @@ gem 'rambling-slider-rails', :git => 'https://github.com/gonzedge/rambling-slide
 gem 'zebra-datepicker-rails'
 
 gem 'balanced'
-gem 'certified'
+
+gem 'activeadmin', github: 'gregbell/active_admin'
+#﻿ github: 'gregbell/active_admin', branch: 'rails4' try this if it doesnt work.. wo bi karke dekh li..hmm kabse iske piche hi hu.. u kno 23mb ka kuch install kar rah
+
+
 # Use Uglifier as compressor for JavaScript assets
 # gem 'uglifier', '>= 1.3.0'
 
@@ -60,6 +64,7 @@ group :doc do
 end
 
 group :development do
+	gem 'certified'
 	gem 'pry-rails' #binding.pry
 end
 

@@ -38,23 +38,10 @@ class TransactionsController < ApplicationController
   def new
     @transaction = Transaction.new
     @transaction.campaign_id = params[:campaign_id]
-
-    
-
-    # wepay = WePay.new(client_id, client_secret, use_stage)
-
-    # redirect_uri = "http://myexamplesite.com/wepay"
-    # url = wepay.oauth2_authorize_url(redirect_uri)
-    # redirect_to(url)
-
-    # response = wepay.oauth2_token(code, redirect_uri)
-    # access_token = response['access_token']
-
-    # response = wepay.call('/user', access_token)
-
-    # response = wepay.call('/account/create', access_token, {:name => "test account", "description" => "this is only a test" })
-
   end
+
+def credit_card_form
+end
 
   # GET /transactions/1/edit
   def edit
