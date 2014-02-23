@@ -1,0 +1,38 @@
+
+.ui.form.raised.teal.stacked.segment.paged class=('error' if resource.errors.full_messages.present?)
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    .ui.message.back_tealed
+      .header Sign in
+      | Come onboard with us!
+
+    - if resource.errors.full_messages.present?
+      .ui.error.message
+        .header We noticed some issues
+        .ui.list
+          - resource.errors.full_messages.each do |message|
+            li #{message}
+
+    .field
+      label Email
+      .ui.left.labeled.icon.input
+        = f.email_field :email, :autofocus => true
+        i.user.icon
+    .field
+      label Password
+      .ui.left.labeled.icon.input
+        = f.password_field :password
+        i.lock.icon
+
+
+    - if devise_mapping.rememberable?
+      .field
+        br
+        .ui.checkbox
+          = f.check_box :remember_me
+          = f.label :remember_me
+    = f.submit "Sign in", class: 'ui right floated teal submit button'
+    .clearing.invisible.divider
+
+
+= render "devise/shared/links"
+

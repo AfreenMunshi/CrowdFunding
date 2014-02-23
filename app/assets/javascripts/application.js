@@ -26,7 +26,9 @@ $(function(){
 		on: 'hover'
 	});
 	$('.ui.pop-up').popup();
-	//$('.tags_input').select2({tags:['yello','green', 'blua', 'white', 'black']})
+	$('.ui.checkbox').checkbox();
+
+	$('.ui.message .close.icon').click(function() { $(this).parent().fadeOut(); });
 });
 
   $(window).load(function(){

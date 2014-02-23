@@ -8,7 +8,7 @@
 
     - if resource.errors.full_messages.present?
       .ui.error.message
-        .header We had some issues
+        .header We noticed some issues
         .ui.list
           - resource.errors.full_messages.each do |message|
             li #{message}
