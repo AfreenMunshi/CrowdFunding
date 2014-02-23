@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223131445) do
+ActiveRecord::Schema.define(version: 20140223182244) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -99,10 +99,11 @@ ActiveRecord::Schema.define(version: 20140223131445) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "otp_secret_key"
-    t.boolean  "verified",       default: false
+    t.boolean  "verified",             default: false
     t.string   "country"
     t.string   "state"
     t.string   "ip"
+    t.string   "balanced_account_uri"
   end
 
   create_table "users", force: true do |t|
