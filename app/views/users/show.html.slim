@@ -27,7 +27,7 @@
     				tr
       				- if current_user.id == transaction.user_id
 	        			td= transaction.amount
-	        			td= transaction.campaign.title
+	        			td= transaction.try(:campaign).try(:title)
 
 
 

@@ -20,6 +20,7 @@
 //= require campaigns
 //= require jquery.rambling.slider
 //= require bank_account_submission
+//= require credit_card_submission
 
 $(function(){
 	$('.ui.dropdown').dropdown({
