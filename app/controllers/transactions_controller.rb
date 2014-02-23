@@ -51,6 +51,8 @@ end
   def create
     @transaction = Transaction.new(transaction_params)
     @transaction.user_id = current_user.id
+    
+    @transaction.balanced_account_uri = params[:balancedCreditCardURI]
 
     if @transaction.save
       @campaign  = @transaction.campaign

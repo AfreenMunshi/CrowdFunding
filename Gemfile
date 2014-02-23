@@ -28,6 +28,9 @@ gem 'rambling-slider-rails', :git => 'https://github.com/gonzedge/rambling-slide
 gem 'zebra-datepicker-rails'
 
 gem 'balanced'
+#gem 'faraday', '~> 0.8.6'
+#gem 'balanced', github: 'balanced/balanced-ruby', branch: '1.1.dev'
+#this is dev version.. could break any day! btw.. 
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 #﻿ github: 'gregbell/active_admin', branch: 'rails4' try this if it doesnt work.. wo bi karke dekh li..hmm kabse iske piche hi hu.. u kno 23mb ka kuch install kar rah

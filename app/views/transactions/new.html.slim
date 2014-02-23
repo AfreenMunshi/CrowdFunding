@@ -1,0 +1,58 @@
+script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascript"
+
+.ui.form
+  = form_for( @transaction, html: { id: 'credit-card-form' } ) do |f|
+    .ui.message.back_tealed
+      .header New Campaign
+
+    .ui.small.steps style='width:100%'
+      .ui.step.active  style='width:33%'
+        i.white.info.letter.icon
+        | Credit Details
+        i.green.checkmark.circular.inverted.icon
+      .ui.step  style='width:33%'
+        i.white.photo.icon
+        | Amount
+        i.green.checkmark.circular.inverted.icon
+      .ui.step  style='width:33%'
+        i.white.payment.icon
+        | Verification
+        i.green.checkmark.circular.inverted.icon
+
+
+    - if @transaction.errors.any?
+      .ui.error.message
+        .header
+          = pluralize(@transaction.errors.count, "error")
+          | prohibited this transaction from being saved:
+        ul.ui.list
+          - @transaction.errors.full_messages.each do |msg|
+            li= msg
+
+    .ui.form.segment  
+      .field
+        label Credit Card number
+        = text_field_tag "cc-number", nil, :placeholder => "Enter Credit Card Number", :class => "cc-number", :autocomplete => "off"
+
+      .two.fields
+        .field
+          label Expiration month
+          = text_field_tag "cc-em", nil, :placeholder => "Expiration Month", :class => "cc-em", :autocomplete => "off"
+        .field
+          label Expiration year
+          = text_field_tag "cc-em", nil, :placeholder => "Expiration Year", :class => "cc-ey", :autocomplete => "off"
+
+      .field
+        label Security Code
+        = text_field_tag "cc-csc", nil, :placeholder => "Security Code", :class => "cc-csc", :autocomplete => "off"
+
+      .field
+        label Amount
+        .ui.labeled.icon.input
+          = f.text_field :amount
+      .field
+        = f.hidden_field :user_id
+      .field
+        = f.hidden_field :campaign_id
+      .actions
+        = f.submit "Submit", class: 'ui teal submit button'

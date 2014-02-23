@@ -1,6 +1,6 @@
 $(function(){
 	var marketplaceUri = '/v1/marketplaces/TEST-MP5SfoEAaHHoGv3gPnhi5zxU';
-	var requestBinUrl = '/store_credit_card'
+	//var requestBinUrl = '/store_credit_card'
 
 
 	var debug = function(tag, content) {
@@ -26,7 +26,7 @@ $(function(){
 					value: card_token_uri,
 					name: 'balancedCreditCardURI'
 				}).appendTo($form);
-				$form.attr({action: requestBinUrl});
+				//$form.attr({action: requestBinUrl});
 				$form.get(0).submit();
 				break;
 			case 400:

@@ -1,6 +1,9 @@
 script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascript"
 
 = form_for @campaign, html: { multipart: true } do |f|
+  .ui.message.back_tealed
+    .header New Campaign
+
   .ui.small.steps style='width:100%'
     .ui.step.active  style='width:33%'
       i.white.info.letter.icon
@@ -15,16 +18,17 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
       | Bank Details
       i.green.checkmark.circular.inverted.icon
 
-  .ui.form.segment
+
     - if @campaign.errors.any?
-      #error_explanation
-        h2
+      .ui.error.message
+        .header
           = pluralize(@campaign.errors.count, "error")
           | prohibited this campaign from being saved:
-        ul
+        ul.ui.list
           - @campaign.errors.full_messages.each do |msg|
             li= msg
 
+  .ui.form.segment
     .form-step
       .ui.small.ribbon.teal.label
         | Yo mate. Wats up!
