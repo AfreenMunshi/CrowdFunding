@@ -22,14 +22,18 @@
 //= require bank_account_submission
 
 $(function(){
-	$('.ui.dropdown').dropdown();
+	$('.ui.dropdown').dropdown({
+		on: 'hover'
+	});
+	$('.ui.pop-up').popup();
 	//$('.tags_input').select2({tags:['yello','green', 'blua', 'white', 'black']})
 });
- 
+
   $(window).load(function(){
     $('#slider').ramblingSlider();
   });
- 
+
+
 
 // $('.ui.form')
 //   .form({

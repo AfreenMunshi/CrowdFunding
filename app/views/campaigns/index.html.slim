@@ -1,17 +1,8 @@
-#wrapper
-  .slider-wrapper.theme-default
-    .ribbon
-    #slider.ramblingSlider
-      = image_tag "VioLogo.jpg"
-      = image_tag "VioBanner.jpg"
-      
-
-
 - if params[:category_id].present?
   .ui.header
     = Category.find(params[:category_id]).name
 
-.ui.stackable.items
+.ui.stackable.items.segment.no_radius style='padding: 16px 170px;'
   - @campaigns.first(4).each do |campaign|
     .item
       a.image href="/campaigns/#{campaign.id}"

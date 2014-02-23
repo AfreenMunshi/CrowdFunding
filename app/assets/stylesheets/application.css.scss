@@ -15,14 +15,45 @@
  */
 
 @import "zebra-datepicker/default";
-
 @import "semantic-ui";
 
-body { background-color: #eee !important; }
-.no_top_margin {margin-top:0; }
+body { background-color: #f3f3f3 !important; margin:0px; }
+.header_nav {
+	/*background: #fafafa;*/
+	background: teal;
+	padding: 6px 0 10px;
+	box-shadow: 0 1px 6px rgba(34, 25, 25, 0.6);
+	z-index: 999;
+	height: 36px;
+}
+.header_nav nav.ui.menu {
+	max-width: 100%;
+	min-width: 768px;
+	margin: 0 auto !important;
+	font-family: Georgia, "Times New Roman", Times, serif !important;
+}
+nav.ui.menu {
+	width: 960px;
+	padding: 6px 0;
+	.item{
+		color: white !important;
+		.active {
+			font-weight: bold !important;
+			color: white;
+		}
+	}
+}
+.ui.text.menu { margin: 6px 0; }
+
+.no_top_margin { margin-top:0; }
+.no_margin { margin:0 !important; }
+.no_pad { padding:0 !important; }
+.no_radius { border-radius:0 !important; -moz-border-radius:0 !important; }
 .hide { display:none; }
 .show { display:block; }
 .inline-block { display:inline-block !important; }
+.right.floated { float:right; }
+.full.width { width: 100% }
 
 .main_container {
 	width: 80%;
