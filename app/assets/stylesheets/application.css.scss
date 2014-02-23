@@ -19,7 +19,8 @@
 
 body { background-color: #f3f3f3 !important; margin:0px; }
 .header_nav {
-	background: #fafafa;
+	/*background: #fafafa;*/
+	background: teal;
 	padding: 6px 0 10px;
 	box-shadow: 0 1px 6px rgba(34, 25, 25, 0.6);
 	z-index: 999;
@@ -34,9 +35,12 @@ body { background-color: #f3f3f3 !important; margin:0px; }
 nav.ui.menu {
 	width: 960px;
 	padding: 6px 0;
-	.item.active {
-		font-weight: normal !important;
-		font-style: bold;
+	.item{
+		color: white !important;
+		.active {
+			font-weight: bold !important;
+			color: white;
+		}
 	}
 }
 .ui.text.menu { margin: 6px 0; }
