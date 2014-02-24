@@ -23,10 +23,9 @@
       .ui.left.labeled.input
         input data-behaviour="datepicker" name="bday" type="text"
         javascript:
-          | $('[data-behaviour=datepicker]').Zebra_DatePicker({
-            | direction: ['1930-01-01', '2005-12-31'],
-            /!/so zeba is the culprit ryt?
-           | });
+          $('[data-behaviour=datepicker]').Zebra_DatePicker({
+            direction: ['1930-01-01', '2005-12-31']
+          });
           .field
       label Email
       .ui.left.labeled.icon.input
