@@ -27,7 +27,8 @@ gem 'select2-rails'
 gem 'rambling-slider-rails', :git => 'https://github.com/gonzedge/rambling-slider-rails'
 gem 'zebra-datepicker-rails'
 
-gem 'balanced'
+gem 'balanced', git: 'https://github.com/balanced/balanced-ruby'
+
 #gem 'faraday', '~> 0.8.6'
 #gem 'balanced', github: 'balanced/balanced-ruby', branch: '1.1.dev'
 #this is dev version.. could break any day! 

@@ -7,6 +7,14 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.find(params[:tran_id])
     is_verified = @transaction.authenticate_otp(params[:code], drift: 90)
     if is_verified
+      #get the money to escrow account.
+      card = Balanced::Card.find @transaction.balanced_card_uri
+
+      card.debit(
+        :amount => @transaction.amount,
+        :appears_on_statement_as => "Buck Backer donation",
+        :description => "Campaign: #{@transaction.campaign.title}"
+      )
       @transaction.update_attributes(verified: true)
       c=@transaction.campaign
       c.update_attributes(collected: c.collected + @transaction.amount)

@@ -1,6 +1,6 @@
 script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascript"
 
-= form_for @campaign, html: { multipart: true } do |f|
+= form_for @campaign, html: { multipart: true, id: 'bank-account-form' } do |f|
   .ui.message.back_tealed
     .header New Campaign
 

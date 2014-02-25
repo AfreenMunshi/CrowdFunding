@@ -74,6 +74,6 @@ class CampaignsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def campaign_params
-      params.require(:campaign).permit(:title, :info, :days, :target, :user_id, :banner, :video, :category_id, :socialplug, :tag_list, :highest_reward, :first_reward)
+      params.require(:campaign).permit(:title, :info, :days, :target, :user_id, :banner, :video, :category_id, :socialplug, :tag_list)
     end
 end
