@@ -39,6 +39,11 @@ class CampaignsController < ApplicationController
     @campaign.user_id = current_user.id
     @user = @campaign.user
     if params[:balancedBankAccountURI].present?
+      # bank = Balanced::BankAccount.fetch(params[:balancedBankAccountURI])
+      # customer = Balanced::Customer.new(name: @user.name).save
+      # bank.associate_to_customer(customer)
+      # order = customer.create_order
+      # order.attributes['href'] - need to store order in campaign table and later charge from orders
       @user.update_attributes(balanced_account_uri: params[:balancedBankAccountURI])
     end
 
