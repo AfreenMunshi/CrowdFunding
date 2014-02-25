@@ -1,5 +1,5 @@
 
-.ui.form.raised.teal.stacked.segment.paged class=('error' if resource.errors.full_messages.present?)
+.ui.form.raised.teal.stacked.segment.devise.sign class=('error' if resource.errors.full_messages.present?)
   = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
     .ui.message.back_tealed
       .header Sign in
@@ -30,9 +30,9 @@
         .ui.checkbox
           = f.check_box :remember_me
           = f.label :remember_me
+    = render "devise/shared/links"
     = f.submit "Sign in", class: 'ui right floated teal submit button'
     .clearing.invisible.divider
 
 
-= render "devise/shared/links"
 

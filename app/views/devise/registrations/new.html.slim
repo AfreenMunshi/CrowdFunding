@@ -1,6 +1,5 @@
 
-
-.ui.form.piled.segment.paged.top_margin class=('error' if resource.errors.full_messages.present?)
+.ui.form.raised.teal.stacked.segment.devise.sign class=('error' if resource.errors.full_messages.present?)
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     .ui.message.back_tealed
       .header Sign up
@@ -42,9 +41,11 @@
         = f.password_field :password_confirmation
         i.lock.icon
     - if devise_mapping.rememberable?
-      div
-        = f.check_box :remember_me
-        = f.label :remember_me
+      .field
+        br
+        .ui.checkbox
+          = f.check_box :remember_me
+          = f.label :remember_me
+    = render "devise/shared/links"
     = f.submit "Sign Up", class: 'ui teal right floated submit button'
     .clearing.invisible.divider
-= render "devise/shared/links"
