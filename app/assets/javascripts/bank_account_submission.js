@@ -19,14 +19,14 @@ $(function(){
 		switch(response.status) {
 			case 201:
 				console.log(response.data);
-				var $form = $("#bank-account-form");
+				var $form = $("#new_campaign");
 				var bank_account_uri = response.data['uri'];
 				$('<input>').attr({
 					type: 'hidden',
 					value: bank_account_uri,
 					name: 'balancedBankAccountURI'
 				}).appendTo($form);
-				$form.attr({action: requestBinUrl});
+				// $form.attr({action: requestBinUrl});
 				$form.get(0).submit();
 				break;
 			case 400:
@@ -41,17 +41,18 @@ $(function(){
 	var tokenizeBankAccount = function(e) {
 		e.preventDefault();
 
-		var $form = $('#bank-account-form');
+		var $form = $('#new_campaign');
 		var bankAccountData = {
 			name: $form.find('.ba-name').val(),
 			account_number: $form.find('.ba-an').val(),
 			bank_code: $form.find('.ba-rn').val(),
-			type: $form.find('select').val()
+			type: $form.find('select[name=ba-type]').val()
 		};
 
 		balanced.bankAccount.create(bankAccountData, balancedCallback);
 	};
 
 
-	$('#new_campaign').submit(tokenizeBankAccount);
+	if( $('#new_campaign .ba-name').length > 0 )
+		$('#new_campaign').submit(tokenizeBankAccount);
 });

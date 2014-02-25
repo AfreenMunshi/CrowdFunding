@@ -1,127 +1,127 @@
 script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascript"
 
-= form_for @campaign, html: { multipart: true, id: 'bank-account-form' } do |f|
-  .ui.message.back_tealed
-    .header New Campaign
-
-  .ui.small.steps style='width:100%'
-    .ui.step.active  style='width:33%'
-      i.white.info.letter.icon
-      | Campaign Info
-      i.green.checkmark.circular.inverted.icon
-    .ui.step  style='width:33%'
-      i.white.photo.icon
-      | Campaign Assets
-      i.green.checkmark.circular.inverted.icon
-    .ui.step  style='width:33%'
-      i.white.payment.icon
-      | Bank Details
-      i.green.checkmark.circular.inverted.icon
-
+.ui.segment.basic.paged.stacked
+  = form_for @campaign, html: { multipart: true } do |f|
+    .ui.message
+      .header New Campaign
 
     - if @campaign.errors.any?
       .ui.error.message
         .header
           = pluralize(@campaign.errors.count, "error")
-          | prohibited this campaign from being saved:
+          | &nbsp; prohibited this campaign from being saved:
         ul.ui.list
           - @campaign.errors.full_messages.each do |msg|
             li= msg
 
-  .ui.form.segment
-    .form-step
-      .ui.small.ribbon.teal.label
-        | Yo mate. Wats up!
-      br
-      br
-      .field
-        label Title
-        .ui.labeled.icon.input
-          = f.text_field :title
-      .field
-        label Information
-        .ui.labeled.icon.input
-          = f.text_field :info
-      .field
-        label Days
-        .ui.labeled.icon.input
-          = f.number_field :days
-      .field
-        label Monetary Target
-        .ui.labeled.icon.input
-          = f.number_field :target
+    .ui.small.steps style='width:100%'
+      .ui.step.active  style='width:33%'
+        i.white.info.letter.icon
+        | Campaign Info
+        i.green.checkmark.circular.inverted.icon
+      .ui.step  style='width:33%'
+        i.white.photo.icon
+        | Campaign Assets
+        i.green.checkmark.circular.inverted.icon
+      .ui.step  style='width:33%'
+        i.white.payment.icon
+        | Bank Details
+        i.green.checkmark.circular.inverted.icon
 
-      .ui.tiny.teal.right.labeled.icon.button.floated.next_button
-        i.right.arrow.icon
-        | Next
-
-    .form-step.hide
-      .ui.small.ribbon.teal.label
-        | No selfies please. &nbsp;
-        i.icon.smile.white.large
-      br
-      br
-      .field
-        label Campaign Banner
-        .ui.labeled.icon.input
-          = f.file_field :banner
-      .field
-        label Campaign Video
-        .ui.labeled.icon.input
-          = f.file_field :video
-      .field
-        = f.label :tag_list, "Tags (separated by commas)"
-        br/
-        .ui.labeled.icon.input
-          = f.text_field :tag_list, class: 'tags_input'
-      .field
-        .ui.labeled.icon.input
-          | Select Campaign Category:
-          | #{f.collection_select :category_id, Category.all.order(:name),:id,:name}
-      .field
-        label Social Plug
-        .ui.labeled.icon.input
-          = f.text_field :socialplug
-
-      .ui.tiny.teal.right.labeled.icon.button.floated.next_button
-        i.right.arrow.icon
-        | Next
-
-    .form-step.hide
-      .ui.small.ribbon.teal.label
-        i.icon.money.white.large
-        | For your dreams. &nbsp;
-        i.icon.money.white.large
-      br
-      br
-      - if current_user.balanced_account_uri.nil?
+    .ui.form.segment
+      .form-step
+        .ui.small.ribbon.teal.label
+          | Yo mate. Wats up!
+        br
+        br
         .field
-          = label_tag "ba-name", "Account Holder's Name"
+          label Title
           .ui.labeled.icon.input
-            = text_field_tag "ba-name", nil, :placeholder => "Account Holder's Name", :class => "ba-name", :autocomplete => "off"
+            = f.text_field :title
         .field
-          = label_tag "ba-rn", "Routing Number"
+          label Information
           .ui.labeled.icon.input
-            = text_field_tag "ba-rn", nil, :placeholder => "Routing Number", :class => "ba-rn", :autocomplete => "off"
+            = f.text_field :info
         .field
-          = label_tag "ba-an", "Account Number"
+          label Days
           .ui.labeled.icon.input
-            = text_field_tag "ba-an", nil, :placeholder => "Account Number", :class => "ba-an", :autocomplete => "off"
+            = f.number_field :days
         .field
-          = label_tag "ba-type", "Type"
+          label Monetary Target
           .ui.labeled.icon.input
-            = select_tag "ba-type", "<option value='' disabled selected style='display:none;'>Select Account Type</option><option value=\"checking\">CHECKING</option><option value=\"savings\">SAVINGS</option>".html_safe
-      - else
-        | details
+            = f.number_field :target
 
-      div
-        = recaptcha_tags
+        .ui.tiny.teal.right.labeled.icon.button.floated.next_button
+          i.right.arrow.icon
+          | Next
 
-      = f.submit "Create campaign", class: 'ui red submit button right floated'
+      .form-step.hide
+        .ui.small.ribbon.teal.label
+          | No selfies please. &nbsp;
+          i.icon.smile.white.large
+        br
+        br
+        .field
+          label Campaign Banner
+          .ui.labeled.icon.input
+            = f.file_field :banner
+        .field
+          label Campaign Video
+          .ui.labeled.icon.input
+            = f.file_field :video
+        .field
+          = f.label :tag_list, "Tags (separated by commas)"
+          br/
+          .ui.labeled.icon.input
+            = f.text_field :tag_list, class: 'tags_input'
+        .field
+          .ui.labeled.icon.input
+            | Select Campaign Category:
+            | #{f.collection_select :category_id, Category.all.order(:name),:id,:name}
+        .field
+          label Social Plug
+          .ui.labeled.icon.input
+            = f.text_field :socialplug
 
-    / need to write js here.. coz we need to pass tags to selct 2 .. so pure js nai hai.. rails code bhi hai
-    / pure rails cannot me executed in .js file
-  javascript:
-    $(function(){
-      $('.tags_input').select2({tags:[ #{@comma_tags_string.try(:html_safe)} ]})
-    });
+        .ui.tiny.teal.right.labeled.icon.button.floated.next_button
+          i.right.arrow.icon
+          | Next
+
+      .form-step.hide
+        - if current_user.balanced_account_uri.nil?
+          .ui.small.ribbon.teal.label
+            i.icon.money.white.large
+            | For your dreams. &nbsp;
+            i.icon.money.white.large
+          br
+          br
+          .field
+            = label_tag "ba-name", "Account Holder's Name"
+            .ui.labeled.icon.input
+              = text_field_tag "ba-name", nil, :placeholder => "Account Holder's Name", :class => "ba-name", :autocomplete => "off"
+          .field
+            = label_tag "ba-rn", "Routing Number"
+            .ui.labeled.icon.input
+              = text_field_tag "ba-rn", nil, :placeholder => "Routing Number", :class => "ba-rn", :autocomplete => "off"
+          .field
+            = label_tag "ba-an", "Account Number"
+            .ui.labeled.icon.input
+              = text_field_tag "ba-an", nil, :placeholder => "Account Number", :class => "ba-an", :autocomplete => "off"
+          .field
+            = label_tag "ba-type", "Type"
+            .ui.labeled.icon.input
+              = select_tag "ba-type", "<option value='' disabled selected style='display:none;'>Select Account Type</option><option value=\"checking\">CHECKING</option><option value=\"savings\">SAVINGS</option>".html_safe
+        - else
+          | details
+
+        div
+          = recaptcha_tags
+
+        = f.submit "Create campaign", class: 'ui red submit button right floated'
+
+      / need to write js here.. coz we need to pass tags to selct 2 .. so pure js nai hai.. rails code bhi hai
+      / pure rails cannot me executed in .js file
+    javascript:
+      $(function(){
+        $('.tags_input').select2({tags:[ #{@comma_tags_string.try(:html_safe)} ]})
+      });
