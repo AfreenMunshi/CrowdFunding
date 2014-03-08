@@ -7,17 +7,8 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.find(params[:tran_id])
     is_verified = @transaction.authenticate_otp(params[:code], drift: 90)
     if is_verified
-      #get the money to escrow account.
-      card  = Balanced::Card.fetch @transaction.card_uri
-      order = Balanced::Order.fetch @transaction.campaign.order_uri
-      order.debit_from(
-        source: card,
-        amount: @transaction.amount * 100
-      )
-
-      @transaction.update_attributes(verified: true)
-      c=@transaction.campaign
-      c.update_attributes(collected: c.collected + @transaction.amount * 100)
+      #fat model and thin controller at least
+      @transaction.mark_verifed_and_debit
     else
       flash[:notice] = 'InValid Code'
     end

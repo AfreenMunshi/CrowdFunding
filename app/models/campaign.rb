@@ -33,9 +33,22 @@ class Campaign < ActiveRecord::Base
 
     bank.associate_to_customer(merchant)
 
-    order           = merchant.create_order(description: "#{self.name}")
+    order           = merchant.create_order(description: "#{self.id} : #{self.name}")
     self.order_uri  = order.href
     self.save
   end
 
+  def fullfill_payment(closed_date = Date.today) #take todays date if no parameter passed
+    #ideally we should update before money is transferring so that new payment is not done meanwhile
+    self.reload.update_attributes(closed_date: closed_date, closed_reason: 'success')
+
+    order         = Balanced::Order.fetch self.order_uri
+    bank_account  = Balanced::BankAccount.fetch self.bank_uri
+
+    order.credit_to(
+      destination: bank_account,
+      amount: self.collected * 100 * 0.95 #transfer 95% money
+      # amount: order.amount_escrowed * 0.95
+    )
+  end
 end
