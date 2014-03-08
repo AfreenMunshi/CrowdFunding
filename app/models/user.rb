@@ -9,5 +9,11 @@ class User < ActiveRecord::Base
   has_many :campaigns
   has_many :transactions
 
+  def find_or_create_customer_uri
+  	self.customer_uri ||= Balanced::Customer.new(name: self.name).save.href
+  	self.save
+  	self.customer_uri
+  end
+
 end
 

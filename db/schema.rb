@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224135646) do
+ActiveRecord::Schema.define(version: 20140308095324) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 20140224135646) do
     t.string   "socialplug"
     t.string   "first_reward"
     t.string   "highest_reward"
+    t.string   "order_uri"
+    t.string   "bank_uri"
   end
 
   create_table "categories", force: true do |t|
@@ -100,11 +102,11 @@ ActiveRecord::Schema.define(version: 20140224135646) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "otp_secret_key"
-    t.boolean  "verified",             default: false
+    t.boolean  "verified",       default: false
     t.string   "country"
     t.string   "state"
     t.string   "ip"
-    t.string   "balanced_account_uri"
+    t.string   "card_uri"
   end
 
   create_table "users", force: true do |t|
@@ -123,9 +125,7 @@ ActiveRecord::Schema.define(version: 20140224135646) do
     t.boolean  "admin"
     t.date     "bday"
     t.string   "name"
-    t.string   "wepay_access_token"
-    t.integer  "wepay_account_id"
-    t.string   "balanced_account_uri"
+    t.string   "customer_uri"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

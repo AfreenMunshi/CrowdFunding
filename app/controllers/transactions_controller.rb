@@ -8,16 +8,16 @@ class TransactionsController < ApplicationController
     is_verified = @transaction.authenticate_otp(params[:code], drift: 90)
     if is_verified
       #get the money to escrow account.
-      card = Balanced::Card.fetch @transaction.balanced_card_uri
-
-      card.debit(
-        :amount => @transaction.amount * 100,
-        :appears_on_statement_as => "Buck Backer donation",
-        :description => "Campaign: #{@transaction.campaign.title}"
+      card  = Balanced::Card.fetch @transaction.card_uri
+      order = Balanced::Order.fetch @transaction.campaign.order_uri
+      order.debit_from(
+        source: card,
+        amount: @transaction.amount * 100
       )
+
       @transaction.update_attributes(verified: true)
       c=@transaction.campaign
-      c.update_attributes(collected: c.collected + @transaction.amount)
+      c.update_attributes(collected: c.collected + @transaction.amount * 100)
     else
       flash[:notice] = 'InValid Code'
     end
@@ -59,8 +59,8 @@ end
   def create
     @transaction = Transaction.new(transaction_params)
     @transaction.user_id = current_user.id
-    
-    @transaction.balanced_account_uri = params[:balancedCreditCardURI]
+
+    @transaction.card_uri = params[:balancedCreditCardURI]
 
     if @transaction.save
       @campaign  = @transaction.campaign

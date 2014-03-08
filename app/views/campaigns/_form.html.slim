@@ -88,31 +88,28 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
           | Next
 
       .form-step.hide
-        - if current_user.balanced_account_uri.nil?
-          .ui.small.ribbon.teal.label
-            i.icon.money.white.large
-            | For your dreams. &nbsp;
-            i.icon.money.white.large
-          br
-          br
-          .field
-            = label_tag "ba-name", "Account Holder's Name"
-            .ui.labeled.icon.input
-              = text_field_tag "ba-name", nil, :placeholder => "Account Holder's Name", :class => "ba-name", :autocomplete => "off"
-          .field
-            = label_tag "ba-rn", "Routing Number"
-            .ui.labeled.icon.input
-              = text_field_tag "ba-rn", nil, :placeholder => "Routing Number", :class => "ba-rn", :autocomplete => "off"
-          .field
-            = label_tag "ba-an", "Account Number"
-            .ui.labeled.icon.input
-              = text_field_tag "ba-an", nil, :placeholder => "Account Number", :class => "ba-an", :autocomplete => "off"
-          .field
-            = label_tag "ba-type", "Type"
-            .ui.labeled.icon.input
-              = select_tag "ba-type", "<option value='' disabled selected style='display:none;'>Select Account Type</option><option value=\"checking\">CHECKING</option><option value=\"savings\">SAVINGS</option>".html_safe
-        - else
-          | details
+        .ui.small.ribbon.teal.label
+          i.icon.money.white.large
+          | For your dreams. &nbsp;
+          i.icon.money.white.large
+        br
+        br
+        .field
+          = label_tag "ba-name", "Account Holder's Name"
+          .ui.labeled.icon.input
+            = text_field_tag "ba-name", nil, :placeholder => "Account Holder's Name", :class => "ba-name", :autocomplete => "off"
+        .field
+          = label_tag "ba-rn", "Routing Number"
+          .ui.labeled.icon.input
+            = text_field_tag "ba-rn", nil, :placeholder => "Routing Number", :class => "ba-rn", :autocomplete => "off"
+        .field
+          = label_tag "ba-an", "Account Number"
+          .ui.labeled.icon.input
+            = text_field_tag "ba-an", nil, :placeholder => "Account Number", :class => "ba-an", :autocomplete => "off"
+        .field
+          = label_tag "ba-type", "Type"
+          .ui.labeled.icon.input
+            = select_tag "ba-type", "<option value='' disabled selected style='display:none;'>Select Account Type</option><option value=\"checking\">CHECKING</option><option value=\"savings\">SAVINGS</option>".html_safe
 
         div
           = recaptcha_tags

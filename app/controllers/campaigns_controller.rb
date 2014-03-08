@@ -21,12 +21,12 @@ class CampaignsController < ApplicationController
   def new
     @campaign = Campaign.new
     all_tags = ActsAsTaggableOn::Tagging.includes(:tag).where(taggable_type: 'Campaign').map(&:tag)
-    #= "'dsa','ds'"
+
     @comma_tags_string = all_tags.map{|t| "'#{t.name}'" }.join(',')
 
-    if current_user.balanced_account_uri.present?
-      @bank_details = nil #bake call to xyz
-    end
+    # if current_user.balanced_account_uri.present?
+    #   @bank_details = nil #bake call to xyz
+    # end
   end
 
   # GET /campaigns/1/edit
@@ -37,19 +37,19 @@ class CampaignsController < ApplicationController
   def create
     @campaign = Campaign.new(campaign_params)
     @campaign.user_id = current_user.id
-    @user = @campaign.user
     if params[:balancedBankAccountURI].present?
       # bank = Balanced::BankAccount.fetch(params[:balancedBankAccountURI])
       # customer = Balanced::Customer.new(name: @user.name).save
       # bank.associate_to_customer(customer)
       # order = customer.create_order
       # order.attributes['href'] - need to store order in campaign table and later charge from orders
-      @user.update_attributes(balanced_account_uri: params[:balancedBankAccountURI])
+      # @user.update_attributes(balanced_account_uri: params[:balancedBankAccountURI])
     end
 
-    if verify_recaptcha(@campaign) && @user.balanced_account_uri.present? && @campaign.save!
-        # Tell the UserMailer to send a welcome email after save
-        CampaignMailer.welcome_email(@user).deliver
+    if verify_recaptcha(@campaign) && params[:balancedBankAccountURI].present? && @campaign.save!
+      @campaign.add_details(params[:balancedBankAccountURI])
+      # Tell the UserMailer to send a welcome email after save
+      CampaignMailer.welcome_email(@@campaign.user).deliver
       redirect_to @campaign, notice: 'Campaign was successfully created.'
     else
       render action: 'new'
