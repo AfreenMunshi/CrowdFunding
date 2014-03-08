@@ -12,7 +12,7 @@ ActiveAdmin.register_page "Dashboard" do
 
 
 
-section "Recent Campaigns" do
+panel "Recent Campaigns" do
     table_for Campaign.order("created_at desc").limit(5) do
       column :title do |campaign|
         link_to campaign.title, [:admin, campaign]
