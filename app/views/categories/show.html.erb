@@ -9,9 +9,3 @@
 <%= link_to 'Back', categories_path %>
  -->
 
-<div>
-  <%= pie_chart Transaction.group("verified").count %>
-</div>
-<div>
-<%= line_chart Transaction.group('campaign_id').count %>
-</div>

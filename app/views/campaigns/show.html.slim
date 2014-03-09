@@ -11,6 +11,16 @@
       br
       | by&nbsp;
       = @campaign.user.name
+
+      .right.floated
+        .ui.form
+          = form_for( @campaign, html: { id: 'inc-count' }) do |f|
+            - if user_signed_in?
+              .actions
+                = f.submit "Like"
+                  /i.thumbs.up.outline.icon 
+        = @campaign.Thumbs_up
+
   .row
     .column.two
       video controls="" height="470" width="650"
@@ -41,13 +51,13 @@
                   = distance_of_time_in_words_to_now(@campaign.created_at + @campaign.days.days)
                   | &nbsp;to go
         br
-        - if user_signed_in?
-          - if current_user.id != @campaign.user_id
-            a href="/donate/#{@campaign.id}"
-              .ui.animated.fade.button
-                .visible.content Contribute Now
-                .hidden.content
-                  | Go For It
+      
+        - if current_user.try(:id) != @campaign.user_id
+          a href="/donate/#{@campaign.id}"
+            .ui.animated.fade.button
+              .visible.content Contribute Now
+              .hidden.content
+                | Go For It
         br
         br
         - @campaign.tag_list.each do |t|

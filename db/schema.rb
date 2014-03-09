@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140308095324) do
+ActiveRecord::Schema.define(version: 20140309113724) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20140308095324) do
     t.string   "highest_reward"
     t.string   "order_uri"
     t.string   "bank_uri"
+    t.integer  "Thumbs_up",           default: 0
   end
 
   create_table "categories", force: true do |t|
