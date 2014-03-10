@@ -25,6 +25,7 @@ post '/store_bank_account', to: 'balanced#store_bank_account', as: :store_bank_a
 post '/store_credit_card', to: 'balanced#store_credit_card', as: :store_credit_card 
 get '/new_card', to: 'users#new_card'
 get '/credit_card_form', to: 'transactions#credit_card_form'
+get '/campaigns/:id', to: 'campaigns#inc_count', as: :inc_count
 
   # get '/transactions/pending', to: 'transactions#pending', as: :pending_transactions
 

@@ -8,7 +8,6 @@ gem 'rails', '4.0.2'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 gem 'mysql2'
-
 gem 'active_model_otp'
 
 # Use SCSS for stylesheets
@@ -16,15 +15,15 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'twilio-ruby'
 gem 'groupdate'
 gem 'faker'
-gem "chartkick"
 gem 'pdfkit'
 gem "i18n"
-gem 'wepay'
 gem 'acts-as-taggable-on'
 gem "recaptcha", :require => "recaptcha/rails"
-gem 'select2-rails'
 
-gem 'rambling-slider-rails', :git => 'https://github.com/gonzedge/rambling-slider-rails'
+gem 'select2-rails'
+gem 'chartkick'
+
+#gem 'rambling-slider-rails', :git => 'https://github.com/gonzedge/rambling-slider-rails'
 gem 'zebra-datepicker-rails'
 
 gem 'balanced', git: 'https://github.com/balanced/balanced-ruby'
@@ -66,6 +65,7 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   # gem 'sdoc', require: false
 end
+
 
 group :development do
 	gem 'certified'

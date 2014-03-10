@@ -25,13 +25,6 @@ GIT
       faraday (~> 0.8.6)
       faraday_middleware (~> 0.9.0)
 
-GIT
-  remote: https://github.com/gonzedge/rambling-slider-rails
-  revision: 813490342407f0a70036b294377d2bf342969bf4
-  specs:
-    rambling-slider-rails (0.2.0)
-      jquery-rails (>= 2.0.0, <= 3.1.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -215,7 +208,6 @@ GEM
     tzinfo (0.3.38)
     warden (1.2.3)
       rack (>= 1.0)
-    wepay (0.0.1)
     zebra-datepicker-rails (1.8.7)
       railties (>= 3.0)
       sass-rails
@@ -241,12 +233,10 @@ DEPENDENCIES
   pdfkit
   pry-rails
   rails (= 4.0.2)
-  rambling-slider-rails!
   recaptcha
   sass-rails (~> 4.0.0)
   select2-rails
   semantic-ui-sass
   slim (~> 2.0.2)
   twilio-ruby
-  wepay
   zebra-datepicker-rails

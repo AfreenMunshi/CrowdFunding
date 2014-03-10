@@ -1,9 +1,10 @@
 class CampaignsController < ApplicationController
-  before_action :set_campaign, only: [:show, :edit, :update, :destroy]
+  before_action :set_campaign, only: [:show, :edit, :update, :destroy, :inc_count]
   before_filter :authenticate_user!, only: [:new]
 
   # GET /campaigns
   def index
+
     if params[:tag]
       @campaigns = Campaign.tagged_with(params[:tag])
     elsif params[:category_id]
@@ -59,6 +60,14 @@ class CampaignsController < ApplicationController
     redirect_to campaigns_url, notice: 'Campaign was successfully destroyed.'
   end
 
+  def inc_count
+
+    @campaign = Campaign.find(params[:id])
+    c=@campaign
+    c.update_attributes(Thumbs_up: c.Thumbs_up + 1)
+    redirect_to inc_count_path, notice: 'You have Successfully liked the Campaign.'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_campaign
@@ -67,6 +76,6 @@ class CampaignsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def campaign_params
-      params.require(:campaign).permit(:title, :info, :days, :target, :user_id, :banner, :video, :category_id, :socialplug, :tag_list)
+      params.require(:campaign).permit(:title, :info, :days, :target, :user_id, :banner, :video, :category_id, :socialplug, :tag_list, :Thumbs_up) if params[:campaign]
     end
 end

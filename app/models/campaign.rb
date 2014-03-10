@@ -24,6 +24,10 @@ class Campaign < ActiveRecord::Base
     content_type: { :content_type => "video/mp4" },
     size: { :in => 0..10000.kilobytes }
 
+  # searchable do
+  #   text :name, :info
+  # end
+
   def add_details(bank_uri)
     merchant_uri    = self.user.find_or_create_customer_uri
     merchant        = Balanced::Customer.fetch(merchant_uri)

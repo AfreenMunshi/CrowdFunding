@@ -15,9 +15,10 @@
 //= require semantic-ui
 // require ./lib/googlecharts
 //= require select2
-//= require zebra-datepicker/core
+//= require zebra-datepicker/core	
 //= require jquery
 //= require campaigns
+// require chartkick
 //= require jquery.rambling.slider
 //= require bank_account_submission
 //= require credit_card_submission
