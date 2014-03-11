@@ -11,13 +11,14 @@
  *= require_self
  *= require_tree
  *= require select2
- *= require jquery.rambling.slider
+ * require jquery.rambling.slider
  */
 
 @import "zebra-datepicker/default";
 @import "semantic-ui";
 
 body { background-color: #f3f3f3 !important; margin:0px; }
+.body_container { background: #ddd url(/assets/bg.jpg) repeat top left !important; min-height:850px; }
 .header_nav {
 	/*background: #fafafa;*/
 	/*background: teal;*/
@@ -59,7 +60,7 @@ nav.ui.menu {
 .menu.category { color: teal !important; }
 .paged { width: 1000px !important; margin: 0 auto !important; background-color: #fff !important; padding-top: 10px !important; }
 .devise.sign { width: 600px !important; margin: 0 auto !important; background-color: #fff !important; padding-top: 10px !important; }
-.main_container { background-color: #f3f3f3 !important; padding-top: 10px !important; }
+// .main_container { background-color: #f3f3f3 !important; padding-top: 10px !important; }
 
 .no_top_margin { margin-top:0; }
 .no_margin { margin:0 !important; }
@@ -73,7 +74,7 @@ nav.ui.menu {
 .back_tealed { background-color: rgb(15, 114, 114) !important; color: white !important; }
 .back_redded { color: white !important; background: #a95252 !important; }
 .top_margin { margin-top: 15px !important; }
-.invisible { visibility:none; }
+.invisible { visibility:hidden; }
 
 .ui.white .column {
 	background-color: #fff;
@@ -106,6 +107,7 @@ ui.grid > .row > img, .ui.grid > .row > .column > img { height: 80px; width: 80p
 /*.ui.form { width: 300px; }*/
 
 /*.ui.form.recap { width: 350px; } */
+
 
 .full_width { width:100% !important; }
 .Zebra_DatePicker_Icon_Wrapper{display:block !important;}

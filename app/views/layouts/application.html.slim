@@ -22,7 +22,7 @@ html[lang="en"]
       /   .column
       /     .container style="padding:20px 30px 0;"
 
-    .ui.basic.segment.no_margin
+    .ui.basic.segment.no_margin.body_container
       = semantic_flash
       /- if current_page?(root_url)
         / #wrapper
@@ -32,6 +32,8 @@ html[lang="en"]
         /       = image_tag "VioLogo.jpg"
         /       = image_tag "VioBanner.jpg"
 
-      .ui.segment.basic.full.width.no_radius.no_pad.main_container
-        = yield
+      /.ui.segment.basic.full.width.no_radius.no_pad.main_container
+      = yield
+
+    = render 'layouts/footer'
 

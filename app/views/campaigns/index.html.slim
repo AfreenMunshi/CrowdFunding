@@ -12,7 +12,7 @@
         p.description
           | by&nbsp;
           span.orange.text
-          = campaign.user.name 
+          = campaign.user.name
           br
           | on&nbsp;
           = date_display(campaign.created_at)
@@ -30,20 +30,20 @@
           .ui.celled.grid
             .row
               .column style=""
-                p 
+                p
                   |Funded
                   br
                   = percent
                   | %
               .column style=""
-                p 
+                p
                   |Target
                   br
                   = campaign.target
             .row
               .column
                 p style='text-align: center'
-                  = distance_of_time_in_words_to_now(campaign.created_at + campaign.days.days)                
+                  = distance_of_time_in_words_to_now(campaign.created_at + campaign.days.days)
                   | &nbsp;to go
   - @campaigns.first(2).each do |campaign|
     .item
@@ -55,7 +55,7 @@
         p.description
           | by&nbsp;
           span.orange.text
-          = campaign.user.name 
+          = campaign.user.name
           br
           | on&nbsp;
           = date_display(campaign.created_at)
@@ -73,35 +73,25 @@
           .ui.celled.grid
             .row
               .column style=""
-                p 
+                p
                   |Funded
                   br
                   = percent
                   | %
               .column style=""
-                p 
+                p
                   |Target
                   br
                   = campaign.target
             .row
               .column
                 p style='text-align: center'
-                  = distance_of_time_in_words_to_now(campaign.created_at + campaign.days.days)                
+                  = distance_of_time_in_words_to_now(campaign.created_at + campaign.days.days)
                   | &nbsp;to go
 
   br
-= stylesheet_link_tag 'jquery.rambling.slider'
-= javascript_include_tag 'jquery.rambling.slider'
+/ = stylesheet_link_tag 'jquery.rambling.slider'
+/ = javascript_include_tag 'jquery.rambling.slider'
 
 
-a href="https://www.facebook.com/bucks.backer" target="_blank"
-  i.social.facebook.sign.icon
-a href="http://www.linkedin.com/" target="_blank"
-  i.social.linkedin.sign.icon
-a href="http://www.twitter.com/" target="_blank"
-  i.social.twitter.sign.icon
-a href="http://www.bucksbacker.blogspot.in/" target="_blank"
-  i.social.rss.sign.icon
-a href="http://www.github.com/" target="_blank"
-  i.social.github.sign.icon
 

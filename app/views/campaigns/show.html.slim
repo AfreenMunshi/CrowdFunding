@@ -11,11 +11,11 @@
       br
       | by&nbsp;
       = @campaign.user.name
-      
+
 
       = link_to "like", vote_for_campaign_path(@campaign)
       /= Vote(vote).count
-      = Campaign.group("category").count
+      /= Campaign.group("category").count
   .row
     .column.two
       video controls="" height="470" width="650"
@@ -46,7 +46,7 @@
                   = distance_of_time_in_words_to_now(@campaign.created_at + @campaign.days.days)
                   | &nbsp;to go
         br
-      
+
         - if current_user.try(:id) != @campaign.user_id
           a href="/donate/#{@campaign.id}"
             .ui.animated.fade.button
