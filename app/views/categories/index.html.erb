@@ -1,9 +1,5 @@
 
-<% title t('welcome.title') %>
+<%= pie_chart Campaign.group("category").count %>
+<%= column_chart User.group("bday").count %>
+<%= bar_chart Campaign.group("category").count %>
 
-<p><%= t 'welcome.paragraph' %></p>
-<h2><%= t 'products.title' %></h2>
-
-  <div class="date_released">
-    <em><%= t 'products.released' %></em>
-  </div>

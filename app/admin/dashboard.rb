@@ -12,7 +12,6 @@ ActiveAdmin.register_page "Dashboard" do
   #     end
   #   end
 
-columns do
   column do
     panel "Recent Campaigns" do
         table_for Campaign.order("created_at desc").limit(5) do
@@ -23,12 +22,8 @@ columns do
         end
         #strong { link_to "View All Campaigns", admin_campaigns_path }
       end
-  end
-
-  column do
-    pie_chart Campaign.group("category").count
-  end
-end
+    end
+    
 
 # 
 

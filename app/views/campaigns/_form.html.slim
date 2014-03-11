@@ -86,6 +86,9 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
         .ui.tiny.teal.right.labeled.icon.button.floated.next_button
           i.right.arrow.icon
           | Next
+        .ui.tiny.teal.right.labeled.icon.button.floated.prev_button
+          i.left.arrow.icon
+          | Previous
 
       .form-step.hide
         .ui.small.ribbon.teal.label
@@ -114,7 +117,10 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
         div
           = recaptcha_tags
 
-        = f.submit "Create campaign", class: 'ui red submit button right floated'
+        = f.submit "Create campaign", class: 'ui teal submit button right floated'
+        .ui.tiny.teal.right.labeled.icon.button.floated.prev_button
+          i.left.arrow.icon
+          | Previous
 
       / need to write js here.. coz we need to pass tags to selct 2 .. so pure js nai hai.. rails code bhi hai
       / pure rails cannot me executed in .js file

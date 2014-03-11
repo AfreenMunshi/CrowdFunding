@@ -11,16 +11,11 @@
       br
       | by&nbsp;
       = @campaign.user.name
+      
 
-      .right.floated
-        .ui.form
-          = form_for( @campaign, html: { id: 'inc-count' }) do |f|
-            - if user_signed_in?
-              .actions
-                = f.submit "Like"
-                  /i.thumbs.up.outline.icon 
-        = @campaign.Thumbs_up
-
+      = link_to "like", vote_for_campaign_path(@campaign)
+      /= Vote(vote).count
+      = Campaign.group("category").count
   .row
     .column.two
       video controls="" height="470" width="650"

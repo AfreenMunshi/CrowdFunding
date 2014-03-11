@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 # "C:\mysql\mysql-5.6.16-winx64\bin\mysqld" --console
 
-
+ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
@@ -19,11 +19,11 @@ gem 'pdfkit'
 gem "i18n"
 gem 'acts-as-taggable-on'
 gem "recaptcha", :require => "recaptcha/rails"
-
 gem 'select2-rails'
 gem 'chartkick'
+gem 'thumbs_up'
 
-#gem 'rambling-slider-rails', :git => 'https://github.com/gonzedge/rambling-slider-rails'
+gem 'rambling-slider-rails', :git => 'https://github.com/gonzedge/rambling-slider-rails'
 gem 'zebra-datepicker-rails'
 
 gem 'balanced', git: 'https://github.com/balanced/balanced-ruby'

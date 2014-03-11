@@ -2,113 +2,97 @@
   - if params[:category_id].present?
     .ui.header
       = Category.find(params[:category_id]).name
-  .ui.celled.grid
-    .row
-      .two.wide.column style=""
-        p SLIDER do
-    .row
-      .two.wide.column
-        - @campaigns.order("Thumbs_up").last(2).each do |campaign|
-          .item
-            a.image href="/campaigns/#{campaign.id}"
-              img src=(campaign.banner.url)
-            .content
-              .name
-                = campaign.title
-              p.description
-                | by&nbsp;
-                span.orange.text
-                = campaign.user.name 
-                br
-                | on&nbsp;
-                = date_display(campaign.created_at)
-                br
-                = campaign.info.split(' ').slice(0, 15).join(' ')
-                | &#133;
+  - @campaigns.last(2).each do |campaign|
+    .item
+      a.image href="/campaigns/#{campaign.id}"
+        img src=(campaign.banner.url)
+      .content
+        .name
+          = campaign.title
+        p.description
+          | by&nbsp;
+          span.orange.text
+          = campaign.user.name 
+          br
+          | on&nbsp;
+          = date_display(campaign.created_at)
+          br
+          = campaign.info.split(' ').slice(0, 15).join(' ')
+          | &#133;
 
-                br
-                - percent = (campaign.collected*100.0/campaign.target).round(2)
-                .ui.successful.thin.progress
-                  .bar style="width:#{percent > 100 ? 100 : percent}%;"
+          br
+          - percent = (campaign.collected*100.0/campaign.target).round(2)
+          .ui.successful.thin.progress
+            .bar style="width:#{percent > 100 ? 100 : percent}%;"
 
-                br
+          br
 
-                .ui.celled.grid
-                  .row
-                    .column style=""
-                      p 
-                        |Funded
-                        br
-                        = percent
-                        | %
-                    .column style=""
-                      p 
-                        |Target
-                        br
-                        = campaign.target
-                  .row
-                    .column
-                      p style='text-align: center'
-                        = distance_of_time_in_words_to_now(campaign.created_at + campaign.days.days)                
-                        | &nbsp;to go
-      .two.wide.column
-        - @campaigns.last(2).each do |campaign|
-          .item
-            a.image href="/campaigns/#{campaign.id}"
-              img src=(campaign.banner.url)
-            .content
-              .name
-                = campaign.title
-              p.description
-                | by&nbsp;
-                span.orange.text
-                = campaign.user.name 
-                br
-                | on&nbsp;
-                = date_display(campaign.created_at)
-                br
-                = campaign.info.split(' ').slice(0, 15).join(' ')
-                | &#133;
+          .ui.celled.grid
+            .row
+              .column style=""
+                p 
+                  |Funded
+                  br
+                  = percent
+                  | %
+              .column style=""
+                p 
+                  |Target
+                  br
+                  = campaign.target
+            .row
+              .column
+                p style='text-align: center'
+                  = distance_of_time_in_words_to_now(campaign.created_at + campaign.days.days)                
+                  | &nbsp;to go
+  - @campaigns.first(2).each do |campaign|
+    .item
+      a.image href="/campaigns/#{campaign.id}"
+        img src=(campaign.banner.url)
+      .content
+        .name
+          = campaign.title
+        p.description
+          | by&nbsp;
+          span.orange.text
+          = campaign.user.name 
+          br
+          | on&nbsp;
+          = date_display(campaign.created_at)
+          br
+          = campaign.info.split(' ').slice(0, 15).join(' ')
+          | &#133;
 
-                br
-                - percent = (campaign.collected*100.0/campaign.target).round(2)
-                .ui.successful.thin.progress
-                  .bar style="width:#{percent > 100 ? 100 : percent}%;"
+          br
+          - percent = (campaign.collected*100.0/campaign.target).round(2)
+          .ui.successful.thin.progress
+            .bar style="width:#{percent > 100 ? 100 : percent}%;"
 
-                br
+          br
 
-                .ui.celled.grid
-                  .row
-                    .column style=""
-                      p 
-                        |Funded
-                        br
-                        = percent
-                        | %
-                    .column style=""
-                      p 
-                        |Target
-                        br
-                        = campaign.target
-                  .row
-                    .column
-                      p style='text-align: center'
-                        = distance_of_time_in_words_to_now(campaign.created_at + campaign.days.days)                
-                        | &nbsp;to go
- 
-
-
-.ui.celled.grid
-  .row
-    .two.wide.column style=""
-      p SLIDER do
-  .row
-    .two.wide.column
-      p MOST recently
-    .two.wide.column
-      p RECENTLY popular
+          .ui.celled.grid
+            .row
+              .column style=""
+                p 
+                  |Funded
+                  br
+                  = percent
+                  | %
+              .column style=""
+                p 
+                  |Target
+                  br
+                  = campaign.target
+            .row
+              .column
+                p style='text-align: center'
+                  = distance_of_time_in_words_to_now(campaign.created_at + campaign.days.days)                
+                  | &nbsp;to go
 
   br
+= stylesheet_link_tag 'jquery.rambling.slider'
+= javascript_include_tag 'jquery.rambling.slider'
+
 
 a href="https://www.facebook.com/bucks.backer" target="_blank"
   i.social.facebook.sign.icon

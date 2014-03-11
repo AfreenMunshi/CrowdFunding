@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :campaigns
   has_many :transactions
+acts_as_voter
 
   def find_or_create_customer_uri
   	self.customer_uri ||= Balanced::Customer.new(name: self.name).save.href

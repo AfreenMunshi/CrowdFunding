@@ -3,6 +3,7 @@ class Campaign < ActiveRecord::Base
   belongs_to :category
 
   has_many :transactions
+  acts_as_voteable
 
   acts_as_taggable # Alias for acts_as_taggable_on :tags
 

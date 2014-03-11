@@ -11,7 +11,9 @@
         - for category in @categories
           = link_to category_campaign_path(category.id), method: :get, class: "item #{category_active_class(category.id)}"
             = category.name
-
+    = link_to categories_path, method: :get, class: "item #{active_class('categories', 'index')}"
+      i.upload.basic.icon
+      | Statistics
     .ui.right.menu.text
       - if user_signed_in?
 

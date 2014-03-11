@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-  before_action :set_campaign, only: [:show, :edit, :update, :destroy, :inc_count]
+  before_action :set_campaign, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, only: [:new]
 
   # GET /campaigns
@@ -16,6 +16,13 @@ class CampaignsController < ApplicationController
 
   # GET /campaigns/1
   def show
+  end
+
+  def vote_for_campaign
+    binding.pry
+      @campaign = Campaign.find(params[:id])
+      current_user.vote_for(@campaign)
+      redirect_to :back
   end
 
   # GET /campaigns/new
@@ -60,13 +67,6 @@ class CampaignsController < ApplicationController
     redirect_to campaigns_url, notice: 'Campaign was successfully destroyed.'
   end
 
-  def inc_count
-
-    @campaign = Campaign.find(params[:id])
-    c=@campaign
-    c.update_attributes(Thumbs_up: c.Thumbs_up + 1)
-    redirect_to inc_count_path, notice: 'You have Successfully liked the Campaign.'
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
