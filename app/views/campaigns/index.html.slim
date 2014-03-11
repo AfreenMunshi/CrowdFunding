@@ -1,95 +1,37 @@
-.ui.basic.stackable.items.segment.no_radius.paged
+.ui.basic.segment.no_radius.paged style='width:1140px !important;'
   - if params[:category_id].present?
     .ui.header
       = Category.find(params[:category_id]).name
-  - @campaigns.last(2).each do |campaign|
-    .item
-      a.image href="/campaigns/#{campaign.id}"
-        img src=(campaign.banner.url)
-      .content
-        .name
-          = campaign.title
-        p.description
-          | by&nbsp;
-          span.orange.text
-          = campaign.user.name
-          br
-          | on&nbsp;
-          = date_display(campaign.created_at)
-          br
-          = campaign.info.split(' ').slice(0, 15).join(' ')
-          | &#133;
 
-          br
-          - percent = (campaign.collected*100.0/campaign.target).round(2)
-          .ui.successful.thin.progress
-            .bar style="width:#{percent > 100 ? 100 : percent}%;"
+  .ui.two.column.grid
+    .column
+      .ui.segment.stackable.items.inline-block
+        .ui.ribbon.label.purple
+          | Popular
+        .ui.invisible.clearing.divider
 
-          br
+        - @campaigns.last(2).each do |campaign|
+          = render partial: 'campaign_item', locals: { campaign: campaign }
+        - @campaigns.last(2).each do |campaign|
+          = render partial: 'campaign_item', locals: { campaign: campaign }
 
-          .ui.celled.grid
-            .row
-              .column style=""
-                p
-                  |Funded
-                  br
-                  = percent
-                  | %
-              .column style=""
-                p
-                  |Target
-                  br
-                  = campaign.target
-            .row
-              .column
-                p style='text-align: center'
-                  = distance_of_time_in_words_to_now(campaign.created_at + campaign.days.days)
-                  | &nbsp;to go
-  - @campaigns.first(2).each do |campaign|
-    .item
-      a.image href="/campaigns/#{campaign.id}"
-        img src=(campaign.banner.url)
-      .content
-        .name
-          = campaign.title
-        p.description
-          | by&nbsp;
-          span.orange.text
-          = campaign.user.name
-          br
-          | on&nbsp;
-          = date_display(campaign.created_at)
-          br
-          = campaign.info.split(' ').slice(0, 15).join(' ')
-          | &#133;
+    .ui.vertical.divider
+      i.heart.icon.red
 
-          br
-          - percent = (campaign.collected*100.0/campaign.target).round(2)
-          .ui.successful.thin.progress
-            .bar style="width:#{percent > 100 ? 100 : percent}%;"
+    .column
+      .ui.segment.stackable.items.inline-block.left_margin
+        .ui.ribbon.label.teal
+          | Newly Launched
+        .ui.invisible.clearing.divider
 
-          br
+        - @campaigns.first(2).each do |campaign|
+          = render partial: 'campaign_item', locals: { campaign: campaign }
 
-          .ui.celled.grid
-            .row
-              .column style=""
-                p
-                  |Funded
-                  br
-                  = percent
-                  | %
-              .column style=""
-                p
-                  |Target
-                  br
-                  = campaign.target
-            .row
-              .column
-                p style='text-align: center'
-                  = distance_of_time_in_words_to_now(campaign.created_at + campaign.days.days)
-                  | &nbsp;to go
+        - @campaigns.last(2).each do |campaign|
+          = render partial: 'campaign_item', locals: { campaign: campaign }
 
-  br
+
+  .ui.clearing.invisible.divider
 / = stylesheet_link_tag 'jquery.rambling.slider'
 / = javascript_include_tag 'jquery.rambling.slider'
 

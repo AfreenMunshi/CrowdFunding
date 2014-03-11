@@ -18,7 +18,11 @@
 @import "semantic-ui";
 
 body { background-color: #f3f3f3 !important; margin:0px; }
-.body_container { background: #ddd url(/assets/bg.jpg) repeat top left !important; min-height:850px; }
+.body_container {
+	background: #ddd url(/assets/bg.jpg) repeat top left !important;
+	background: #0099cc;
+	min-height:850px;
+}
 .header_nav {
 	/*background: #fafafa;*/
 	/*background: teal;*/
@@ -58,13 +62,14 @@ nav.ui.menu {
 	}
 }
 .menu.category { color: teal !important; }
-.paged { width: 1000px !important; margin: 0 auto !important; background-color: #fff !important; padding-top: 10px !important; }
+.paged { width: 1050px !important; margin: 0 auto !important; background-color: #fff !important; padding-top: 10px !important; }
 .devise.sign { width: 600px !important; margin: 0 auto !important; background-color: #fff !important; padding-top: 10px !important; }
 // .main_container { background-color: #f3f3f3 !important; padding-top: 10px !important; }
 
 .no_top_margin { margin-top:0; }
 .no_margin { margin:0 !important; }
 .no_pad { padding:0 !important; }
+.left_margin { margin-left: 10px !important; }
 .no_radius { border-radius:0 !important; -moz-border-radius:0 !important; }
 .hide { display:none; }
 .show { display:block; }
