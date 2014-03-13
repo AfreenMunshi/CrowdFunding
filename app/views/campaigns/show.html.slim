@@ -1,75 +1,75 @@
 - content_for :title do
   = @campaign.title
-
-.ui.celled.grid.paged
-  .row
-    .column.pic style=""
-      img.circular.ui.image src=(@campaign.banner.url)
-    .column style=""
-      strong = @campaign.title
-      br
-      br
-      | by&nbsp;
-      = @campaign.user.name
-
-
-      = link_to "like", vote_for_campaign_path(@campaign)
-      /= Vote(vote).count
-      /= Campaign.group("category").count
-  .row
-    .column.two
-      video controls="" height="470" width="650"
-        source src=@campaign.video.url type=@campaign.video.content_type
-    .column
-      .row
-        p
-        .ui.celled.grid
-            .row
-              .column style=""
-                p
-                  |Funded
-                  - percent = (@campaign.collected*100.0/@campaign.target).round(2)
-                  br
-                  = percent
-                  | %
-              .column style=""
-                p
-                  |Target
-                  br
-                  = @campaign.target
-            .row
-              .column
-
-                .ui.successful.thin.progress
-                  .bar style="width:#{percent > 100 ? 100 : percent}%;"
-                p style='text-align: center'
-                  = distance_of_time_in_words_to_now(@campaign.created_at + @campaign.days.days)
-                  | &nbsp;to go
-        br
-
-        - if current_user.try(:id) != @campaign.user_id
-          a href="/donate/#{@campaign.id}"
-            .ui.animated.fade.button
-              .visible.content Contribute Now
-              .hidden.content
-                | Go For It
+.ui.basic.segment.no_radius.paged style='width:1140px !important;'
+  .ui.celled.grid
+    .row
+      .column.pic style=""
+        img.circular.ui.image src=(@campaign.banner.url)
+      .column style=""
+        strong = @campaign.title
         br
         br
-        - @campaign.tag_list.each do |t|
-            = link_to t, tag_path(t), class: 'ui small purple label camplabel'
-
-  .row
-    .column style=""
-      p = @campaign.info
-  .row
-    .column style=""
-      | Also Find this Campaign on :-
-      a href=@campaign.socialplug target="_blank"
-        i.social.facebook.sign.icon
+        | by&nbsp;
+        = @campaign.user.name
 
 
+        = link_to "like", vote_for_campaign_path(@campaign)
+        /= Vote(vote).count
+        /= Campaign.group("category").count
+    .row
+      .column.two
+        video controls="" height="470" width="650"
+          source src=@campaign.video.url type=@campaign.video.content_type
+      .column
+        .row
+          p
+          .ui.celled.grid
+              .row
+                .column style=""
+                  p
+                    |Funded
+                    - percent = (@campaign.collected*100.0/@campaign.target).round(2)
+                    br
+                    = percent
+                    | %
+                .column style=""
+                  p
+                    |Target
+                    br
+                    = @campaign.target
+              .row
+                .column
+
+                  .ui.successful.thin.progress
+                    .bar style="width:#{percent > 100 ? 100 : percent}%;"
+                  p style='text-align: center'
+                    = distance_of_time_in_words_to_now(@campaign.created_at + @campaign.days.days)
+                    | &nbsp;to go
+          br
+
+          - if current_user.try(:id) != @campaign.user_id
+            a href="/donate/#{@campaign.id}"
+              .ui.animated.fade.button
+                .visible.content Contribute Now
+                .hidden.content
+                  | Go For It
+          br
+          br
+          - @campaign.tag_list.each do |t|
+              = link_to t, tag_path(t), class: 'ui small purple label camplabel'
+
+    .row
+      .column style=""
+        p = @campaign.info
+    .row
+      .column style=""
+        | Also Find this Campaign on :-
+        a href=@campaign.socialplug target="_blank"
+          i.social.facebook.sign.icon
 
 
-- if user_signed_in?
-  - if current_user.id == @campaign.user_id
-    td= link_to 'Edit', edit_campaign_path(@campaign)
+
+
+  - if user_signed_in?
+    - if current_user.id == @campaign.user_id
+      td= link_to 'Edit', edit_campaign_path(@campaign)

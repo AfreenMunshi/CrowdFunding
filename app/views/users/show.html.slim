@@ -1,48 +1,41 @@
-.two.column.stackable.ui.grid
-  .column
-    .ui.segment
-			p
-			  b 
-			  	| Name : &nbsp;
-			  = @user.name
-			p
-			  b 
-			  	| Email : &nbsp;
-			  = @user.email
-			p
-			  b 
-			  	| Birth Day : &nbsp;
-			  = @user.bday
+/ /Dashboard
 
-  .column
-    .ui.segment
-      b Your transaction history:	
-      table
-				thead
- 					tr
-	   				th Amount
-	    			th Campaign
-				tbody
-  				- @user.transactions.each do |transaction|
-    				tr
-      				- if current_user.id == transaction.user_id
-	        			td= transaction.amount
-	        			td= transaction.try(:campaign).try(:title)
-
-
+.ui.basic.segment.no_radius.paged style='width:1000px !important;'
+  .ui.two.column.middle.aligned.relaxed.grid.basic.segment
+    .column
+      center
+        b Your Profile Information:
+        p
+          table.ui.padded.table.segment
+            tr
+              td
+                b Name:
+              td
+                = @user.name
+            tr
+              td
+                b Email:
+              td
+                = @user.email
+            tr
+              td
+                b Birth Day:
+              td
+                = @user.bday
+    .ui.vertical.divider
+    .column
+      center
+        b Your transaction history:
+        p
+          table.ui.padded.table.segment
 
 
+              tr
+                th Amount
+                th Campaign
 
-
-
-/ - content_for :name do
-/   = @user.name
-/ p
-/   strong Name:
-/   = @user.name
-/ p
-/   strong Email:
-/   = @user.email
-/ p
-/   strong Birth Day:
-/   = @user.bday
+              - @user.transactions.each do |transaction|
+                tr
+                  - if current_user.id == transaction.user_id
+                    td= transaction.amount
+                    td= transaction.try(:campaign).try(:title)

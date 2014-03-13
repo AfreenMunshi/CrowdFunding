@@ -12,23 +12,21 @@ CF::Application.routes.draw do
   root 'campaigns#index'
 
   get '/donate/:campaign_id', to: 'transactions#new', as: :donate
-
   get '/users/:id', to: 'users#show', as: :dashboard
   post '/verify/:tran_id', to: 'transactions#verify', as: :verify_transaction
   post '/regenerate_otp/:tran_id', to: 'transactions#generate_otp_code', as: :otp_regenerate
   get '/:category_id/campaigns', to: 'campaigns#index', as: :category_campaign
   get '/users/:action(/:id)', :controller => 'users'
-  
-get 'tags/:tag', to: 'campaigns#index', as: :tag
+  get 'tags/:tag', to: 'campaigns#index', as: :tag
+  post '/store_bank_account', to: 'balanced#store_bank_account', as: :store_bank_account
+  post '/store_credit_card', to: 'balanced#store_credit_card', as: :store_credit_card
+  get '/new_card', to: 'users#new_card'
+  get '/credit_card_form', to: 'transactions#credit_card_form'
+  get '/vote_for_campaign/:id', to: 'campaigns#vote_for_campaign', as: :vote_for_campaign
+  get '/statistics', to: 'categories#index', as: :statistics
 
-post '/store_bank_account', to: 'balanced#store_bank_account', as: :store_bank_account
-post '/store_credit_card', to: 'balanced#store_credit_card', as: :store_credit_card 
-get '/new_card', to: 'users#new_card'
-get '/credit_card_form', to: 'transactions#credit_card_form'
 
-get '/vote_for_campaign/:id', to: 'campaigns#vote_for_campaign', as: :vote_for_campaign
 
-  # get '/transactions/pending', to: 'transactions#pending', as: :pending_transactions
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

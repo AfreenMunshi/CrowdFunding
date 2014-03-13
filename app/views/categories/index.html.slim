@@ -1,0 +1,44 @@
+/Statistics Page
+
+.ui.basic.segment.no_radius.paged style='width:1140px !important;'
+  p
+    center
+      strong Number of Camapigns in each Category:
+    br
+    = pie_chart Campaign.group("category").count
+    br
+  .ui.horizontal.icon.divider
+    i.browser.icon
+  p
+    center
+      strong Classification of Users according to Birthdate:
+    br
+    /User.find_by_sql("select *, YEAR(bday) as byear from users group by byear")
+    = column_chart User.group("bday").count
+    br
+  .ui.horizontal.icon.divider
+    i.browser.icon
+  p
+    center
+      strong Number of Votes for each Campaign:
+    br
+    = bar_chart Vote.group("voteable_id").count
+    br
+  p
+
+
+  / b Number of Camapigns in each Category:
+  / br
+  / = pie_chart Campaign.group("category").count
+  / br
+
+  / b Classification of Users according to Birthdate:
+  / br
+  / /User.find_by_sql("select *, YEAR(bday) as byear from users group by byear")
+  / = column_chart User.group("bday").count
+  / br
+
+  / b Number of Votes for each Campaign:
+  / br
+  / = bar_chart Vote.group("voteable_id").count
+  / br

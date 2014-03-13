@@ -39,7 +39,7 @@ body { background-color: #f3f3f3 !important; margin:0px; }
 	font-family: Georgia, "Times New Roman", Times, serif !important;
 }
 nav.ui.menu {
-	width: 960px;
+	width: 970px;
 	padding: 6px 0;
 	.item{
 		color: white !important;
@@ -125,3 +125,4 @@ ui.grid > .row > img, .ui.grid > .row > .column > img { height: 80px; width: 80p
 #new_campaign .ui.step i.checkmark.icon { display:none; float: right; }
 #new_campaign .ui.step.done i.checkmark.icon { display: inline-block; }
 
+.ui.middle.aligned.grid, .ui.middle.aligned.grid > .row > .column, .ui.middle.aligned.grid > .column, .ui.grid .middle.aligned.column, .ui.grid > .middle.aligned.row > .column { vertical-align: initial; }

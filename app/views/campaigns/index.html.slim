@@ -1,39 +1,52 @@
 .ui.basic.segment.no_radius.paged style='width:1140px !important;'
   - if params[:category_id].present?
-    .ui.header
-      = Category.find(params[:category_id]).name
+    .ui.basic.stackable.items.segment.no_radius.paged
+      .ui.header
+        = Category.find(params[:category_id]).name
+      - @campaigns.each do |campaign|
+        = render partial: 'campaign_item', locals: { campaign: campaign }
 
-  .ui.two.column.grid
-    .column
-      .ui.segment.stackable.items.inline-block
-        .ui.ribbon.label.purple
-          | Popular
-        .ui.invisible.clearing.divider
+  - elsif params[:tag].present?
+    .ui.basic.stackable.items.segment.no_radius.paged
+      .ui.header
 
-        - @campaigns.last(2).each do |campaign|
-          = render partial: 'campaign_item', locals: { campaign: campaign }
-        - @campaigns.last(2).each do |campaign|
-          = render partial: 'campaign_item', locals: { campaign: campaign }
+        / ******* Want to add Tag name in header. ******/
 
-    .ui.vertical.divider
-      i.heart.icon.red
+      - @campaigns.each do |campaign|
+        = render partial: 'campaign_item', locals: { campaign: campaign }
 
-    .column
-      .ui.segment.stackable.items.inline-block.left_margin
-        .ui.ribbon.label.teal
-          | Newly Launched
-        .ui.invisible.clearing.divider
+  - else
+    .ui.two.column.grid
+      .column
+        .ui.segment.stackable.items.inline-block
+          .ui.ribbon.label.purple
+            | Popular
+          .ui.invisible.clearing.divider
 
-        - @campaigns.first(2).each do |campaign|
-          = render partial: 'campaign_item', locals: { campaign: campaign }
+          - @campaigns.first(2).each do |campaign|
+            = render partial: 'campaign_item', locals: { campaign: campaign }
+          / - @campaigns.last(2).each do |campaign|
+          /   = render partial: 'campaign_item', locals: { campaign: campaign }
 
-        - @campaigns.last(2).each do |campaign|
-          = render partial: 'campaign_item', locals: { campaign: campaign }
+      .ui.vertical.divider
+        i.heart.icon.red
+
+      .column
+        .ui.segment.stackable.items.inline-block.left_margin
+          .ui.ribbon.label.teal
+            | Newly Launched
+          .ui.invisible.clearing.divider
+
+          - @campaigns.last(2).each do |campaign|
+            = render partial: 'campaign_item', locals: { campaign: campaign }
+
+          / - @campaigns.last(2).each do |campaign|
+          /   = render partial: 'campaign_item', locals: { campaign: campaign }
 
 
-  .ui.clearing.invisible.divider
-/ = stylesheet_link_tag 'jquery.rambling.slider'
-/ = javascript_include_tag 'jquery.rambling.slider'
+    .ui.clearing.invisible.divider
+  / = stylesheet_link_tag 'jquery.rambling.slider'
+  / = javascript_include_tag 'jquery.rambling.slider'
 
 
 
