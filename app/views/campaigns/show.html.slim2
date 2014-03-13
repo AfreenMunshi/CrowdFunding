@@ -1,25 +1,27 @@
 - content_for :title do
   = @campaign.title
-.ui.basic.segment.no_radius.paged.campaign_show style='width:1140px !important; overflow:hidden; margin-bottom: 50px; !important'
+
+.ui.basic.segment.no_radius.paged.campaign_page style='width:1140px !important;'
   - if (Time.now - @campaign.created_at)/1.hour < 24
     a.ui.right.teal.corner.label
       .text New
 
-  img.circular.ui.image src=(@campaign.banner.url)
-
-  h1.title
-    = @campaign.title
-
-  h2.pinline
-    span Campiagn tagline
-
-  p.campaign_info
-    = @campaign.info
-
   .ui.celled.grid
-    / = link_to "like", vote_for_campaign_path(@campaign)
-    /= Vote(vote).count
-    /= Campaign.group("category").count
+    .row
+      .column.pic style=""
+        img.circular.ui.image src=(@campaign.banner.url)
+      .column style=""
+        strong = @campaign.title
+        br
+        br
+        | by&nbsp;
+        = @campaign.user.name
+
+
+
+        = link_to "like", vote_for_campaign_path(@campaign)
+        /= Vote(vote).count
+        /= Campaign.group("category").count
     .row
       .column.two
         video controls="" height="470" width="650"
@@ -62,13 +64,11 @@
           - @campaign.tag_list.each do |t|
               = link_to t, tag_path(t), class: 'ui small purple label camplabel'
 
+    .row
+      .column style=""
+        p = @campaign.info
 
-  div style='text-align:center; margin: 20px;'
-    .flipper-container href="#voteup"
-      #voteup.flipper
-        .front-face data-icon="➣" href="#"
-          span data-hover="Clicked"  Vote us UP!
-        .back-face data-icon="✓"  Thank You
+
 
 
 

@@ -13,8 +13,8 @@
     center
       strong Classification of Users according to Birthdate:
     br
-    /User.find_by_sql("select *, YEAR(bday) as byear from users group by byear")
-    = column_chart User.group("bday").count
+
+    = column_chart User.group("year(bday)").count
     br
   .ui.horizontal.icon.divider
     i.browser.icon

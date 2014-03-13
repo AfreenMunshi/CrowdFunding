@@ -1,0 +1,41 @@
+
+.header_nav {
+  // background: whitesmoke;
+  background: rgba(0, 0, 0, 0.6);
+
+  background-image: -webkit-linear-gradient(left,
+    orange,
+    orangered 25%,
+    skyblue 25%,
+    deepskyblue 50%,
+    firebrick 50%,
+    firebrick 75%,
+    green 75%);
+  background-image: -moz-linear-gradient(left,
+    orange,
+    orangered 25%,
+    skyblue 25%,
+    deepskyblue 50%,
+    firebrick 50%,
+    firebrick 75%,
+    green 75%);
+  background-image: -ms-linear-gradient(left,
+    orange,
+    orangered 25%,
+    skyblue 25%,
+    deepskyblue 50%,
+    firebrick 50%,
+    firebrick 75%,
+    green 75%);
+  background-image: linear-gradient(to right,
+    orange,
+    orangered 25%,
+    skyblue 25%,
+    deepskyblue 50%,
+    firebrick 50%,
+    firebrick 75%,
+    green 75%);
+  background-size: 100% 6px;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+}

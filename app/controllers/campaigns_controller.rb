@@ -45,7 +45,7 @@ class CampaignsController < ApplicationController
     if verify_recaptcha(@campaign) && params[:balancedBankAccountURI].present? && @campaign.save!
       @campaign.add_details(params[:balancedBankAccountURI])
       # Tell the UserMailer to send a welcome email after save
-      CampaignMailer.welcome_email(@@campaign.user).deliver
+      CampaignMailer.welcome_email(@campaign.user).deliver
       redirect_to @campaign, notice: 'Campaign was successfully created.'
     else
       render action: 'new'

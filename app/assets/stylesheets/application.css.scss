@@ -19,47 +19,47 @@
 
 body { background-color: #f3f3f3 !important; margin:0px; }
 .body_container {
-	background: #ddd url(/assets/bg.jpg) repeat top left !important;
-	background: #0099cc;
-	min-height:850px;
+  // background: #ddd url(/assets/bg.jpg) repeat top left !important;
+  // background: #0099cc;
+  min-height:850px;
 }
 .header_nav {
-	/*background: #fafafa;*/
-	/*background: teal;*/
-	background: rgb(63, 83, 83);
-	padding: 6px 0 10px;
-	box-shadow: 0 1px 6px rgba(34, 25, 25, 0.6);
-	z-index: 999;
-	height: 36px;
+  /*background: #fafafa;*/
+  /*background: teal;*/
+  background: rgb(63, 83, 83);
+  padding: 6px 0 10px;
+  box-shadow: 0 1px 6px rgba(34, 25, 25, 0.6);
+  z-index: 999;
+  height: 36px;
 }
 .header_nav nav.ui.menu {
-	max-width: 100%;
-	min-width: 768px;
-	margin: 0 auto !important;
-	font-family: Georgia, "Times New Roman", Times, serif !important;
+  max-width: 100%;
+  min-width: 768px;
+  margin: 0 auto !important;
+  font-family: Georgia, "Times New Roman", Times, serif !important;
 }
 nav.ui.menu {
-	width: 970px;
-	padding: 6px 0;
-	.item{
-		color: white !important;
-		.active {
-			font-weight: bold !important;
-			color: white;
-		}
-	}
+  // width: 970px;
+  padding: 6px 15px;
+  .item{
+    color: white !important;
+    .active {
+      font-weight: bold !important;
+      color: white;
+    }
+  }
 }
 .ui.text.menu {
-	margin: 6px 0;
-	.active.item {
-		font-weight: normal !important;
-		&.dropdown:hover{
-			font-weight: normal !important;
-		}
-		&.dropdown .item{
-			color: teal !important;
-		}
-	}
+  margin: 6px 0;
+  .active.item {
+    font-weight: normal !important;
+    &.dropdown:hover{
+      font-weight: normal !important;
+    }
+    &.dropdown .item{
+      color: teal !important;
+    }
+  }
 }
 .menu.category { color: teal !important; }
 .paged { width: 1050px !important; margin: 0 auto !important; background-color: #fff !important; padding-top: 10px !important; }
@@ -82,8 +82,8 @@ nav.ui.menu {
 .invisible { visibility:hidden; }
 
 .ui.white .column {
-	background-color: #fff;
-	box-shadow: 0px 1px 13px #888888;
+  background-color: #fff;
+  box-shadow: 0px 1px 13px #888888;
 }
 .ui.items .item > .content > .description{ height:135px; }
 
@@ -93,8 +93,8 @@ nav.ui.menu {
 .orange.text { color: orange; }
 
 .ui.thin.progress {
-	height: 10px; padding: 1px;
-	.bar{ display: block; }
+  height: 10px; padding: 1px;
+  .bar{ display: block; }
 }
 
 i.social.icon { font-size: 3em; }
@@ -125,4 +125,23 @@ ui.grid > .row > img, .ui.grid > .row > .column > img { height: 80px; width: 80p
 #new_campaign .ui.step i.checkmark.icon { display:none; float: right; }
 #new_campaign .ui.step.done i.checkmark.icon { display: inline-block; }
 
+.campaign_show{
+  .circular.image{
+    width: 50px;
+    float: left;
+    border: 1px solid #ddd;
+    height: 50px;
+  }
+
+  .title{
+    text-align: center;
+    padding-right: 51px;
+  }
+  .campaign_info{
+    line-height: 1.8 em;
+    text-align: justify;
+    font-family: 'Gentium Basic';
+    margin: 0 100px 30px;
+  }
+}
 .ui.middle.aligned.grid, .ui.middle.aligned.grid > .row > .column, .ui.middle.aligned.grid > .column, .ui.grid .middle.aligned.column, .ui.grid > .middle.aligned.row > .column { vertical-align: initial; }

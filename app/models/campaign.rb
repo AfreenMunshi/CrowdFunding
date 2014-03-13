@@ -38,7 +38,7 @@ class Campaign < ActiveRecord::Base
 
     bank.associate_to_customer(merchant)
 
-    order           = merchant.create_order(description: "#{self.id} : #{self.name}")
+    order           = merchant.create_order(description: "#{self.id} : #{self.title}")
     self.order_uri  = order.href
     self.save
   end

@@ -31,6 +31,11 @@ $(function(){
 	$('.ui.checkbox').checkbox();
 
 	$('.ui.message .close.icon').click(function() { $(this).parent().fadeOut(); });
+
+  $('#voteup').click(function(e){
+    //add ajac call to increament vote
+    $(this).toggleClass('voted');
+  })
 });
 
   $(window).load(function(){
