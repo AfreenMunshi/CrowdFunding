@@ -20,3 +20,8 @@
 /tmp
 /public/system
 /public/bin/
+
+/server.crt
+/server.csr
+/server.key
+/server.orig.key

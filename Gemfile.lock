@@ -91,6 +91,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    daemons (1.1.9)
     devise (3.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -98,6 +99,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
+    eventmachine (1.0.3)
     execjs (2.0.2)
     faker (1.2.0)
       i18n (~> 0.5)
@@ -202,6 +204,10 @@ GEM
       sprockets (~> 2.8)
     statistics2 (0.54)
     temple (0.6.7)
+    thin (1.6.2)
+      daemons (>= 1.0.9)
+      eventmachine (>= 1.0.0)
+      rack (>= 1.0.0)
     thor (0.18.1)
     thread_safe (0.2.0)
       atomic (>= 1.1.7, < 2)
@@ -250,6 +256,7 @@ DEPENDENCIES
   select2-rails
   semantic-ui-sass
   slim (~> 2.0.2)
+  thin
   thumbs_up
   twilio-ruby
   zebra-datepicker-rails

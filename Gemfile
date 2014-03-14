@@ -1,12 +1,10 @@
 source 'https://rubygems.org'
-# "C:\mysql\mysql-5.6.16-winx64\bin\mysqld" --console
+
 
 ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-# Use sqlite3 as the database for Active Record
-# gem 'sqlite3'
 gem 'mysql2'
 gem 'active_model_otp'
 
@@ -28,13 +26,7 @@ gem 'zebra-datepicker-rails'
 
 gem 'balanced', git: 'https://github.com/balanced/balanced-ruby'
 
-#gem 'faraday', '~> 0.8.6'
-#gem 'balanced', github: 'balanced/balanced-ruby', branch: '1.1.dev'
-#this is dev version.. could break any day! 
-
 gem 'activeadmin', github: 'gregbell/active_admin'
-#﻿ github: 'gregbell/active_admin', branch: 'rails4' try this if it doesnt work.. wo bi karke dekh li..hmm kabse iske piche hi hu.. u kno 23mb ka kuch install kar rah
-
 
 # Use Uglifier as compressor for JavaScript assets
 # gem 'uglifier', '>= 1.3.0'
@@ -57,7 +49,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'cancan'
 gem "paperclip", "~> 3.0"
-
+gem 'thin'
 gem 'semantic-ui-sass'
 gem 'slim', "~> 2.0.2"
 
