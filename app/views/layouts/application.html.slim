@@ -8,8 +8,8 @@ html[lang="en"]
     = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/highcharts/2.3.5/highcharts.js", "chartkick"
-    = stylesheet_link_tag 'jquery.rambling.slider'
-    = javascript_include_tag 'jquery.rambling.slider'
+    / = stylesheet_link_tag 'jquery.rambling.slider'
+    / = javascript_include_tag 'jquery.rambling.slider'
     = csrf_meta_tags
     - if content_for?(:meta)
       = yield(:meta)

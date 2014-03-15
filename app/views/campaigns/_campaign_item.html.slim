@@ -26,17 +26,18 @@
         .row
           .column style=""
             p
-              t 'campaigns.item.funded'
+              = t 'campaigns.item.funded'
               br
               = percent
               | %
           .column style=""
             p
-              t 'campaigns.item.target'
+              = t 'campaigns.item.target'
               br
               = campaign.target
         .row
           .column
             p style='text-align: center'
               = distance_of_time_in_words_to_now(campaign.created_at + campaign.days.days)
-              | &nbsp; t 'campaigns.item.togo'
+              | &nbsp;
+                = t 'campaigns.item.togo'

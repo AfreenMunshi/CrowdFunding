@@ -3,13 +3,15 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
 .ui.segment.basic.paged.stacked
   = form_for @campaign, html: { multipart: true } do |f|
     .ui.message
-      .header t 'campaigns.form.newC'
+      .header
+        = t 'campaigns.form.newC'
 
     - if @campaign.errors.any?
       .ui.error.message
         .header
           = pluralize(@campaign.errors.count, "error")
-          | &nbsp; t 'campaigns.form.prohibitCamp'
+          | &nbsp;
+            = t 'campaigns.form.prohibitCamp'
         ul.ui.list
           - @campaign.errors.full_messages.each do |msg|
             li= msg
@@ -17,56 +19,62 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
     .ui.small.steps style='width:100%'
       .ui.step.active  style='width:33%'
         i.white.info.letter.icon
-        t 'campaigns.form.campinfo'
+        = t 'campaigns.form.campinfo'
         i.green.checkmark.circular.inverted.icon
       .ui.step  style='width:33%'
         i.white.photo.icon
-        t 'campaigns.form.campAsset'
+        = t 'campaigns.form.campAsset'
         i.green.checkmark.circular.inverted.icon
       .ui.step  style='width:33%'
         i.white.payment.icon
-        t 'campaigns.form.bankDetail'
+        = t 'campaigns.form.bankDetail'
         i.green.checkmark.circular.inverted.icon
 
     .ui.form.segment
       .form-step
         .ui.small.ribbon.teal.label
-          t 'campaigns.form.mate'
+          = t 'campaigns.form.mate'
         br
         br
         .field
-          label t 'campaigns.form.title'
+          label
+            = t 'campaigns.form.title'
           .ui.labeled.icon.input
             = f.text_field :title
         .field
-          label t 'campaigns.form.information'
+          label
+            = t 'campaigns.form.information'
           .ui.labeled.icon.input
             = f.text_field :info
         .field
-          label t 'campaigns.form.Days'
+          label
+            = t 'campaigns.form.Days'
           .ui.labeled.icon.input
             = f.number_field :days
         .field
-          label t 'campaigns.form.monetaryTarget'
+          label
+            = t 'campaigns.form.monetaryTarget'
           .ui.labeled.icon.input
             = f.number_field :target
         .field
-          label First Reward
+          label
+            = t 'freward'
           .ui.labeled.icon.input
             = f.text_field :first_reward
         .field
-          label Highest Reward
+          label
+            = t 'hreward'
           .ui.labeled.icon.input
             = f.text_field :highest_reward
 
 
         .ui.tiny.teal.right.labeled.icon.button.floated.next_button
           i.right.arrow.icon
-          t 'campaigns.form.next'
+          = t 'campaigns.form.next'
 
       .form-step.hide
         .ui.small.ribbon.teal.label
-          t 'campaigns.form.selfie' &nbsp;
+          = t 'campaigns.form.selfie' &nbsp;
           i.icon.smile.white.large
         br
         br
@@ -85,25 +93,25 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
             = f.text_field :tag_list, class: 'tags_input'
         .field
           .ui.labeled.icon.input
-            t 'campaigns.form.selCampCat'
+            = t 'campaigns.form.selCampCat'
             | #{f.collection_select :category_id, Category.all.order(:name),:id,:name}
         .field
-          label 
-            t 'campaigns.form.social'
+          label
+            = t 'campaigns.form.social'
           .ui.labeled.icon.input
             = f.text_field :socialplug
 
         .ui.tiny.teal.right.labeled.icon.button.floated.next_button
           i.right.arrow.icon
-          t 'campaigns.form.next'
+          = t 'campaigns.form.next'
         .ui.tiny.teal.left.labeled.icon.button.floated.prev_button
-          t 'campaigns.form.prev'
+          = t 'campaigns.form.prev'
           i.left.arrow.icon
 
       .form-step.hide
         .ui.small.ribbon.teal.label
           i.icon.money.white.large
-          t 'campaign.form.dreams' &nbsp;
+          = t 'campaign.form.dreams' &nbsp;
           i.icon.money.white.large
         br
         br
@@ -129,7 +137,7 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
 
         = f.submit "Create campaign", class: 'ui teal submit button right floated'
         .ui.tiny.teal.left.labeled.icon.button.floated.prev_button
-          t 'campaigns.form.prev'
+          = t 'campaigns.form.prev'
           i.left.arrow.icon
 
       / need to write js here.. coz we need to pass tags to selct 2 .. so pure js nai hai.. rails code bhi hai

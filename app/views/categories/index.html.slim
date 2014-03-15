@@ -1,14 +1,14 @@
 /Statistics Page
 
-h1= t :hello_world
+/h1= = t :hello_world
 / p
 /   = flash[:notice]
 
 .ui.basic.segment.no_radius.paged style='width:1140px !important;'
   p
     center
-      strong 
-        t 'categories.index.noCampCat'
+      strong
+        = t 'categories.index.noCampCat'
     br
     = pie_chart Campaign.group("category").count
     br
@@ -16,8 +16,8 @@ h1= t :hello_world
     i.browser.icon
   p
     center
-      strong 
-        t 'categories.index.classBirth'
+      strong
+        = t 'categories.index.classBirth'
     br
 
     = column_chart User.group("year(bday)").count

@@ -4,42 +4,42 @@
   .ui.two.column.middle.aligned.relaxed.grid.basic.segment
     .column
       center
-        b 
-          t 'users.show.profile'
+        b
+          = t 'users.show.profile'
         p
           table.ui.padded.table.segment
             tr
               td
-                b 
-                  t 'users.show.name'
+                b
+                  = t 'users.show.name'
               td
                 = @user.name
             tr
               td
-                b 
-                  t 'users.show.email'
+                b
+                  = t 'users.show.email'
               td
                 = @user.email
             tr
               td
-                b 
-                  t 'users.show.bday'
+                b
+                  = t 'users.show.bday'
               td
                 = @user.bday
     .ui.vertical.divider
     .column
       center
-        b 
-          t 'users.show.transactionHistory'
+        b
+          = t 'users.show.transactionHistory'
         p
           table.ui.padded.table.segment
 
 
               tr
-                th 
-                  t 'users.show.amount'
-                th 
-                  t 'users.show.campaign'
+                th
+                  = t 'users.show.amount'
+                th
+                  = t 'users.show.campaign'
 
               - @user.transactions.each do |transaction|
                 tr

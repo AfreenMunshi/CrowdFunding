@@ -3,21 +3,21 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
 .ui.form
   = form_for( @transaction, html: { id: 'credit-card-form' } ) do |f|
     .ui.message.back_tealed
-      .header 
-        t 'transactions.new.newCamp'
+      .header
+        = t 'transactions.new.newCamp'
 
     .ui.small.steps style='width:100%'
       .ui.step.active  style='width:33%'
         i.white.info.letter.icon
-          t 'transactions.new.creditDetail'
+          = t 'transactions.new.creditDetail'
         i.green.checkmark.circular.inverted.icon
       .ui.step  style='width:33%'
         i.white.photo.icon
-          t 'transactions.new.amountTrans2'
+          = t 'transactions.new.amountTrans2'
         i.green.checkmark.circular.inverted.icon
       .ui.step  style='width:33%'
         i.white.payment.icon
-          t 'transactions.new.verificationTrans'
+          = t 'transactions.new.verificationTrans'
         i.green.checkmark.circular.inverted.icon
 
 
@@ -25,35 +25,35 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
       .ui.error.message
         .header
           = pluralize(@transaction.errors.count, "error")
-          t 'transactions.new.prohibitTrans2'
+          = t 'transactions.new.prohibitTrans2'
         ul.ui.list
           - @transaction.errors.full_messages.each do |msg|
             li= msg
 
-    .ui.form.segment  
+    .ui.form.segment
       .field
-        label 
-          t 'transactions.new.creditcardNo'
+        label
+          = t 'transactions.new.creditcardNo'
         = text_field_tag "cc-number", nil, :placeholder => "Enter Credit Card Number", :class => "cc-number", :autocomplete => "off"
 
       .two.fields
         .field
-          label 
-            t 'transactions.new.expiryMonth'
+          label
+            = t 'transactions.new.expiryMonth'
           = text_field_tag "cc-em", nil, :placeholder => "Expiration Month", :class => "cc-em", :autocomplete => "off"
         .field
-          label 
-            t 'transactions.new.expiryYear'
+          label
+            = t 'transactions.new.expiryYear'
           = text_field_tag "cc-em", nil, :placeholder => "Expiration Year", :class => "cc-ey", :autocomplete => "off"
 
       .field
-        label 
-          t 'transactions.new.securityCode'
+        label
+          = t 'transactions.new.securityCode'
         = text_field_tag "cc-csc", nil, :placeholder => "Security Code", :class => "cc-csc", :autocomplete => "off"
 
       .field
-        label 
-          t 'transactions.new.amountTrans2'
+        label
+          = t 'transactions.new.amountTrans2'
         .ui.labeled.icon.input
           = f.text_field :amount
       .field
@@ -61,5 +61,5 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
       .field
         = f.hidden_field :campaign_id
       .actions
-        = f.submit 
-        t 'transactions.new.submit' , class: 'ui teal submit button'
+        = f.submit
+        = t 'transactions.new.submit' , class: 'ui teal submit button'

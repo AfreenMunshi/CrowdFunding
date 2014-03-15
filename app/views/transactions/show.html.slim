@@ -4,25 +4,25 @@
     thead
       tr
         th
-          t 'transactions.show.trans'
+          = t 'transactions.show.trans'
         th
-          t 'transactions.show.suggestion'
+          = t 'transactions.show.suggestion'
     tbody
       tr
         td
           - if @transaction.verified
             p
-              t 'transactions.show.thanksTrans'
+              = t 'transactions.show.thanksTrans'
           - else
             p
-              t 'transactions.show.verifyTrans'
+              = t 'transactions.show.verifyTrans'
           p
             strong
-              t 'transactions.show.campaignTrans'
+              = t 'transactions.show.campaignTrans'
             = @transaction.campaign.title
           p
             strong
-              t 'transactions.show.amountTrans'
+              = t 'transactions.show.amountTrans'
             = @transaction.amount
 
           - if !@transaction.verified
@@ -30,7 +30,7 @@
               .ui.form.segment
                 .field
                   .ui.labeled.icon.input
-                    t 'transactions.show.otpEnter'
+                    = t 'transactions.show.otpEnter'
                     = number_field_tag 'code'
 
                     = submit_tag 'Save' , class: 'ui blue submit button'

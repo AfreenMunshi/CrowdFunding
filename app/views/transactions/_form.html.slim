@@ -3,14 +3,14 @@
     #error_explanation
       h2
         = pluralize(@transaction.errors.count, "error")
-        t 'transactions.form.prohibitTrans'
+        = t 'transactions.form.prohibitTrans'
       ul
         - @transaction.errors.full_messages.each do |msg|
           li= msg
   .ui.form.segment
     .field
-      label 
-        t 'transactions.form.amountTrans'
+      label
+        = t 'transactions.form.amountTrans'
       .ui.labeled.icon.input
         = f.text_field :amount
     .field
@@ -18,5 +18,5 @@
     .field
       = f.hidden_field :campaign_id
     .actions
-      = f.submit 
-        t 'transactions.form.submit', class: 'ui blue submit button'
+      = f.submit
+        = t 'transactions.form.submit', class: 'ui blue submit button'
