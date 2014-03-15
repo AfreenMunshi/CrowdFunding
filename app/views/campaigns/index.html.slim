@@ -8,9 +8,10 @@
 
   - elsif params[:tag].present?
     .ui.basic.stackable.items.segment.no_radius.paged
-      .ui.header
+      .tag style='font-size: 14px; cursor: default; color: black;'
+        = params[:tag].try(:humanize)
 
-        / ******* Want to add Tag name in header. ******/
+      .ui.clearing.divider
 
       - @campaigns.each do |campaign|
         = render partial: 'campaign_item', locals: { campaign: campaign }
