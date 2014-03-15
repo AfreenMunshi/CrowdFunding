@@ -7,7 +7,8 @@ h1= t :hello_world
 .ui.basic.segment.no_radius.paged style='width:1140px !important;'
   p
     center
-      strong Number of Camapigns in each Category:
+      strong 
+        t 'categories.index.noCampCat'
     br
     = pie_chart Campaign.group("category").count
     br
@@ -15,7 +16,8 @@ h1= t :hello_world
     i.browser.icon
   p
     center
-      strong Classification of Users according to Birthdate:
+      strong 
+        t 'categories.index.classBirth'
     br
 
     = column_chart User.group("year(bday)").count
@@ -24,7 +26,7 @@ h1= t :hello_world
     i.browser.icon
   p
     center
-      strong Number of Votes for each Campaign:
+      strong 'categories.index.noVotesCamp'
     br
     = bar_chart Vote.group("voteable_id").count
     br

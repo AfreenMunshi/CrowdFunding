@@ -3,7 +3,7 @@
 .ui.basic.segment.no_radius.paged.campaign_show style='width:1140px !important; overflow:hidden; margin-bottom: 50px; !important'
   - if (Time.now - @campaign.created_at)/1.hour < 24
     a.ui.right.teal.corner.label
-      .text New
+      .text t 'campaigns.show.new'
 
   img.circular.ui.image src=(@campaign.banner.url)
 
@@ -11,7 +11,8 @@
     = @campaign.title
 
   h2.pinline
-    span Campiagn tagline
+    span 
+      t 'campaigns.show.campTag'
 
   p.campaign_info
     = @campaign.info
@@ -31,14 +32,14 @@
               .row
                 .column style=""
                   p
-                    |Funded
+                    t 'campaigns.show.funded2'
                     - percent = (@campaign.collected*100.0/@campaign.target).round(2)
                     br
                     = percent
                     | %
                 .column style=""
                   p
-                    |Target
+                    t 'campaigns.show.target2'
                     br
                     = @campaign.target
               .row
@@ -48,15 +49,16 @@
                     .bar style="width:#{percent > 100 ? 100 : percent}%;"
                   p style='text-align: center'
                     = distance_of_time_in_words_to_now(@campaign.created_at + @campaign.days.days)
-                    | &nbsp;to go
+                    | &nbsp; 
+                      t 'campaigns.show.togo2'
           br
 
           - if current_user.try(:id) != @campaign.user_id
             a href="/donate/#{@campaign.id}"
               .ui.animated.fade.button
-                .visible.content Contribute Now
+                .visible.content t 'campaigns.show.contriNow' 
                 .hidden.content
-                  | Go For It
+                  t 'campaigns.show.gofoi'
           br
           br
           - @campaign.tag_list.each do |tag|
@@ -67,5 +69,7 @@
     .flipper-container href="#voteup"
       #voteup.flipper
         .front-face data-icon="➣" href="#"
-          span data-hover="Clicked"  Vote us UP!
-        .back-face data-icon="✓"  Thank You
+          span data-hover="Clicked"  
+            t 'campaigns.show.vote'
+        .back-face data-icon="✓"  
+          t 'campaigns.show.thanku'

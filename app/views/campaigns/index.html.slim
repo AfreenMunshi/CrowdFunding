@@ -20,7 +20,7 @@
       .column
         .ui.segment.stackable.items.inline-block
           .ui.ribbon.label.purple
-            | Popular
+            t 'campaigns.index.popular' 
           .ui.invisible.clearing.divider
 
           - @campaigns.first(2).each do |campaign|
@@ -34,7 +34,7 @@
       .column
         .ui.segment.stackable.items.inline-block.left_margin
           .ui.ribbon.label.teal
-            | Newly Launched
+            t 'campaigns.index.newlyLaun'
           .ui.invisible.clearing.divider
 
           - @campaigns.last(2).each do |campaign|
