@@ -2,9 +2,19 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :get_language
   before_filter :populate_categories
   protect_from_forgery with: :exception
- 
+
+
+
+  def get_language
+    if params[:locale].nil?
+      I18n.locale = "en"
+    else
+      I18n.locale = params[:locale]
+    end
+  end
 
   def populate_categories
   	@categories = Category.all

@@ -1,10 +1,18 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
+# def default_url_options(options={})
+#   logger.debug "default_url_options is passed options: #{options.inspect}\n"
+#   { locale: I18n.locale }
+# end
+
+
+
   # GET /categories
   def index
-    @categories = Category.all
-    # I18n.locale = "hi"
+    # flash[:notice] = t(:hello_flash)
+    # @categories = Category.all
+    # I18n.locale = "pirate"
   end
 
   # GET /categories/1

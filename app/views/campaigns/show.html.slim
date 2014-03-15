@@ -59,8 +59,8 @@
                   | Go For It
           br
           br
-          - @campaign.tag_list.each do |t|
-              = link_to t, tag_path(t), class: 'ui small purple label camplabel'
+          - @campaign.tag_list.each do |tag|
+              = link_to tag, tag_path(I18n.locale, tag), class: 'ui small purple label camplabel'
 
 
   div style='text-align:center; margin: 20px;'

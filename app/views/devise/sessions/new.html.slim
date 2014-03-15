@@ -1,6 +1,6 @@
 
 .ui.form.raised.teal.stacked.segment.devise.sign class=('error' if resource.errors.full_messages.present?)
-  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+  = form_for(resource, :as => resource_name, :url => session_path(I18n.locale, resource_name)) do |f|
     .ui.message.back_tealed
       .header Sign in
       | Come onboard with us!

@@ -9,7 +9,7 @@
 
 #yml files wont be commited since it containes imp keys. i tell git here to ignore all .yml files
 *.yml
-
+!/config/locales/*.yml
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
