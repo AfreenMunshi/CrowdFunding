@@ -20,7 +20,122 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  layout:
-    footer:
-      bb: BucksBacker
-  hello_flash: Hello flash!
+	layout:
+		footer:
+			bb: BucksBacker
+			bbtag: Dealing with the dark places in life
+			lang1: English
+			lang2: Pirate
+			social1: Google Plus
+			social2: Twitter
+			social3: Dribbble
+			social4: Facebook
+			social5: LinkedIn
+
+		header:
+			home: Home
+			CamCat: Campaign Categories
+			stat: Statistics
+			newCamp: New Campaign
+			dashB:  Dashboard
+			signup: Sign Up
+			signin: Sign In
+
+	campaigns:
+		item:
+			funded: Funded
+			target: Target
+			togo: To Go
+
+		form:
+			newC: New Campaign
+			prohibitCamp:Prohibited this campaign from being saved:
+			campinfo: Campaign Info
+			campAsset: Campaign Assets
+			bankDetail: Bank Details
+			mate: Yo mate. Wats up!
+			title: Title
+			information: Information
+			Days: Days
+			monetaryTarget: Monetary Target
+			next: Next
+			selfie: No selfies please.
+			campBanner: Campaign Banner
+			campVideo: Campaign Video
+			selCampCat: Select Campaign Category:
+			prev: Previous
+			dreams: For your dreams.
+			social: Social Plug
+
+		index:
+			popular: Popular
+			newlyLaun: Newly Launched
+
+		show:
+			new: New
+			campTag: Campaign tagline
+			funded2: Funded
+			target2: Target
+			togo2: To Go
+			contriNow: Contribute Now
+			gofoi: Go For It
+			vote: Vote us UP!
+			thanku: Thank You
+
+	categories:
+		form:
+			prohibitCamp2:Prohibited this campaign from being saved:
+
+		edit:
+			editCat: Editing category:
+
+		index:
+			noCampCat: Number of Campaigns in each Category:
+			classBirth: Classification of Users according to Birthdate:
+			noVotesCamp: Number of Votes for each Campaign:
+
+		new:
+			newCat: New category
+
+	users:
+		show:
+			profile: Your Profile Information:
+			name: Name
+			email: E-mail
+			bday: Birth Day
+			transactionHistory: Your transaction history:
+			amount: Amount
+			campaign: Campaign
+
+	transactions:
+
+		form:
+			prohibitTrans: Prohibited this transaction from being saved:
+			amountTrans: Amount
+			submit : Submit
+
+		edit:
+			editTrans: Editing Transaction:
+
+		new:
+			newCamp: New Campaign
+			creditDetail: Credit Details
+			amountTrans2: Amount
+			verificationTrans: Verification
+			prohibitTrans2: Prohibited this transaction from being saved
+			creditcardNo: Credit Card number
+			expiryMonth: Expiration Month
+			expiryYear: Expiration Year
+			securityCode: Security Code
+			amountTrans2: Amount
+			submit: Submit
+
+
+		show:
+			trans: Transaction
+			suggestion: Some Similar Campaigns you would like to Contribute to
+			thanksTrans: Thanks for the contribution
+			verifyTrans: Please verify your transaction
+			campaignTrans: Campaign
+			amountTrans: Amount
+			otpEnter: Enter OTP code

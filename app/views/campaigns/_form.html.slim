@@ -3,13 +3,13 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
 .ui.segment.basic.paged.stacked
   = form_for @campaign, html: { multipart: true } do |f|
     .ui.message
-      .header New Campaign
+      .header t 'campaigns.form.newC'
 
     - if @campaign.errors.any?
       .ui.error.message
         .header
           = pluralize(@campaign.errors.count, "error")
-          | &nbsp; prohibited this campaign from being saved:
+          | &nbsp; t 'campaigns.form.prohibitCamp'
         ul.ui.list
           - @campaign.errors.full_messages.each do |msg|
             li= msg
@@ -17,37 +17,37 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
     .ui.small.steps style='width:100%'
       .ui.step.active  style='width:33%'
         i.white.info.letter.icon
-        | Campaign Info
+        t 'campaigns.form.campinfo'
         i.green.checkmark.circular.inverted.icon
       .ui.step  style='width:33%'
         i.white.photo.icon
-        | Campaign Assets
+        t 'campaigns.form.campAsset'
         i.green.checkmark.circular.inverted.icon
       .ui.step  style='width:33%'
         i.white.payment.icon
-        | Bank Details
+        t 'campaigns.form.bankDetail'
         i.green.checkmark.circular.inverted.icon
 
     .ui.form.segment
       .form-step
         .ui.small.ribbon.teal.label
-          | Yo mate. Wats up!
+          t 'campaigns.form.mate'
         br
         br
         .field
-          label Title
+          label t 'campaigns.form.title'
           .ui.labeled.icon.input
             = f.text_field :title
         .field
-          label Information
+          label t 'campaigns.form.information'
           .ui.labeled.icon.input
             = f.text_field :info
         .field
-          label Days
+          label t 'campaigns.form.Days'
           .ui.labeled.icon.input
             = f.number_field :days
         .field
-          label Monetary Target
+          label t 'campaigns.form.monetaryTarget'
           .ui.labeled.icon.input
             = f.number_field :target
         .field
@@ -62,20 +62,20 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
 
         .ui.tiny.teal.right.labeled.icon.button.floated.next_button
           i.right.arrow.icon
-          | Next
+          t 'campaigns.form.next'
 
       .form-step.hide
         .ui.small.ribbon.teal.label
-          | No selfies please. &nbsp;
+          t 'campaigns.form.selfie' &nbsp;
           i.icon.smile.white.large
         br
         br
         .field
-          label Campaign Banner
+          label 'campaigns.form.campBanner'
           .ui.labeled.icon.input
             = f.file_field :banner
         .field
-          label Campaign Video
+          label 'campaigns.form.campVideo'
           .ui.labeled.icon.input
             = f.file_field :video
         .field
@@ -85,24 +85,25 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
             = f.text_field :tag_list, class: 'tags_input'
         .field
           .ui.labeled.icon.input
-            | Select Campaign Category:
+            t 'campaigns.form.selCampCat'
             | #{f.collection_select :category_id, Category.all.order(:name),:id,:name}
         .field
-          label Social Plug
+          label 
+            t 'campaigns.form.social'
           .ui.labeled.icon.input
             = f.text_field :socialplug
 
         .ui.tiny.teal.right.labeled.icon.button.floated.next_button
           i.right.arrow.icon
-          | Next
+          t 'campaigns.form.next'
         .ui.tiny.teal.left.labeled.icon.button.floated.prev_button
-          | Previous
+          t 'campaigns.form.prev'
           i.left.arrow.icon
 
       .form-step.hide
         .ui.small.ribbon.teal.label
           i.icon.money.white.large
-          | For your dreams. &nbsp;
+          t 'campaign.form.dreams' &nbsp;
           i.icon.money.white.large
         br
         br
@@ -128,7 +129,7 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
 
         = f.submit "Create campaign", class: 'ui teal submit button right floated'
         .ui.tiny.teal.left.labeled.icon.button.floated.prev_button
-          | Previous
+          t 'campaigns.form.prev'
           i.left.arrow.icon
 
       / need to write js here.. coz we need to pass tags to selct 2 .. so pure js nai hai.. rails code bhi hai

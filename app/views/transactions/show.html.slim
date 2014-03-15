@@ -1,21 +1,28 @@
+
 .ui.basic.segment.no_radius.paged style='width:1140px !important;'
   table.ui.celled.table.segment
     thead
       tr
-        th Transaction:
-        th Some Similar Campaigns you would like to Contribute to:
+        th
+          t 'transactions.show.trans'
+        th
+          t 'transactions.show.suggestion'
     tbody
       tr
         td
           - if @transaction.verified
-            p Thanks for the contribution
+            p
+              t 'transactions.show.thanksTrans'
           - else
-            p Please verify your transaction
+            p
+              t 'transactions.show.verifyTrans'
           p
-            strong Campaign:
+            strong
+              t 'transactions.show.campaignTrans'
             = @transaction.campaign.title
           p
-            strong Amount:
+            strong
+              t 'transactions.show.amountTrans'
             = @transaction.amount
 
           - if !@transaction.verified
@@ -23,7 +30,7 @@
               .ui.form.segment
                 .field
                   .ui.labeled.icon.input
-                    | Enter OTP code
+                    t 'transactions.show.otpEnter'
                     = number_field_tag 'code'
 
                     = submit_tag 'Save' , class: 'ui blue submit button'
@@ -33,31 +40,3 @@
             .ui.header
             - @related_campaign.each do |campaign|
               = render partial: 'campaigns/campaign_item', locals: { campaign: campaign }
-
-
-
-  / - if @transaction.verified
-  /   p Thanks for the contribution
-  / - else
-  /   p Please verify your transaction
-  / p
-  /   strong Campaign:
-  /   = @transaction.campaign.title
-  / p
-  /   strong Amount:
-  /   = @transaction.amount
-  / .ui.basic.stackable.items.segment.no_radius.paged
-  /     .ui.header
-  /     - @related_campaign.each do |campaign|
-  /       = render partial: 'campaigns/campaign_item', locals: { campaign: campaign }
-
-  / - if !@transaction.verified
-  /   = form_tag(verify_transaction_path(I18n.locale, @transaction.id), method: :post) do
-  /     .ui.form.segment
-  /       .field
-  /         .ui.labeled.icon.input
-  /           | Enter OTP code
-  /           = number_field_tag 'code'
-
-  /           = submit_tag 'Save' , class: 'ui blue submit button'
-  /   = link_to 'Regenerate OTP code', otp_regenerate_path(I18n.locale, @transaction), method: :post

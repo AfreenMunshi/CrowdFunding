@@ -4,35 +4,42 @@
   .ui.two.column.middle.aligned.relaxed.grid.basic.segment
     .column
       center
-        b Your Profile Information:
+        b 
+          t 'users.show.profile'
         p
           table.ui.padded.table.segment
             tr
               td
-                b Name:
+                b 
+                  t 'users.show.name'
               td
                 = @user.name
             tr
               td
-                b Email:
+                b 
+                  t 'users.show.email'
               td
                 = @user.email
             tr
               td
-                b Birth Day:
+                b 
+                  t 'users.show.bday'
               td
                 = @user.bday
     .ui.vertical.divider
     .column
       center
-        b Your transaction history:
+        b 
+          t 'users.show.transactionHistory'
         p
           table.ui.padded.table.segment
 
 
               tr
-                th Amount
-                th Campaign
+                th 
+                  t 'users.show.amount'
+                th 
+                  t 'users.show.campaign'
 
               - @user.transactions.each do |transaction|
                 tr
