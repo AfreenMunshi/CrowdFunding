@@ -50,6 +50,15 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
           label Monetary Target
           .ui.labeled.icon.input
             = f.number_field :target
+        .field
+          label First Reward
+          .ui.labeled.icon.input
+            = f.text_field :first_reward
+        .field
+          label Highest Reward
+          .ui.labeled.icon.input
+            = f.text_field :highest_reward
+
 
         .ui.tiny.teal.right.labeled.icon.button.floated.next_button
           i.right.arrow.icon

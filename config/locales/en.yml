@@ -20,5 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello_world: Hello world!
+  layout:
+    footer:
+      bb: BucksBacker
   hello_flash: Hello flash!

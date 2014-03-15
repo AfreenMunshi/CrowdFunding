@@ -59,6 +59,15 @@
                   | Go For It
           br
           br
+          h5
+            |First Reward :
+            = @campaign.first_reward
+          br
+          h5
+            |Highest Reward :
+            = @campaign.highest_reward
+          br
+          br
           - @campaign.tag_list.each do |tag|
               = link_to tag, tag_path(I18n.locale, tag), class: 'ui small purple label camplabel'
 

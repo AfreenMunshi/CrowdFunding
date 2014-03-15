@@ -46,7 +46,7 @@ class CampaignsController < ApplicationController
       @campaign.add_details(params[:balancedBankAccountURI])
       # Tell the UserMailer to send a welcome email after save
       CampaignMailer.welcome_email(@campaign.user).deliver
-      redirect_to @campaign, notice: 'Campaign was successfully created.'
+      redirect_to campaign_path(I18n.locale, @campaign.id), notice: 'Campaign was successfully created.'
     else
       render action: 'new'
     end
@@ -55,7 +55,7 @@ class CampaignsController < ApplicationController
   # PATCH/PUT /campaigns/1
   def update
     if @campaign.update(campaign_params)
-      redirect_to @campaign, notice: 'Campaign was successfully updated.'
+      redirect_to campaign_path(I18n.locale, @campaign.id), notice: 'Campaign was successfully updated.'
     else
       render action: 'edit'
     end
@@ -76,6 +76,6 @@ class CampaignsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def campaign_params
-      params.require(:campaign).permit(:title, :info, :days, :target, :user_id, :banner, :video, :category_id, :socialplug, :tag_list, :Thumbs_up) if params[:campaign]
+      params.require(:campaign).permit(:title, :info, :days, :target, :user_id, :banner, :video, :category_id, :socialplug, :tag_list, :Thumbs_up, :first_reward, :highest_reward) if params[:campaign]
     end
 end

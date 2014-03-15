@@ -8,11 +8,13 @@ class TransactionsController < ApplicationController
     is_verified = @transaction.authenticate_otp(params[:code], drift: 90)
     if is_verified
       #fat model and thin controller at least
+      binding.pry
       @transaction.mark_verifed_and_debit
+     binding.pry
     else
       flash[:notice] = 'InValid Code'
     end
-    redirect_to @transaction
+    redirect_to transaction_path(I18n.locale, @transaction.id)
   end
 
   def generate_otp_code
@@ -21,7 +23,7 @@ class TransactionsController < ApplicationController
     number_to_send_to = '+919930443487'
     send_otp_code(number_to_send_to)
     flash[:notice] = "Sent new OTP code to ur Mobile"
-    redirect_to @transaction
+    redirect_to transaction_path(I18n.locale, @transaction.id)
   end
 
   # GET /transactions
@@ -31,6 +33,9 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/1
   def show
+          @campaign = @transaction.campaign
+      @related_campaign =  @campaign.category.campaigns.where("id != ?", @campaign.id).limit(2)
+
   end
 
   # GET /transactions/new
@@ -57,7 +62,7 @@ end
       @campaign  = @transaction.campaign
       number_to_send_to = '+919930443487'
       send_otp_code(number_to_send_to)
-      redirect_to @transaction
+      redirect_to transaction_path(I18n.locale, @transaction.id)
     else
       render action: 'new'
     end
@@ -83,7 +88,7 @@ end
       client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
 
       # Create and send an SMS message
- 
+
       client.account.sms.messages.create(
         from: TWILIO_CONFIG['from'],
         to: number_to_send_to,
@@ -102,5 +107,5 @@ end
       params.require(:transaction).permit(:amount, :user_id, :campaign_id)
     end
 
-    
+
 end
