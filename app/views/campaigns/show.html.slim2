@@ -19,7 +19,7 @@
 
 
 
-        = link_to "like", vote_for_campaign_path(@campaign)
+        = link_to "like", vote_for_campaign_path(I18n.locale,@campaign)
         /= Vote(vote).count
         /= Campaign.group("category").count
     .row
@@ -62,7 +62,7 @@
           br
           br
           - @campaign.tag_list.each do |t|
-              = link_to t, tag_path(t), class: 'ui small purple label camplabel'
+              = link_to t, tag_path(I18n.locale,t), class: 'ui small purple label camplabel'
 
     .row
       .column style=""

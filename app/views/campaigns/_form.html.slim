@@ -58,12 +58,12 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
             = f.number_field :target
         .field
           label
-            = t 'freward'
+            = t 'campaigns.form.freward'
           .ui.labeled.icon.input
             = f.text_field :first_reward
         .field
           label
-            = t 'hreward'
+            = t 'campaigns.form.hreward'
           .ui.labeled.icon.input
             = f.text_field :highest_reward
 
@@ -74,21 +74,25 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
 
       .form-step.hide
         .ui.small.ribbon.teal.label
-          = t 'campaigns.form.selfie' &nbsp;
+          = t 'campaigns.form.selfie'
+          | &nbsp;
           i.icon.smile.white.large
         br
         br
         .field
-          label 'campaigns.form.campBanner'
+          label
+            = t 'campaigns.form.campBanner'
           .ui.labeled.icon.input
             = f.file_field :banner
         .field
-          label 'campaigns.form.campVideo'
+          label
+            = t 'campaigns.form.campVideo'
           .ui.labeled.icon.input
             = f.file_field :video
         .field
-          = f.label :tag_list, "Tags (separated by commas)"
-          br/
+          - taglabel = t 'campaigns.form.tag1'
+          = f.label :tag_list, taglabel
+          br
           .ui.labeled.icon.input
             = f.text_field :tag_list, class: 'tags_input'
         .field
@@ -111,31 +115,32 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
       .form-step.hide
         .ui.small.ribbon.teal.label
           i.icon.money.white.large
-          = t 'campaign.form.dreams' &nbsp;
+          = t 'campaigns.form.dreams'
+          | &nbsp;
           i.icon.money.white.large
         br
         br
         .field
-          = label_tag "ba-name", "Account Holder's Name"
+          = label_tag "ba-name", "#{t 'campaigns.form.accName'}"
           .ui.labeled.icon.input
             = text_field_tag "ba-name", nil, :placeholder => "Account Holder's Name", :class => "ba-name", :autocomplete => "off"
         .field
-          = label_tag "ba-rn", "Routing Number"
+          = label_tag "ba-rn", "#{t 'campaigns.form.accRouNo'}"
           .ui.labeled.icon.input
             = text_field_tag "ba-rn", nil, :placeholder => "Routing Number", :class => "ba-rn", :autocomplete => "off"
         .field
-          = label_tag "ba-an", "Account Number"
+          = label_tag "ba-an", "#{t 'campaigns.form.accNo'}"
           .ui.labeled.icon.input
             = text_field_tag "ba-an", nil, :placeholder => "Account Number", :class => "ba-an", :autocomplete => "off"
         .field
-          = label_tag "ba-type", "Type"
+          = label_tag "ba-type", "#{t 'campaigns.form.accType'}"
           .ui.labeled.icon.input
             = select_tag "ba-type", "<option value='' disabled selected style='display:none;'>Select Account Type</option><option value=\"checking\">CHECKING</option><option value=\"savings\">SAVINGS</option>".html_safe
 
         div
           = recaptcha_tags
 
-        = f.submit "Create campaign", class: 'ui teal submit button right floated'
+        = f.submit "#{t 'campaigns.form.create'}", class: 'ui teal submit button right floated'
         .ui.tiny.teal.left.labeled.icon.button.floated.prev_button
           = t 'campaigns.form.prev'
           i.left.arrow.icon

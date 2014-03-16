@@ -26,8 +26,6 @@
 
           - @campaigns.first(2).each do |campaign|
             = render partial: 'campaign_item', locals: { campaign: campaign }
-          / - @campaigns.last(2).each do |campaign|
-          /   = render partial: 'campaign_item', locals: { campaign: campaign }
 
       .ui.vertical.divider
         i.heart.icon.red
@@ -41,13 +39,7 @@
           - @campaigns.last(2).each do |campaign|
             = render partial: 'campaign_item', locals: { campaign: campaign }
 
-          / - @campaigns.last(2).each do |campaign|
-          /   = render partial: 'campaign_item', locals: { campaign: campaign }
-
 
     .ui.clearing.invisible.divider
   / = stylesheet_link_tag 'jquery.rambling.slider'
   / = javascript_include_tag 'jquery.rambling.slider'
-
-
-

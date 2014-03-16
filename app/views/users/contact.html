@@ -1,0 +1,115 @@
+
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <style>
+      #map_canvas {
+        width: 500px;
+        height: 400px;
+         background-color: #CCC;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script>
+      function initialize() {
+        var map_canvas = document.getElementById('map_canvas');
+        var map_options = {
+          center: new google.maps.LatLng(44.5403, -78.5463),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(map_canvas, map_options)
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+
+
+    <body>
+          <div align="center">
+  <b> <big> <em> Contact Us </em></big> </b>
+        </div>
+        <br>
+
+        <p> <b>Write to get in touch with us !
+            </b> </p>
+        <div>
+            <form name="detail">
+                <table  width ="1000">
+
+                    <tbody>
+                        <tr>
+                            <td> <b> Name </b></td>
+                            <td><input type="text" name="name" value="" size="150" /></td>
+                        </tr>
+                        <tr>
+                            <td><b> Address </b></td>
+                            <td> <input type="text" name="name" value="" size="150"/></td>
+                        </tr>
+                        <tr>
+                            <td> <b> Contact </b> </td>
+                            <td> <input type="text" name="name" value="" size="150"/></td>
+                        </tr>
+                        <tr>
+                            <td><b>Email </b></td>
+                            <td> <input type="text" name="name" value="" size="150"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br> <br>
+                <div align ="center">
+                <input type="submit" value="SEND" name="send" /></div>
+            </form>
+
+            <br>
+      <br>
+            <div align="center">
+                <big> <b> <em>
+                Meet Us Up!
+                        </em> </b> </big>
+            <br>
+      <br>
+
+      <table>
+      <tr>
+          <td>
+          <div id="map_canvas"></div>
+          </td>
+        <td>
+                 <b>BucksBackers Team</b>
+                 <br>Block No. 202
+                 <br>Meena Industrial Estate
+                 <br>Aram Nagar Part - 2
+                &nbsp;&nbsp;&nbsp;<br>Fisheries University Road
+                &nbsp;&nbsp;&nbsp;<br>Next to Versova Metro Station
+                &nbsp;&nbsp;&nbsp;<br>7 Bungalows
+                &nbsp;&nbsp;&nbsp;<br>Andheri(West)
+                &nbsp;&nbsp;&nbsp;<br>Mumbai - 400061
+                &nbsp;&nbsp;&nbsp;<br><br>
+
+                 <br><b>Contact No </b>: +91 - 9820263183(Mobile)
+              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              +91-22-2636726(Office)
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    +91-22-26367293(Fax)
+        </td>
+      </tr>
+      </table>
+
+
+
+
+
+        </div>
+</html>
+
+
+
+  <body>
+
+  </body>

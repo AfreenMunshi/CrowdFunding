@@ -1,10 +1,11 @@
 CF::Application.routes.draw do
-  root 'campaigns#index'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  scope "(:locale)", :locale => /en|pirate/ do
+  scope "(:locale)", :locale => /en|ba|hi/ do
     #here only two languages are accepted: english and french
+    root 'campaigns#index'
 
     resources :categories
 
@@ -14,6 +15,7 @@ CF::Application.routes.draw do
 
     devise_for :users
 
+    get '/', to: 'campaigns#index', as: :lang_root
 
 
     get '/donate/:campaign_id', to: 'transactions#new', as: :donate
@@ -30,6 +32,8 @@ CF::Application.routes.draw do
     get '/vote_for_campaign/:id', to: 'campaigns#vote_for_campaign', as: :vote_for_campaign
     get '/statistics', to: 'categories#index', as: :statistics
 
+    get '/about_us', to: 'users#about', as: :about_us
+    get '/contact_us', to: 'users#contact', as: :contact_us
 # get '/languages/:locale', to: 'categories#index', as: :languages
 end
 

@@ -21,7 +21,7 @@ class CampaignsControllerTest < ActionController::TestCase
       post :create, campaign: { days: @campaign.days, info: @campaign.info, start_date: @campaign.start_date, target: @campaign.target, title: @campaign.title }
     end
 
-    assert_redirected_to campaign_path(assigns(:campaign))
+    assert_redirected_to campaign_path(I18n.localeassigns(:campaign))
   end
 
   test "should show campaign" do
@@ -36,7 +36,7 @@ class CampaignsControllerTest < ActionController::TestCase
 
   test "should update campaign" do
     patch :update, id: @campaign, campaign: { days: @campaign.days, info: @campaign.info, start_date: @campaign.start_date, target: @campaign.target, title: @campaign.title }
-    assert_redirected_to campaign_path(assigns(:campaign))
+    assert_redirected_to campaign_path(I18n.locale,assigns(:campaign))
   end
 
   test "should destroy campaign" do
@@ -44,6 +44,6 @@ class CampaignsControllerTest < ActionController::TestCase
       delete :destroy, id: @campaign
     end
 
-    assert_redirected_to campaigns_path
+    assert_redirected_to campaigns_path(I18n.locale)
   end
 end

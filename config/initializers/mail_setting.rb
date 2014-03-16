@@ -1,5 +1,3 @@
-#constancts coz har baat pe naya file nai banana hai
-
 
 #TODO: need to move this out.. dot ever comit ur user name and pwd and commit!
 ActionMailer::Base.smtp_settings = {

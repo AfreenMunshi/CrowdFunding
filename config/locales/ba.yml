@@ -1,0 +1,156 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ba:
+  devise:
+    failure:
+      invalid: "বাক্স ব্যাকা রা"
+  slayout:
+    sfooter:
+      bb: 'বাক্স ব্যাকা রা'
+      bbtag: ''
+      lang1: 'ইংরেজি'
+      lang2: 'হিন্দী'
+      lang3: 'বাংলা'
+      social1: 'গুগল প্লাস'
+      social2: Twitter
+      social3: Dribbble
+      social4: 'ফেসবুক'
+      social5: 'লিঙ্কডইন'
+
+    header:
+      welcome: 'স্বাগত'
+      home: 'হোম পেজ'
+      CamCat: 'প্রচারাভিযান বিভাগ'
+      stat: 'পরিসংখ্যান'
+      newCamp: 'নতুন ক্যাম্পেইন'
+      dashB:  'ড্যাশবোর্ড'
+      signup: 'সাইন আপ'
+      signin: 'সাইন ইন'
+
+  campaigns:
+    item:
+      funded: 'নিহিত'
+      target: 'লক্ষ্য'
+      togo: 'বাকি দিন'
+
+    form:
+      tag1: 'ট্যাগ্স (কমা দ্বারা পৃথকীকৃত)'
+      newC: 'নতুন ক্যাম্পেইন'
+      prohibitCamp: 'সংরক্ষিত হচ্ছে থেকে এই প্রচারণা নিষিদ্ধ:'
+      campinfo: 'প্রচারাভিযান তথ্য'
+      campAsset: 'প্রচারাভিযান সম্পদ'
+      bankDetail: 'ব্যাংক বিবরণ'
+      mate: 'স্বাগতম'
+      title: 'বিষয়'
+      information: 'তথ্য'
+      Days: 'স্থিতিকাল'
+      monetaryTarget: 'আর্থিক লক্ষ্য'
+      next: 'পরবর্তী'
+      selfie: 'আপনার ছবি ব্যবহার করবেন না দয়া করে '
+      campBanner: 'প্রচারাভিযান ব্যানার'
+      campVideo: 'প্রচারাভিযান ভিডিও'
+      selCampCat: 'প্রচারাভিযান বিভাগ নির্বাচন করুন:'
+      prev: 'পূর্ববর্তী'
+      dreams: 'আপনার স্বপ্ন জন্য.'
+      social: 'সামাজিক প্লাগ'
+      hreward: 'সর্বোচ্চ পুরস্কার'
+      freward: 'প্রথম পুরস্কার'
+      accName: "অ্যাকাউন্ট হোল্ডার এর নাম"
+      accRouNo: "রাউটিং নম্বর"
+      accNo: "অ্যাকাউন্ট নম্বর"
+      accType: "প্রকার"
+      create: "প্রচারাভিযান তৈরি করুন"
+
+    index:
+      popular: 'জনপ্রিয়'
+      newlyLaun: 'সম্প্রতি চালু'
+
+    show:
+      new: 'নতুন'
+      campTag: 'প্রচারাভিযান ট্যাগলাইন'
+      funded2: 'নিহিত'
+      target2: 'লক্ষ্য'
+      togo2: বাকি দিন'
+      contriNow: 'জমা করুন'
+      gofoi: 'এটি জন্য যান'
+      vote: 'আমাদের জন্য ভোট দিন'
+      thanku: 'তোমাকে ধন্যবাদ'
+      hreward2: 'সর্বোচ্চ পুরস্কার'
+      freward2: 'প্রথম পুরস্কার'
+
+  categories:
+    form:
+      prohibitCamp2: 'সংরক্ষিত হচ্ছে থেকে এই প্রচারণা নিষিদ্ধ:'
+
+    edit:
+      editCat: 'সম্পাদনা বিষয়শ্রেণী:'
+
+    index:
+      noCampCat: 'প্রতিটি বিভাগ এ প্রচারাভিযান সংখ্যা:'
+      classBirth: 'জন্মদিন অনুসারে ব্যবহারকারীরা শ্রেণীবিভাগ:'
+      noVotesCamp: 'প্রতিটি প্রচারাভিযান জন্য ভোটসংখ্যা:'
+
+    new:
+      newCat: 'নতুন বিষয়শ্রেণীতে'
+
+  users:
+    show:
+      profile: 'আপনার প্রোফাইল তথ্য:'
+      name: 'নাম'
+      email: 'ইমেইল'
+      bday: 'জন্ম দিন'
+      transactionHistory: 'আপনার লেনদেনের ইতিহাস:'
+      amount: 'পরিমাণ'
+      campaign: 'অভিযান'
+
+  transactions:
+
+    form:
+      prohibitTrans: 'সংরক্ষিত হচ্ছে থেকে এই লেনদেন নিষিদ্ধ:'
+      amountTrans: 'অর্থ'
+      submit: 'জমা দিন'
+
+    edit:
+      editTrans: 'সম্পাদনা লেনদেন'
+
+    new:
+      newCamp: 'নতুন ক্যাম্পেইন'
+      creditDetail: 'ক্রেডিট বিবরণ'
+      amountTrans2: 'পরিমাণ'
+      verificationTrans: 'প্রতিপাদন'
+      prohibitTrans2: 'সংরক্ষিত হচ্ছে থেকে এই লেনদেন নিষিদ্ধ:'
+      creditcardNo: 'ক্রেডিট কার্ড নম্বর'
+      expiryMonth: 'মেয়াদ মাস'
+      expiryYear: 'মেয়াদ বছর'
+      securityCode: 'নিরাপত্তা কোড'
+      amountTrans2: 'অর্থ'
+      submit: 'জমা দিন'
+
+
+    show:
+      trans: 'লেনদেন'
+      suggestion: 'আপনি দান করতে পারেন?'
+      thanksTrans: 'অবদানের জন্য ধন্যবাদ'
+      verifyTrans: 'আপনার লেনদেনের যাচাই করুন'
+      campaignTrans: 'অভিযান'
+      amountTrans: 'অর্থ'
+      otpEnter: 'OTP কোড লিখুন'

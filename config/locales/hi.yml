@@ -1,9 +1,350 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
 hi:
-  welcome:
-    title: "आपका स्वागत है"
-    paragraph: "हमारी दुकान पर आने के लिए धन्यवाद. नीचे दिए गए उत्पादों को ब्राउज़ करने और कुछ खरीदने के लिए धन्यवाद. आप उत्पादों की गुणवत्ता के साथ खुश होंगे"
-  products:
-    title: "उत्पाद"
-    released: "प्रकाशित"
-  flash:
-    login: "सफलतापूर्वक लॉग इन."
+  devise:
+    failure:
+      invalid: "बाक्स बाकेर"
+  slayout:
+    sfooter:
+      bb: 'बाक्स बाकेर'
+      bbtag: 'Joining Hands'
+      lang1: 'अंग्रेज़ी'
+      lang2: हिंदी
+      lang3: 'বাংলা'
+      social1: 'गूगल प्लस'
+      social2: 'Twitter'
+      social3: Dribbble'
+      social4: 'फेसबुक'
+      social5: 'लिंक्डइन'
+
+    header:
+      welcome: 'आपका स्वागत है'
+      home: 'मुख पृष्ठ'
+      CamCat: 'अभियान प्रकार'
+      stat: 'आंकड़े'
+      newCamp: 'नया अभियान'
+      dashB:  'विवरणिका'
+      signup: 'कृपया साइन अप'
+      signin: 'साइन इन करें'
+
+  campaigns:
+    item:
+      funded: 'वित्त पोषित'
+      target: 'लक्ष्य'
+      togo: 'पूरा करने के लिए'
+
+    form:
+      tag1: 'टैग (कोमा से अलग)'
+      newC: 'नया अभियान'
+      prohibitCamp: 'सहेजे जाने से इस अभियान प्रतिबंधित है:'
+      campinfo: 'अभियान की जानकारी'
+      campAsset: 'अभियान संपत्ति'
+      bankDetail: 'बैंक विस्तार'
+      mate: 'आप दिल से स्वागत कर रहे हैं'
+      title: 'शीर्षक'
+      information: 'सूचना'
+      Days: 'दिन'
+      monetaryTarget: 'मौद्रिक लक्ष्य'
+      next: 'अगला'
+      selfie: 'अपने चित्रों का प्रयोग न करना'
+      campBanner: 'अभियान बैनर'
+      campVideo: 'अभियान वीडियो'
+      selCampCat: 'अभियान श्रेणी का चयन करें:'
+      prev: 'पिछला'
+      dreams: 'अपने सपनों को पूरा करने के लिए'
+      social: 'सामाजिक प्लग'
+      hreward: 'उच्चतम पुरस्कार '
+      freward: 'प्रथम पुरस्कार '
+      accName: "खाता धारक का नाम"
+      accRouNo: "रूटिंग नंबर"
+      accNo: "खाता संख्या"
+      accType: प्रकार"
+      create: 'अभियान बनाएं'
+
+    index:
+      popular: 'प्रसिद्ध'
+      newlyLaun: 'हाल ही में शुरू'
+
+    show:
+
+      new: 'नई'
+      campTag: 'अभियान का नारा'
+      funded2: 'वित्त पोषित'
+      target2: 'लक्ष्य'
+      togo2: 'पूरा करने के लिए'
+      contriNow: 'योगदान'
+      gofoi: 'कृपया दान कारें'
+      vote: 'वोट कृपया'
+      thanku: 'शुक्रिया'
+      hreward2: 'उच्चतम पुरस्कार '
+      freward2: 'प्रथम पुरस्कार '
+
+  categories:
+    form:
+      prohibitCamp2: 'सहेजे जाने से इस अभियान प्रतिबंधित है:'
+
+    edit:
+      editCat: 'संपादन श्रेणी:'
+
+    index:
+      noCampCat: 'एल्क श्रेणी में अभियानों की संख्या:'
+      classBirth: 'जन्म तिथि के अनुसार उपयोगकर्ता व्यवस्था का वर्गीकरण'
+      noVotesCamp: 'एल्क अभियान के लिए वोटों की संख्या:'
+
+    new:
+      newCat: 'नई श्रेणी'
+
+  users:
+    show:
+      profile: 'आपकी प्रोफ़ाइल जानकारी:'
+      name: 'नाम'
+      email: 'ई मेल'
+      bday: 'जन्म तिथि'
+      transactionHistory: 'आपका लेन - देन इतिहास:'
+      amount: 'राशि'
+      campaign: 'अभियान'
+
+  transactions:
+
+    form:
+      prohibitTrans: 'सहेजे जाने से इस सौदे प्रतिबंधित है:'
+      amountTrans: 'राशि'
+      submit : 'प्रस्तुत करना'
+
+    edit:
+      editTrans: 'संपादन लेनदेन'
+
+    new:
+      newCamp: 'नया अभियान'
+      creditDetail: 'क्रेडिट विवरण'
+      amountTrans2: 'राशि'
+      verificationTrans: 'सत्यापित करना'
+      prohibitTrans2: 'सहेजे जाने से इस सौदे प्रतिबंधित है:'
+      creditcardNo: 'क्रेडिट कार्ड नंबर'
+      expiryMonth: 'समाप्ति महीना'
+      expiryYear: 'समाप्ति वर्ष'
+      securityCode: 'सुरक्षा कोड'
+      amountTrans2: 'राशि'
+      submit: 'प्रस्तुत करना'
+
+
+    show:
+      trans: 'लेनदेन '
+      suggestion: 'इसी तरह के अभियान के लिए योगदान'
+      thanksTrans: 'योगदान के लिए धन्यवाद'
+      verifyTrans: 'अपने लेन - देन सत्यापित करें'
+      campaignTrans: 'अभियान'
+      amountTrans: 'राशि'
+      otpEnter: 'OTP कोड दर्ज'
+
+  date:
+    abbr_day_names:
+    - रवि
+    - सोम
+    - मंगल
+    - बुध
+    - गुरु
+    - शुक्र
+    - शनि
+    abbr_month_names:
+    -
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - रविवार
+    - सोमवार
+    - मंगलवार
+    - बुधवार
+    - गुरुवार
+    - शुक्रवार
+    - शनिवार
+    formats:
+      default: ! '%d-%m-%Y'
+      long: ! '%B %d, %Y'
+      short: ! '%b %d'
+
+    month_names:
+    -
+    - जनवरी
+    - फरवरी
+    - मार्च
+    - अप्रैल
+    - मई
+    - जून
+    - जुलाई
+    - अगस्त
+    - सितंबर
+    - अक्टूबर
+    - नवंबर
+    - दिसंबर
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: लग - भग एक घंटा
+        other: लग - भग %{count} घंटा
+      about_x_months:
+        one: लग - भग 1 महीना
+        other: लग - भग %{count} महीना
+      about_x_years:
+        one: लग - भग 1 साल
+        other: लग - भग %{count} साल
+      almost_x_years:
+        one: लग - भग एक साल
+        other: लग - भग %{count} साल
+      half_a_minute: एक आधा मिनट
+      less_than_x_minutes:
+        one: एक मिनट से कम
+        other: ! '%{count} मिनट से कम'
+      less_than_x_seconds:
+        one: एक सेकंड से कम
+        other: ! '%{count}  सेकंड से कम'
+      over_x_years:
+        one: एक साल के ऊपर
+        other: ! '%{count} साल के ऊपर'
+      x_days:
+        one: एक दिन
+        other: ! '%{count} दिन'
+      x_minutes:
+        one: एक मिनट
+        other: ! '%{count} मिनट'
+      x_months:
+        one: एक महीना
+        other: ! '%{count} महीना'
+      x_seconds:
+        one: एक सेकंड
+        other: ! '%{count} सेकंड'
+    prompts:
+      day: दिन
+      hour: घंटा
+      minute: क्षण
+      month: माह
+      second: सेकंड
+      year: वर्ष
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: होना स्वीकार किया जाना आवश्यक
+      blank: खाली नहीं किया जा सकता
+      confirmation: पुष्टिकरण मेल नहीं खाता
+      empty: खाली नहीं किया जा सकता
+      equal_to: ! '%{count} के लिए बराबर होना चाहिए'
+      even: सम होना चाहिए
+      exclusion: आरक्षित है
+      greater_than: ! '%{count} से अधिक होना चाहिए'
+      greater_than_or_equal_to: ! '%{count} से बड़ा या बराबर होना आवश्यक है'
+      inclusion: सूची में शामिल नहीं है
+      invalid: अवैध है
+      less_than: ! '%{count} से कम होना चाहिए'
+      less_than_or_equal_to: ! '%{count} से कम या बराबर होना आवश्यक है'
+      not_a_number: कोई संख्या नहीं है
+      not_an_integer: एक पूर्णांक होना चाहिए
+      odd: विषम होना चाहिए
+      record_invalid: ! 'सत्यापन विफल: %{errors}'
+      taken: पहले ही ले लिया गया है
+      too_long: बहुत लंबा है (अधिकतम %{count} अक्षरों है)
+      too_short: बहुत छोटा है (न्यूनतम %{count} अक्षरों है)
+      wrong_length: गलत लंबाई है (%{count} वर्ण वाले होने चाहिए)
+    template:
+      body: ! 'वहाँ निम्नलिखित क्षेत्रों के साथ समस्याओं रहे थे:'
+      header:
+        one: एक त्रुटि सहेजे जाने से इस %{model} को निषिद्ध
+        other: ! '%{count} त्रुटियों को सहेजे जाने से इस %{model} निषिद्ध'
+  helpers:
+    select:
+      prompt: कृपया चुनें
+    submit:
+      create: बनाएँ %{model}
+      submit: सहेजें %{model}
+      update: अद्यतन %{model}
+  number:
+    currency:
+      format:
+        delimiter: ! ','
+        format: ! '%u%n'
+        precision: 2
+        separator: .
+        significant: false
+        strip_insignificant_zeros: false
+        unit: ₹
+    format:
+      delimiter: ! ','
+      precision: 3
+      separator: .
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: अरब
+          million: मिल्लिओंन
+          quadrillion: करोड़ शंख
+          thousand: हज़ार
+          trillion: खरब
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ! ', और '
+      two_words_connector: ! ' और '
+      words_connector: ! ', '
+  time:
+    am: am
+    formats:
+      default: ! '%a, %d %b %Y %H:%M:%S %z'
+      long: ! '%B %d, %Y %H:%M'
+      short: ! '%d %b %H:%M'
+    pm: pm

@@ -20,12 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  layout:
-    footer:
+  devise:
+    failure:
+      invalid: "Invalid email or password."
+  slayout:
+    sfooter:
       bb: BucksBacker
       bbtag: Dealing with the dark places in life
       lang1: English
-      lang2: Pirate
+      lang2: Hindi
+      lang3: Bengali
       social1: Google Plus
       social2: Twitter
       social3: Dribbble
@@ -33,6 +37,7 @@ en:
       social5: LinkedIn
 
     header:
+      welcome: Welcome
       home: Home
       CamCat: Campaign Categories
       stat: Statistics
@@ -48,6 +53,7 @@ en:
       togo: To Go
 
     form:
+      tag1: 'Tags (separated by commas)'
       newC: New Campaign
       prohibitCamp: 'Prohibited this campaign from being saved:'
       campinfo: Campaign Info
@@ -68,6 +74,11 @@ en:
       social: Social Plug
       hreward: Highest Reward
       freward: First Reward
+      accName: "Account Holder's Name"
+      accRouNo: "Routing Number"
+      accNo: "Account Number"
+      accType: "Type"
+      create: "Create Campaign"
 
     index:
       popular: Popular
@@ -81,6 +92,8 @@ en:
       togo2: To Go
       contriNow: Contribute Now
       gofoi: Go For It
+      hreward2: Highest Reward
+      freward2: First Reward
       vote: Vote us UP!
       thanku: Thank You
 
@@ -91,7 +104,7 @@ en:
     edit:
       editCat: 'Editing category:'
 
-    index::
+    index:
       noCampCat: 'Number of Campaigns in each Category:'
       classBirth: 'Classification of Users according to Birthdate:'
       noVotesCamp: 'Number of Votes for each Campaign:'

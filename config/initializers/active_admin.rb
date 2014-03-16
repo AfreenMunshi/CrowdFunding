@@ -140,8 +140,8 @@ ActiveAdmin.setup do |config|
   # Active Admin resources and pages from here.
   #
   # config.before_filter :do_something_awesome
-  
-  
+
+
   # == Setting a Favicon
   #
   # config.favicon = '/assets/favicon.ico'
@@ -210,17 +210,17 @@ ActiveAdmin.setup do |config|
   # To disable/customize for the :admin namespace:
   #
     config.namespace :admin do |admin|
-  
+
       # Disable the links entirely
       # admin.download_links = false
-  
+
       # Only show XML & PDF options
       admin.download_links = [:csv, :pdf]
-  
+
       # Enable/disable the links based on block
       #   (for example, with cancan)
       # admin.download_links = proc { can?(:view_download_links) }
-  
+
     end
 
 

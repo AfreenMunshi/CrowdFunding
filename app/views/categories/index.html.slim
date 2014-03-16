@@ -1,9 +1,5 @@
 /Statistics Page
 
-/h1= = t :hello_world
-/ p
-/   = flash[:notice]
-
 .ui.basic.segment.no_radius.paged style='width:1140px !important;'
   p
     center
@@ -26,25 +22,9 @@
     i.browser.icon
   p
     center
-      strong 'categories.index.noVotesCamp'
+      strong
+        = t 'categories.index.noVotesCamp'
     br
     = bar_chart Vote.group("voteable_id").count
     br
   p
-
-
-  / b Number of Camapigns in each Category:
-  / br
-  / = pie_chart Campaign.group("category").count
-  / br
-
-  / b Classification of Users according to Birthdate:
-  / br
-  / /User.find_by_sql("select *, YEAR(bday) as byear from users group by byear")
-  / = column_chart User.group("bday").count
-  / br
-
-  / b Number of Votes for each Campaign:
-  / br
-  / = bar_chart Vote.group("voteable_id").count
-  / br
