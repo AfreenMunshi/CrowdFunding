@@ -19,7 +19,7 @@
 //= require jquery
 //= require campaigns
 // require chartkick
-//= require jquery.rambling.slider
+// require jquery.rambling.slider
 //= require bank_account_submission
 //= require credit_card_submission
 
@@ -33,11 +33,26 @@ $(function(){
 	$('.ui.message .close.icon').click(function() { $(this).parent().fadeOut(); });
 
   $('#voteup').click(function(e){
-    //add ajac call to increament vote
     $(this).toggleClass('voted');
-  })
+  });
+
+  $("#card_number").validateCreditCard(function(e) {
+      if (e.card_type == null) {
+        $(".cards li").removeClass("off");
+        $("#card_number").removeClass("valid");
+        $(".vertical.maestro").slideUp({duration: 200}).animate({opacity: 0}, {queue: !1,duration: 200});
+        return
+      }
+      $(".cards li").addClass("off");
+      $(".cards ." + e.card_type.name).removeClass("off");
+      e.card_type.name === "maestro" ? $(".vertical.maestro").slideDown({duration: 200}).animate({opacity: 1}, {queue: !1}) : $(".vertical.maestro").slideUp({duration: 200}).animate({opacity: 0}, {queue: !1,duration: 200});
+      return e.length_valid && e.luhn_valid ? $("#card_number").addClass("valid") : $("#card_number").removeClass("valid")
+    },
+    {accept: ["visa", "visa_electron", "mastercard", "maestro", "amex"]}
+  );
+
 });
 
   $(window).load(function(){
-    $('#slider').ramblingSlider();
+    // $('#slider').ramblingSlider();
   });

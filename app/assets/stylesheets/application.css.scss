@@ -145,3 +145,60 @@ ui.grid > .row > img, .ui.grid > .row > .column > img { height: 80px; width: 80p
   }
 }
 .ui.middle.aligned.grid, .ui.middle.aligned.grid > .row > .column, .ui.middle.aligned.grid > .column, .ui.grid .middle.aligned.column, .ui.grid > .middle.aligned.row > .column { vertical-align: initial; }
+
+.transaction_form {
+  margin: 0 0 32px;
+  -webkit-box-shadow: 0 1px 3px #bbb;
+  -moz-box-shadow: 0 1px 3px #bbb;
+  box-shadow: 0 1px 3px #bbb;
+  background: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#f5f5f5));
+  background: -webkit-linear-gradient(#fff,#f5f5f5);
+  background: -moz-linear-gradient(#fff,#f5f5f5);
+  background: -ms-linear-gradient(#fff,#f5f5f5);
+  background: -o-linear-gradient(#fff,#f5f5f5);
+  background: linear-gradient(#fff,#f5f5f5);
+  background-color: #f8f8f8;
+  border: 5px solid #fff;
+  margin: 0 auto 32px;
+  padding: 12px 24px 24px;
+  width: 287px;
+}
+
+.cards {
+  overflow: hidden;
+
+  li {
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+    background-image: url(card_logos.png);
+    background-position: 0 0;
+    float: left;
+    height: 32px;
+    margin-right: 8px;
+    text-indent: -9999px;
+    width: 51px
+  }
+
+  li:last-child { margin-right: 0 }
+
+  .visa_electron { background-position: 204px 0 }
+
+  .mastercard { background-position: 153px 0 }
+
+  .maestro { background-position: 102px 0 }
+
+  .amex { background-position: 51px 0 }
+
+  .visa.off { background-position: 0 32px }
+
+  .visa_electron.off { background-position: 204px 32px }
+
+  .mastercard.off { background-position: 153px 32px }
+
+  .maestro.off { background-position: 102px 32px }
+
+  .amex.off { background-position: 51px 32px }
+}
