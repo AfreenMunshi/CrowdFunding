@@ -1,7 +1,7 @@
 script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascript"
 script src="/assets/jquery.creditCardValidator.js" type="text/javascript"
 
-= form_for( @transaction, html: { id: 'credit-card-form', class: ' ui form transaction_form' } ) do |f|
+= form_for( @transaction, html: { id: 'credit-card-form', class: ' ui form transaction_form overflow_check' } ) do |f|
   h2
     = t 'transactions.new.newTransaction'
 
@@ -13,6 +13,12 @@ script src="/assets/jquery.creditCardValidator.js" type="text/javascript"
       ul.ui.list
         - @transaction.errors.full_messages.each do |msg|
           li = msg
+
+  .ui.error.message.ui_errors
+    .header
+      | Errors
+    ul.ui.list
+
   ul
     li
       ul.cards
@@ -20,7 +26,7 @@ script src="/assets/jquery.creditCardValidator.js" type="text/javascript"
         li.visa_electron Visa Electron
         li.mastercard MasterCard
         li.maestro Maestro
-        li.amex Discover
+        li.amex Amex
     br
 
     li

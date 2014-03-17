@@ -72,7 +72,7 @@ nav.ui.menu {
 .left_margin { margin-left: 10px !important; }
 .no_radius { border-radius:0 !important; -moz-border-radius:0 !important; }
 .hide { display:none; }
-.show { display:block; }
+.show { display:block !important; }
 .inline-block { display:inline-block !important; }
 .right.floated { float:right; }
 .full.width { width: 100% }
@@ -80,6 +80,7 @@ nav.ui.menu {
 .back_redded { color: white !important; background: #a95252 !important; }
 .top_margin { margin-top: 15px !important; }
 .invisible { visibility:hidden; }
+.overflow_check { overflow: hidden; }
 
 .ui.white .column {
   background-color: #fff;
