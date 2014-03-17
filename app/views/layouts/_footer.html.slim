@@ -9,11 +9,11 @@ footer
             i
               = t 'slayout.sfooter.bbtag'
 
-          = link_to "English", lang_root_path(locale: :en)
+          = link_to "English", url_for(locale: :en)
           | &nbsp; &nbsp;
-          = link_to "Hindi", lang_root_path(locale: :hi)
+          = link_to "Hindi", url_for(locale: :hi)
           | &nbsp; &nbsp;
-          = link_to "Bengali", lang_root_path(locale: :ba)
+          = link_to "Bengali", url_for(locale: :ba)
           | &nbsp; &nbsp;
 
           = link_to "About Us", about_us_path
@@ -21,6 +21,16 @@ footer
 
           = link_to "Contact Us", contact_us_path()
           | &nbsp; &nbsp;
+
+
+          br
+          br
+          = search_form_for @q do |f|
+            = f.label :title_cont
+            br
+            = f.text_field :title_cont
+            br
+            = f.submit
 
         .segment.social
           ul.tt-wrapper

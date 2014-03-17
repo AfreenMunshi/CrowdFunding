@@ -13,9 +13,6 @@ class CampaignsController < ApplicationController
       @campaigns = Campaign.all
     end
 
-    @q = Campaign.search(params[:q])
-    @campaigns = @q.result(distinct: true)
-
   end
 
   # GET /campaigns/1

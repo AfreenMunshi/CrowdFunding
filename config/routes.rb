@@ -15,7 +15,7 @@ CF::Application.routes.draw do
 
     devise_for :users
 
-    get '/', to: 'campaigns#index', as: :lang_root
+    # get '/', to: 'campaigns#index', as: :lang_root
 
 
     get '/donate/:campaign_id', to: 'transactions#new', as: :donate

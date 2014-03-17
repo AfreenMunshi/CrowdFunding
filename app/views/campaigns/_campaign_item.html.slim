@@ -1,5 +1,7 @@
 .item
-  a.image href="/campaigns/#{campaign.id}"
+  / a.image href="/campaigns/#{campaign.id}"
+
+  = link_to(campaign_path(I18n.locale, campaign.id), class: 'image') do
     img src=(campaign.banner.url)
   .content
     .name
