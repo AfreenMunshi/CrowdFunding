@@ -55,7 +55,7 @@
           br
 
           - if current_user.try(:id) != @campaign.user_id
-            = link_to(donate_path(I18n.locale, campaign.id)) do
+            = link_to(donate_path(I18n.locale, @campaign.id)) do
               .ui.animated.fade.button
                 .visible.content
                   = t 'campaigns.show.contriNow'

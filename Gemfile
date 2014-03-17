@@ -60,6 +60,7 @@ end
 
 
 group :development do
+  gem 'railroady'
 	gem 'certified'
 	gem 'pry-rails' #binding.pry
   gem 'better_errors'

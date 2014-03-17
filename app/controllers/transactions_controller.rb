@@ -33,9 +33,8 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/1
   def show
-          @campaign = @transaction.campaign
+      @campaign = @transaction.campaign
       @related_campaign =  @campaign.category.campaigns.where("id != ?", @campaign.id).limit(2)
-
   end
 
   # GET /transactions/new
@@ -48,8 +47,8 @@ def credit_card_form
 end
 
   # GET /transactions/1/edit
-  def edit
-  end
+  # def edit
+  # end
 
   # POST /transactions
   def create
@@ -69,19 +68,19 @@ end
   end
 
   # PATCH/PUT /transactions/1
-  def update
-    if @transaction.update(transaction_params)
-      redirect_to @transaction, notice: 'Transaction was successfully updated.'
-    else
-      render action: 'edit'
-    end
-  end
+  # def update
+  #   if @transaction.update(transaction_params)
+  #     redirect_to @transaction, notice: 'Transaction was successfully updated.'
+  #   else
+  #     render action: 'edit'
+  #   end
+  # end
 
-  # DELETE /transactions/1
-  def destroy
-    @transaction.destroy
-    redirect_to transactions_url, notice: 'Transaction was successfully destroyed.'
-  end
+  # # DELETE /transactions/1
+  # def destroy
+  #   @transaction.destroy
+  #   redirect_to transactions_url, notice: 'Transaction was successfully destroyed.'
+  # end
 
   private
     def send_otp_code(number_to_send_to)

@@ -1,9 +1,0 @@
-= form_tag session_path(I18n.locale, :user) do
-  = text_field_tag 'user[email]'
-  = password_field_tag 'user[password]'
-  = check_box_tag 'user[remember_me]'
-  = label_tag 'user[remember_me]', 'Remember me'
-  %button Sign in
-  = link_to "Forgot your password?", new_password_path(I18n.locale, :user)
-
-
