@@ -23,6 +23,26 @@ body { background-color: #f3f3f3 !important; margin:0px; }
   // background: #0099cc;
   min-height:850px;
 }
+
+.body_container.bg1{
+    background: -webkit-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.2)),-webkit-linear-gradient(108deg,#e5e9bf 10%,#00396f 90%);
+    width:100%;
+    height:100%;
+    transition:1s width;
+}
+.body_container.bg2{
+      background: -webkit-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.2)),-webkit-linear-gradient(108deg,#e0da81,#e0a681 10%,#0f1b58 90%)
+  }
+.body_container.bg3{
+      background: radial-gradient(circle farthest-side at right bottom,#f8cdda,#1d2b64 80%,#0e153a);
+    }
+.body_container.bg4{
+      background:-webkit-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-webkit-linear-gradient(108deg,#26d0ce,#1a2980 90%);
+  }
+.body_container.bg5 {
+  background:-webkit-radial-gradient(0% 100%, ellipse cover, rgba(35, 24, 82, 0.22) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom, rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg, #670d10 0%,#092756 100%)
+}
+
 .header_nav {
   /*background: #fafafa;*/
   /*background: teal;*/
