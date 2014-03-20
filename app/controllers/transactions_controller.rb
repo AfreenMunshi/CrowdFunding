@@ -7,10 +7,7 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.find(params[:tran_id])
     is_verified = @transaction.authenticate_otp(params[:code], drift: 90)
     if is_verified
-      #fat model and thin controller at least
-      binding.pry
       @transaction.mark_verifed_and_debit
-     binding.pry
     else
       flash[:notice] = 'InValid Code'
     end

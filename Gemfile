@@ -20,7 +20,7 @@ gem "recaptcha", :require => "recaptcha/rails"
 gem 'select2-rails'
 gem 'chartkick'
 gem 'thumbs_up'
-
+gem 'wkhtmltopdf-binary'
 gem 'rambling-slider-rails', :git => 'https://github.com/gonzedge/rambling-slider-rails'
 gem 'zebra-datepicker-rails'
 

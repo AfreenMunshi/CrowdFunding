@@ -1,4 +1,8 @@
 /Statistics Page
+script src="http://canvg.googlecode.com/svn/trunk/rgbcolor.js"
+script src="http://canvg.googlecode.com/svn/trunk/canvg.js"
+script src="http://code.highcharts.com/modules/exporting.src.js"
+
 
 .ui.basic.segment.no_radius.paged style='width:1140px !important;'
   p
@@ -7,6 +11,7 @@
         = t 'categories.index.noCampCat'
     br
     = pie_chart Campaign.group("category").count
+    /new Chartkick.PieChart("chart-1", data, {"download" => true});
     br
   .ui.horizontal.icon.divider
     i.browser.icon
@@ -15,8 +20,8 @@
       strong
         = t 'categories.index.classBirth'
     br
-
-    = column_chart User.group("year(bday)").count
+    /= column_chart data, :download => true
+    = column_chart User.group("year(bday)").count, :download => true
     br
   .ui.horizontal.icon.divider
     i.browser.icon
