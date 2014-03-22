@@ -19,6 +19,7 @@ $(function(){
 		switch(response.status) {
 			case 201:
 				console.log(response.data);
+				$('.ui_errors').removeClass('show').find('ul').empty();
 				var $form = $("#credit-card-form");
 				var card_token_uri = response.data['uri'];
 				$('<input>').attr({
@@ -30,6 +31,7 @@ $(function(){
 				$form.get(0).submit();
 				break;
 			case 400:
+				showErrors(response.error);
 				console.log(response.error);
 				break;
 			case 404:
@@ -38,10 +40,19 @@ $(function(){
 		}
 	}
 
+	function showErrors(errors){
+		$('#credit-card-form').removeClass('loading');
+		// errors
+		$('.ui_errors').addClass('show').find('ul').empty();
+		for(key in errors){
+			$('.ui_errors ul').append('<li>' + key.replace(/_/g, ' ') + errors[key].replace(/"/g, '') + '</li>');
+		}
+	}
+
 	var tokenizeCreditCard = function(e) {
 		e.preventDefault();
 
-		var $form = $('#credit-card-form');
+		var $form = $('#credit-card-form').addClass('loading');
 		var creditCardData = {
 			card_number: $form.find('.cc-number').val(),
 			expiration_month: $form.find('.cc-em').val(),

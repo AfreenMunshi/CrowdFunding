@@ -42,6 +42,7 @@ en:
       CamCat: Campaign Categories
       stat: Statistics
       newCamp: New Campaign
+      newTransaction: Payment details
       dashB:  Dashboard
       signup: Sign Up
       signin: Sign In
@@ -143,7 +144,7 @@ en:
       expiryYear: Expiration Year
       securityCode: Security Code
       amountTrans2: Amount
-      submit: Submit
+      submit: Donate
 
 
     show:

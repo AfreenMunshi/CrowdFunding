@@ -1,65 +1,67 @@
 script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascript"
+script src="/assets/jquery.creditCardValidator.js" type="text/javascript"
 
-.ui.form
-  = form_for( @transaction, html: { id: 'credit-card-form' } ) do |f|
-    .ui.message.back_tealed
+= form_for( @transaction, html: { id: 'credit-card-form', class: ' ui form transaction_form overflow_check' } ) do |f|
+  h2
+    = t 'transactions.new.newTransaction'
+
+  - if @transaction.errors.any?
+    .ui.error.message
       .header
-        = t 'transactions.new.newCamp'
+        = pluralize(@transaction.errors.count, "error")
+        = t 'transactions.new.prohibitTrans2'
+      ul.ui.list
+        - @transaction.errors.full_messages.each do |msg|
+          li = msg
 
-    .ui.small.steps style='width:100%'
-      .ui.step.active  style='width:33%'
-        i.white.info.letter.icon
-          = t 'transactions.new.creditDetail'
-        i.green.checkmark.circular.inverted.icon
-      .ui.step  style='width:33%'
-        i.white.photo.icon
-          = t 'transactions.new.amountTrans2'
-        i.green.checkmark.circular.inverted.icon
-      .ui.step  style='width:33%'
-        i.white.payment.icon
-          = t 'transactions.new.verificationTrans'
-        i.green.checkmark.circular.inverted.icon
+  .ui.error.message.ui_errors
+    .header
+      | Errors
+    ul.ui.list
 
+  ul
+    li
+      ul.cards
+        li.visa Visa
+        li.visa_electron Visa Electron
+        li.mastercard MasterCard
+        li.maestro Maestro
+        li.amex Amex
+    br
 
-    - if @transaction.errors.any?
-      .ui.error.message
-        .header
-          = pluralize(@transaction.errors.count, "error")
-          = t 'transactions.new.prohibitTrans2'
-        ul.ui.list
-          - @transaction.errors.full_messages.each do |msg|
-            li= msg
+    li
+      label for="card_number"
+        = t 'transactions.new.creditcardNo'
+        = text_field_tag "cc-number", nil, :placeholder => "Enter Credit Card Number", :class => "cc-number", :autocomplete => "off", id: 'card_number'
 
-    .ui.form.segment
-      .field
-        label
-          = t 'transactions.new.creditcardNo'
-        = text_field_tag "cc-number", nil, :placeholder => "Enter Credit Card Number", :class => "cc-number", :autocomplete => "off"
+    li.vertical
+      / ul
+      li
+        label.small.width for="expiry_month"
+          = t 'transactions.new.expiryMonth'
+          small
+            | &nbsp; mm
 
-      .two.fields
-        .field
-          label
-            = t 'transactions.new.expiryMonth'
-          = text_field_tag "cc-em", nil, :placeholder => "Expiration Month", :class => "cc-em", :autocomplete => "off"
-        .field
-          label
-            = t 'transactions.new.expiryYear'
-          = text_field_tag "cc-em", nil, :placeholder => "Expiration Year", :class => "cc-ey", :autocomplete => "off"
+          = text_field_tag "cc-em", nil, :placeholder => "Expiration Month", :class => "cc-em", :autocomplete => "off", id: 'expiry_month', maxlength: 5
 
-      .field
-        label
-          = t 'transactions.new.securityCode'
-        = text_field_tag "cc-csc", nil, :placeholder => "Security Code", :class => "cc-csc", :autocomplete => "off"
+        label.small.width for="expiry_year"
+          = t 'transactions.new.expiryMonth'
+          small
+            | &nbsp; yyyy
 
-      .field
-        label
-          = t 'transactions.new.amountTrans2'
-        .ui.labeled.icon.input
-          = f.text_field :amount
-      .field
-        = f.hidden_field :user_id
-      .field
-        = f.hidden_field :campaign_id
-      .actions
-        = f.submit
-        = t 'transactions.new.submit' , class: 'ui teal submit button'
+          = text_field_tag "cc-ey", nil, :placeholder => "Expiration Year", :class => "cc-ey", :autocomplete => "off", id: 'expiry_year', maxlength: 5
+    li
+      label for="cvv"
+        = t 'transactions.new.securityCode'
+        = text_field_tag "cc-csc", nil, :placeholder => "Security Code", :class => "cc-csc", :autocomplete => "off", id: 'cvv', maxlength: "4"
+
+    li
+      label for="amount"
+        = t 'transactions.new.amountTrans2'
+        = f.number_field :amount, :placeholder => "Amount Pledged", id: 'amount'
+
+    li
+      br
+      = f.hidden_field :user_id
+      = f.hidden_field :campaign_id
+      = f.submit "#{t 'transactions.new.submit'}" , class: 'ui teal submit button right floated'
