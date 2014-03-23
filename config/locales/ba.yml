@@ -20,9 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ba:
-  devise:
-    failure:
-      invalid: "বাক্স ব্যাকা রা"
   slayout:
     sfooter:
       bb: 'বাক্স ব্যাকা রা'
@@ -36,8 +33,8 @@ ba:
       social4: 'ফেসবুক'
       social5: 'লিঙ্কডইন'
 
-    header:
-      welcome: 'স্বাগত'
+    sheader:
+      welc: 'স্বাগত'
       home: 'হোম পেজ'
       CamCat: 'প্রচারাভিযান বিভাগ'
       stat: 'পরিসংখ্যান'

@@ -2,10 +2,10 @@
   nav.ui.text.menu
     a.item href='/' class=(category_active_class('all'))
       i.bitcoin.large.white.icon
-      = t 'slayout.header.home'
+      = t 'slayout.sheader.home'
 
     .ui.dropdown.item class="#{category_active_class('category')}"
-      = t 'slayout.header.CamCat'
+      = t 'slayout.sheader.CamCat'
       i.dropdown.icon
       .menu.category
         - for category in @categories
@@ -13,7 +13,7 @@
             = category.name
     = link_to statistics_path(I18n.locale), method: :get, class: "item #{active_class('categories', 'index')}"
       i.browser.icon
-      = t 'slayout.header.stat'
+      = t 'slayout.sheader.stat'
 
 
     .ui.right.menu.text
@@ -26,7 +26,7 @@
 
         = link_to new_campaign_path(I18n.locale), method: :get, class: "item #{active_class('campaigns', 'new')}"
           i.upload.basic.icon
-          = t 'slayout.header.newCamp'
+          = t 'slayout.sheader.newCamp'
 
         = link_to dashboard_path(I18n.locale, current_user.id), method: :get, class: "item #{active_class('users', 'show')}"
           i.thumbs.user.icon
@@ -39,8 +39,8 @@
 
       - else
         = link_to new_user_registration_path(I18n.locale), class: "item #{active_class('devise/registrations', 'new')}"
-          = t 'slayout.header.signup'
+          = t 'slayout.sheader.signup'
           i.sign.in.icon
         = link_to new_user_session_path(I18n.locale), class: "item #{active_class('devise/sessions', 'new')}"
-          = t 'slayout.header.signin'
+          = t 'slayout.sheader.signin'
           i.user.icon

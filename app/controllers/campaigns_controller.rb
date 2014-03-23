@@ -4,14 +4,15 @@ class CampaignsController < ApplicationController
 
   # GET /campaigns
   def index
+    @campaigns = @q.result(distinct: true)
 
     if params[:tag]
       @campaigns = Campaign.tagged_with(params[:tag])
     elsif params[:category_id]
       @campaigns = Campaign.all.where(category_id: params[:category_id])
-    else
-      @campaigns = Campaign.all
     end
+
+    @campaigns = Campaign.all if @campaigns.nil?
 
   end
 

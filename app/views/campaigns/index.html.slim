@@ -16,6 +16,16 @@
       - @campaigns.each do |campaign|
         = render partial: 'campaign_item', locals: { campaign: campaign }
 
+  - elsif params[:q].present?
+    .ui.basic.stackable.items.segment.no_radius.paged
+      .ui.header
+        | Your search result for "
+        em = params[:q][:title_cont]
+        |"
+      .ui.clearing.divider
+      - @campaigns.each do |campaign|
+        = render partial: 'campaign_item', locals: { campaign: campaign }
+
   - else
     .ui.two.column.grid
       .column
