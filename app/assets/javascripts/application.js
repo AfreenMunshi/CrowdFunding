@@ -72,5 +72,9 @@ $(function(){
 });
 
   $(window).load(function(){
-    // $('#slider').ramblingSlider();
+    $('#slider').ramblingSlider({
+      // adaptImages: true,
+      useLargerImage: false,
+      alignBottom: true
+    });
   });

@@ -12,7 +12,8 @@ class CampaignsController < ApplicationController
       @campaigns = Campaign.all.where(category_id: params[:category_id])
     end
 
-    @campaigns = Campaign.all if @campaigns.nil?
+
+    @root = true if params[:q].nil? && params[:tag].nil? && params[:category_id].nil?
 
   end
 

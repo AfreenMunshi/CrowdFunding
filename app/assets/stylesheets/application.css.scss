@@ -24,6 +24,8 @@ body { background-color: #f3f3f3 !important; margin:0px; }
   min-height:850px;
 }
 
+.theme-default #slider { height: 535px !important; }
+
 .body_container.bg1{
     background: -webkit-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.2)),-webkit-linear-gradient(108deg,#e5e9bf 10%,#00396f 90%);
     width:100%;
