@@ -19,7 +19,7 @@
 
 body { background-color: #f3f3f3 !important; margin:0px; }
 .body_container {
-  // background: #ddd url(/assets/bg.jpg) repeat top left !important;
+  background: #ddd url(/assets/pattern4.jpg) repeat top left !important;
   // background: #0099cc;
   min-height:850px;
 }
@@ -51,6 +51,7 @@ body { background-color: #f3f3f3 !important; margin:0px; }
   box-shadow: 0 1px 6px rgba(34, 25, 25, 0.6);
   z-index: 999;
   height: 36px;
+  // margin-bottom: 4px;
 }
 .header_nav nav.ui.menu {
   max-width: 100%;
@@ -82,7 +83,11 @@ nav.ui.menu {
   }
 }
 .menu.category { color: teal !important; }
-.paged { width: 1050px !important; margin: 0 auto !important; background-color: #fff !important; padding-top: 10px !important; }
+.paged {
+  width: 1050px !important; margin: 0 auto !important; background-color: #fff !important; padding-top: 10px !important;
+  -webkit-box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1); //raised segment
+box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1); //raised segment
+}
 .devise.sign { width: 600px !important; margin: 0 auto !important; background-color: #fff !important; padding-top: 10px !important; }
 // .main_container { background-color: #f3f3f3 !important; padding-top: 10px !important; }
 
