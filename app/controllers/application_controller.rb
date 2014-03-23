@@ -6,12 +6,12 @@ class ApplicationController < ActionController::Base
   before_filter :populate_categories
   protect_from_forgery with: :exception
 
-before_filter :title_search
+  before_filter :title_search
 
   def title_search
     @q = Campaign.search(params[:q])
-    @campaigns = @q.result(distinct: true)
   end
+
   def get_language
     if params[:locale].nil?
       I18n.locale = "en"

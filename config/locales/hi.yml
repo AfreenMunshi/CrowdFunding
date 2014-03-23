@@ -20,9 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 hi:
-  devise:
-    failure:
-      invalid: "बाक्स बाकेर"
   slayout:
     sfooter:
       bb: 'बाक्स बाकेर'
@@ -36,8 +33,8 @@ hi:
       social4: 'फेसबुक'
       social5: 'लिंक्डइन'
 
-    header:
-      welcome: 'आपका स्वागत है'
+    sheader:
+      welc: 'आपका स्वागत है'
       home: 'मुख पृष्ठ'
       CamCat: 'अभियान प्रकार'
       stat: 'आंकड़े'

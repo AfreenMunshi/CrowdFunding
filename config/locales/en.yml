@@ -20,9 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  devise:
-    failure:
-      invalid: "Invalid email or password."
   slayout:
     sfooter:
       bb: BucksBacker
@@ -36,8 +33,8 @@ en:
       social4: Facebook
       social5: LinkedIn
 
-    header:
-      welcome: Welcome
+    sheader:
+      welc: Welcome
       home: Home
       CamCat: Campaign Categories
       stat: Statistics

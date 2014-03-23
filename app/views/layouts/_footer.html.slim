@@ -15,7 +15,8 @@ footer
           | &nbsp; &nbsp;
           = link_to "Bengali", url_for(locale: :ba)
           | &nbsp; &nbsp;
-
+          br
+          br
           = link_to "About Us", about_us_path
           | &nbsp; &nbsp;
 
@@ -23,7 +24,6 @@ footer
           | &nbsp; &nbsp;
 
 
-          br
           br
           = search_form_for @q do |f|
             = f.label :title_cont
