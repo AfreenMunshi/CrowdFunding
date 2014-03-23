@@ -1,6 +1,6 @@
 class CampaignsController < ApplicationController
   before_action :set_campaign, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, only: [:new]
+  before_filter :authenticate_user!, only: [:new, :vote_for_campaign]
 
   # GET /campaigns
   def index
@@ -21,10 +21,10 @@ class CampaignsController < ApplicationController
   end
 
   def vote_for_campaign
-    binding.pry
-      @campaign = Campaign.find(params[:id])
-      current_user.vote_for(@campaign)
-      redirect_to :back
+
+    @campaign = Campaign.find(params[:id])
+    current_user.vote_exclusively_for(@campaign)
+    render text: @campaign.votes.count
   end
 
   # GET /campaigns/new

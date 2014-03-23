@@ -30,13 +30,14 @@ CF::Application.routes.draw do
     post '/store_credit_card', to: 'balanced#store_credit_card', as: :store_credit_card
     get '/new_card', to: 'users#new_card'
     get '/credit_card_form', to: 'transactions#credit_card_form'
-    get '/vote_for_campaign/:id', to: 'campaigns#vote_for_campaign', as: :vote_for_campaign
     get '/statistics', to: 'categories#index', as: :statistics
 
     get '/about_us', to: 'users#about', as: :about_us
     get '/contact_us', to: 'users#contact', as: :contact_us
 # get '/languages/:locale', to: 'categories#index', as: :languages
 end
+
+  post '/vote_for_campaign/:id', to: 'campaigns#vote_for_campaign', as: :campaign_vote
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

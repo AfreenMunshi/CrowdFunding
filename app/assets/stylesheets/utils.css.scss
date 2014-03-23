@@ -53,7 +53,7 @@ body {
 
 .flipper-container {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 15px;
 }
 
 .flipper {
@@ -65,7 +65,7 @@ body {
   font-weight: 400;
   text-transform: uppercase;
   width: 11em;
-  height: 45px;
+  height: 35px;
   background-color: #282828;
   // box-shadow: 0 3px 5px #282828;
   -moz-transition: all 0.6s cubic-bezier(0.37, 0.74, 0.15, 1.65);
@@ -88,8 +88,8 @@ body {
   height: 100%;
   top: 0;
   left: 0;
-  padding-right: 30px;
-  line-height: 45px;
+  padding-right: 15px;
+  line-height: 35px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -99,7 +99,7 @@ body {
 }
 .front-face:before, .back-face:before {
   content: attr(data-icon);
-  font-size: 30px;
+  font-size: 20px;
   position: absolute;
   top: 0;
   right: 0;
@@ -140,6 +140,18 @@ body {
   background-image: -webkit-linear-gradient(45deg, #53842e 0%, #76bc42 50%, #7dbd4c 50%, #77bd42);
   background-image: linear-gradient(45deg, #53842e 0%, #76bc42 50%, #7dbd4c 50%, #77bd42);
 }
+
+//vote icon
+.vote_counter_box:hover { cursor: default; }
+.vote_counter_box:hover i.vote_icon{
+  color: #009FDA;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.vote_counter_box:hover .hide{ display: inline; }
 
 //others
 img.hoverzoom{

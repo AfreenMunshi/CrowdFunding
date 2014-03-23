@@ -22,6 +22,7 @@
 // require jquery.rambling.slider
 //= require bank_account_submission
 //= require credit_card_submission
+//= require highcharts
 
 $(function(){
 	$('.ui.dropdown').dropdown({
@@ -33,7 +34,20 @@ $(function(){
 	$('.ui.message .close.icon').click(function() { $(this).parent().fadeOut(); });
 
   $('#voteup').click(function(e){
-    $(this).toggleClass('voted');
+    var $self = $(this);
+    $self.addClass('voted');
+    $.post($self.parent().attr('vote_path'), function(count){
+        $('.vote_counter').text(count);
+        setTimeout(function(){
+          $self.parent().fadeOut();
+        },2000);
+    })
+      .done(function(){
+        console.log('success');
+      })
+      .fail(function(){
+        console.log('error');
+      })
   });
 
   if( $("#card_number").length ){

@@ -1,7 +1,7 @@
 - content_for :title do
   = @campaign.title
 .ui.basic.segment.no_radius.paged.campaign_show style='width:1140px !important; overflow:hidden; margin-bottom: 50px; !important'
-  - if (Time.now - @campaign.created_at)/1.hour < 24
+  - if true#(Time.now - @campaign.created_at)/1.hour < 24
     a.ui.right.teal.corner.label
       .text
         = t 'campaigns.show.new'
@@ -52,37 +52,48 @@
                     = distance_of_time_in_words_to_now(@campaign.created_at + @campaign.days.days)
                     | &nbsp;
                     = t 'campaigns.show.togo2'
-          br
 
-          - if current_user.try(:id) != @campaign.user_id
-            = link_to(donate_path(I18n.locale, @campaign.id)) do
-              .ui.animated.fade.button
-                .visible.content
-                  = t 'campaigns.show.contriNow'
-                .hidden.content
-                  = t 'campaigns.show.gofoi'
-          br
-          br
-          h5
-            = t 'campaigns.show.freward2'
-            | :&nbsp;
-            = @campaign.first_reward
-          br
-          h5
-            = t 'campaigns.show.hreward2'
-            | :&nbsp;
-            = @campaign.highest_reward
-          br
-          br
-          - @campaign.tag_list.each do |tag|
-              = link_to tag, tag_path(I18n.locale, tag), class: 'ui small purple label camplabel'
+          .ui.divided.relaxed.list
+
+            - if current_user.try(:id) != @campaign.user_id
+              .item style='text-align: center;'
+                = link_to(donate_path(I18n.locale, @campaign.id)) do
+                  .ui.animated.fade.button.green
+                    .visible.content
+                      = t 'campaigns.show.contriNow'
+                    .hidden.content
+                      = t 'campaigns.show.gofoi'
+
+            .item style='text-align: center;'
+              - if user_signed_in? && !current_user.voted_on?(@campaign)
+                .flipper-container href="#voteup" vote_path=campaign_vote_path(@campaign.id)
+                  #voteup.flipper
+                    .front-face data-icon="★" href="#"
+                      span data-hover="Clicked"
+                        = t 'campaigns.show.vote'
+                    .back-face data-icon="♥"
+                      = t 'campaigns.show.thanku'
+
+              span.vote_counter_box style='color: #333;'
+                span.vote_counter
+                  = @campaign.votes.count
+                |&nbsp;
+                i.heart.icon.vote_icon
+                span.hide
+                  | votes
 
 
-  div style='text-align:center; margin: 20px;'
-    .flipper-container href="#voteup"
-      #voteup.flipper
-        .front-face data-icon="➣" href="#"
-          span data-hover="Clicked"
-            = t 'campaigns.show.vote'
-        .back-face data-icon="✓"
-            = t 'campaigns.show.thanku'
+            h5.item
+              = t 'campaigns.show.freward2'
+              | :&nbsp;
+              = @campaign.first_reward
+
+            h5.item
+              = t 'campaigns.show.hreward2'
+              | :&nbsp;
+              = @campaign.highest_reward
+
+            .item
+              - @campaign.tag_list.each do |tag|
+                = link_to tag, tag_path(I18n.locale, tag), class: 'ui small purple label camplabel'
+
