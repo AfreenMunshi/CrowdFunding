@@ -16,13 +16,12 @@
       = t 'slayout.header.stat'
 
 
-    /****** Proper design search field to fit in header ***/
-    / = search_form_for @q do |f|
-    /   = f.label :title_cont
-    /   = f.text_field :title_cont
-    /   = f.submit
-
     .ui.right.menu.text
+      .item style='height: 10px !important;margin: -23px 0 0;'
+        = search_form_for @q do |f|
+          = f.text_field :title_cont, :type => 'search', :class => 'search-input', placeholder: "Search", autocomplete: "off"
+          /= f.submit
+
       - if user_signed_in?
 
         = link_to new_campaign_path(I18n.locale), method: :get, class: "item #{active_class('campaigns', 'new')}"
@@ -31,13 +30,11 @@
 
         = link_to dashboard_path(I18n.locale, current_user.id), method: :get, class: "item #{active_class('users', 'show')}"
           i.thumbs.user.icon
-          = t 'slayout.header.dashB'
-
-        .item
           small
-            = t 'slayout.header.welcome' " #{current_user.name}"
+            = t 'slayout.header.welcome'
+            = " #{current_user.name}"
 
-        = link_to destroy_user_session_path(I18n.locale,), method: :delete, class: "ui pop-up item #{active_class('devise/sessions', 'destroy')}", 'data-content' => "Sign Out <i class='icon meh' />"
+        = link_to destroy_user_session_path(I18n.locale,), method: :delete, class: "ui pop-up item #{active_class('devise/sessions', 'destroy')}", 'data-content' => "Sign Out. <i class='icon meh' /> <br/> We 'll miss u!", 'data-position'=>"bottom left", style: 'margin:0;'
           i.sign.out.icon
 
       - else
