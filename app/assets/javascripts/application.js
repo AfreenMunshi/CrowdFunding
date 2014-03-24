@@ -18,11 +18,11 @@
 //= require zebra-datepicker/core
 //= require jquery
 //= require campaigns
-// require chartkick
 // require jquery.rambling.slider
 //= require bank_account_submission
 //= require credit_card_submission
 //= require highcharts
+//= require chartkick
 
 $(function(){
 	$('.ui.dropdown').dropdown({
@@ -72,9 +72,11 @@ $(function(){
 });
 
   $(window).load(function(){
-    $('#slider').ramblingSlider({
-      // adaptImages: true,
-      useLargerImage: false,
-      alignBottom: true
-    });
+    if( $('#slider').length ){
+      $('#slider').ramblingSlider({
+        // adaptImages: true,
+        useLargerImage: false,
+        alignBottom: true
+      });
+    }
   });
