@@ -93,6 +93,8 @@ ba:
       thanku: 'তোমাকে ধন্যবাদ'
       hreward2: 'সর্বোচ্চ পুরস্কার'
       freward2: 'প্রথম পুরস্কার'
+      given: 'দেওয়া হয়: '
+      amountDon : 'দান পরিমাণ : '
 
   categories:
     form:
@@ -151,3 +153,12 @@ ba:
       campaignTrans: 'অভিযান'
       amountTrans: 'অর্থ'
       otpEnter: 'OTP কোড লিখুন'
+
+  datetime:
+    distance_in_words:
+      x_minutes:
+        one: একটি মিনিট
+        other: ! '%{count} মিনিট'
+      x_days:
+        one: একদিন
+        other: ! '%{count} দিন'

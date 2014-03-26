@@ -28,7 +28,7 @@
           i.upload.basic.icon
           = t 'slayout.sheader.newCamp'
 
-        = link_to dashboard_path(I18n.locale, current_user.id), method: :get, class: "item #{active_class('users', 'show')}"
+        = link_to dashboard_path(I18n.locale), method: :get, class: "item #{active_class('users', 'show')}"
           i.thumbs.user.icon
           small
             = t 'slayout.header.welcome'

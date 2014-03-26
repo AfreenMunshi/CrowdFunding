@@ -4,7 +4,7 @@
   - if true#(Time.now - @campaign.created_at)/1.hour < 24
     a.ui.right.teal.corner.label
       .text
-        = t 'campaigns.show.new'
+       = t 'campaigns.show.new'
 
   img.circular.ui.image src=(@campaign.banner.url)
 
@@ -13,7 +13,7 @@
 
   h2.pinline
     span
-     = t 'campaigns.show.campTag'
+      = t 'campaigns.show.campTag'
 
   p.campaign_info
     = @campaign.info
@@ -85,13 +85,29 @@
 
             h5.item
               = t 'campaigns.show.freward2'
-              | :&nbsp;
-              = @campaign.first_reward
+              em
+                | &nbsp;
+                = @campaign.first_reward
+              br
+              = t 'campaigns.show.given'
+              em
+                | &nbsp;
+                = @first_user
+
 
             h5.item
               = t 'campaigns.show.hreward2'
-              | :&nbsp;
-              = @campaign.highest_reward
+              em
+                = @campaign.highest_reward
+              br
+              = t 'campaigns.show.given'
+              em
+                = @highest_user
+              br
+              = t 'campaigns.show.amountDon'
+              em
+                = @highest_amount
+
 
             .item
               - @campaign.tag_list.each do |tag|

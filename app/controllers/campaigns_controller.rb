@@ -19,6 +19,10 @@ class CampaignsController < ApplicationController
 
   # GET /campaigns/1
   def show
+      @first_user = @campaign.transactions.each.first.try(:user).try(:name)
+      #PUT TRY
+      @highest_amount =  @campaign.transactions.map{|t| t.amount}.max
+      @highest_user =  @campaign.transactions.map{|t| [t.amount,t.user.name]}.max.try(:last)
   end
 
   def vote_for_campaign
@@ -32,7 +36,6 @@ class CampaignsController < ApplicationController
   def new
     @campaign = Campaign.new
     all_tags = ActsAsTaggableOn::Tagging.includes(:tag).where(taggable_type: 'Campaign').map(&:tag)
-
     @comma_tags_string = all_tags.map{|t| "'#{t.name}'" }.join(',')
   end
 
@@ -47,8 +50,8 @@ class CampaignsController < ApplicationController
 
     if verify_recaptcha(@campaign) && params[:balancedBankAccountURI].present? && @campaign.save!
       @campaign.add_details(params[:balancedBankAccountURI])
-      # Tell the UserMailer to send a welcome email after save
-      CampaignMailer.welcome_email(@campaign.user).deliver
+
+      CampaignMailer.welcome_email(@campaign.user, @campaign).deliver
       redirect_to campaign_path(I18n.locale, @campaign.id), notice: 'Campaign was successfully created.'
     else
       render action: 'new'

@@ -12,7 +12,7 @@ ActiveAdmin.register_page "Dashboard" do
   #     end
   #   end
 
-  column do
+
     panel "Recent Campaigns" do
         table_for Campaign.order("created_at desc").limit(5) do
           column :title do |campaign|
@@ -22,10 +22,8 @@ ActiveAdmin.register_page "Dashboard" do
         end
         #strong { link_to "View All Campaigns", admin_campaigns_path }
       end
-    end
-    
 
-# 
+#
 
     # Here is an example of a simple dashboard with columns and panels.
     #

@@ -94,6 +94,8 @@ hi:
       thanku: 'शुक्रिया'
       hreward2: 'उच्चतम पुरस्कार '
       freward2: 'प्रथम पुरस्कार '
+      given: 'दिया गया था : '
+      amountDon : 'दान में दी गई राशि : '
 
   categories:
     form:

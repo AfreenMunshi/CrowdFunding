@@ -5,7 +5,7 @@ CF::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   scope "(:locale)", :locale => /en|ba|hi/ do
-    #here only two languages are accepted: english and french
+
     root 'campaigns#index'
 
     resources :categories
@@ -20,7 +20,7 @@ CF::Application.routes.draw do
 
 
     get '/donate/:campaign_id', to: 'transactions#new', as: :donate
-    get '/users/:id', to: 'users#show', as: :dashboard
+    get '/dashboard', to: 'users#show', as: :dashboard
     post '/verify/:tran_id', to: 'transactions#verify', as: :verify_transaction
     post '/regenerate_otp/:tran_id', to: 'transactions#generate_otp_code', as: :otp_regenerate
     get '/:category_id/campaigns', to: 'campaigns#index', as: :category_campaign
@@ -28,7 +28,6 @@ CF::Application.routes.draw do
     get 'tags/:tag', to: 'campaigns#index', as: :tag
     post '/store_bank_account', to: 'balanced#store_bank_account', as: :store_bank_account
     post '/store_credit_card', to: 'balanced#store_credit_card', as: :store_credit_card
-    get '/new_card', to: 'users#new_card'
     get '/credit_card_form', to: 'transactions#credit_card_form'
     get '/statistics', to: 'categories#index', as: :statistics
 
