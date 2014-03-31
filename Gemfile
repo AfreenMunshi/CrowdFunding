@@ -19,7 +19,7 @@ gem "recaptcha", :require => "recaptcha/rails"
 gem 'select2-rails'
 gem 'chartkick'
 gem 'thumbs_up'
-gem 'wkhtmltopdf-binary'
+#gem 'wkhtmltopdf-binary'
 gem 'rambling-slider-rails', :git => 'https://github.com/gonzedge/rambling-slider-rails'
 gem 'zebra-datepicker-rails'
 
@@ -28,10 +28,10 @@ gem 'balanced', git: 'https://github.com/balanced/balanced-ruby'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Use Uglifier as compressor for JavaScript assets
-# gem 'uglifier', '>= 1.3.0'
+ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-# gem 'coffee-rails', '~> 4.0.0'
+ gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -48,7 +48,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'cancan'
 gem "paperclip", "~> 3.0"
-gem 'thin'
+#gem 'thin'
 gem 'semantic-ui-sass'
 gem 'slim', "~> 2.0.2"
 
