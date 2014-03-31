@@ -1,11 +1,5 @@
 
-#TODO: need to move this out.. dot ever comit ur user name and pwd and commit!
-ActionMailer::Base.smtp_settings = {
-  :address              => "smtp.gmail.com",
-  :port                 => 587,
-  :domain               => "localhost:3000",
-  :user_name            => "",
-  :password             => "",
-  :authentication       => "plain",
-  :enable_starttls_auto => true
-}
+if Rails.env != 'test'
+  email_settings = YAML::load(File.open("#{Rails.root.to_s}/config/email.yml"))
+  ActionMailer::Base.smtp_settings = email_settings['email']
+end

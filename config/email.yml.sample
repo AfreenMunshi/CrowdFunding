@@ -1,0 +1,8 @@
+email:
+  address: smtp.gmail.com
+  port: 587
+  domain: localhost:8080
+  user_name: bucksbackers
+  password:
+  authentication: plain
+  enable_starttls_auto: true

@@ -11,7 +11,7 @@ script src="https://js.balancedpayments.com/v1/balanced.js" type="text/javascrip
         .header
           = pluralize(@campaign.errors.count, "error")
           | &nbsp;
-            = t 'campaigns.form.prohibitCamp'
+          = t 'campaigns.form.prohibitCamp'
         ul.ui.list
           - @campaign.errors.full_messages.each do |msg|
             li= msg
