@@ -1,4 +1,4 @@
-script src="/assets/jquery.rambling.slider.js" type="text/javascript"
+/ script src="/assets/jquery.rambling.slider.js" type="text/javascript"
 
 .ui.basic.segment.no_radius.paged style='width:1140px !important;'
   - if params[:category_id].present?
@@ -54,4 +54,4 @@ script src="/assets/jquery.rambling.slider.js" type="text/javascript"
 
     .ui.clearing.invisible.divider
   / = stylesheet_link_tag 'jquery.rambling.slider'
-  / = javascript_include_tag 'jquery.rambling.slider'
+  = javascript_include_tag 'jquery.rambling.slider.min.js'
