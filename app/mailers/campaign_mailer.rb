@@ -1,5 +1,5 @@
 class CampaignMailer < ActionMailer::Base
-  default from: "notifications@bucksbacker.com"
+  default from: "bucksbackers@gmail.com"
 
 def welcome_email(user, campaign)
     @user = user

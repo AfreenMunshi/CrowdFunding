@@ -13,6 +13,7 @@ CF::Application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
+  config.action_mailer.default_url_options = { :host => '128.199.254.115:80' }
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
@@ -25,6 +26,9 @@ CF::Application.configure do
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   config.assets.css_compressor = :sass
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => '128.199.254.115:80' }
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
