@@ -18,7 +18,6 @@
 //= require zebra-datepicker/core
 //= require jquery
 //= require campaigns
-// require jquery.rambling.slider
 //= require bank_account_submission
 //= require credit_card_submission
 //= require highcharts
@@ -72,11 +71,16 @@ $(function(){
 });
 
   $(window).load(function(){
+    $('.banner').unslider({
+      dots: true,
+      fluid: true,
+      delay: 4000
+    });
     if( $('#slider').length ){
-      $('#slider').ramblingSlider({
-        // adaptImages: true,
-        useLargerImage: false,
-        alignBottom: true
-      });
+      // $('#slider').ramblingSlider({
+      //   // adaptImages: true,
+      //   useLargerImage: false,
+      //   alignBottom: true
+      // });
     }
   });
