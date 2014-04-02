@@ -74,7 +74,7 @@ $(function(){
     $('.banner').unslider({
       dots: true,
       fluid: true,
-      delay: 4000
+      delay: 2000
     });
     if( $('#slider').length ){
       // $('#slider').ramblingSlider({
