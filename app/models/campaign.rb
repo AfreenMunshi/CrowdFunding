@@ -57,7 +57,7 @@ class Campaign < ActiveRecord::Base
     )
   end
 
-  def refund_payment
+  def refund_payment(closed_date)
     self.reload.update_attributes(closed_date: closed_date, closed_reason: 'expired')
     order         = Balanced::Order.fetch self.order_uri
     order.debits.each do |debit|

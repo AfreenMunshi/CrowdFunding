@@ -5,7 +5,7 @@ namespace :campaign do
     campaigns = Campaign.where('closed_date is null')
 
     closable_campaigns = campaigns.select do |camp|
-      (camp.created_at + camp.days.days > Date.today)
+      (camp.created_at + camp.days.days < Date.today)
     end
 
     puts "\nFOUND #{closable_campaigns.length} campaigns whose date are due"
