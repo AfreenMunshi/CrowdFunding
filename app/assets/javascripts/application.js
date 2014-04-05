@@ -71,16 +71,11 @@ $(function(){
 });
 
   $(window).load(function(){
-    $('.banner').unslider({
-      dots: true,
-      fluid: true,
-      delay: 2000
-    });
-    if( $('#slider').length ){
-      // $('#slider').ramblingSlider({
-      //   // adaptImages: true,
-      //   useLargerImage: false,
-      //   alignBottom: true
-      // });
+    if( $('.banner').length ){
+      $('.banner').unslider({
+        dots: true,
+        fluid: true,
+        delay: 2000
+      });
     }
   });
