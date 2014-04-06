@@ -61,6 +61,8 @@ ActiveAdmin.register Campaign do
 
       f.input :banner, as: :file
       f.input :video, as: :file
+
+      f.input :approved
     end
     f.actions
   end
