@@ -7,11 +7,10 @@ class CampaignsController < ApplicationController
     @campaigns = @q.result(distinct: true)
 
     if params[:tag]
-      @campaigns = Campaign.tagged_with(params[:tag])
+      @campaigns = Campaign.where(approved: true, closed_date: nil).tagged_with(params[:tag])
     elsif params[:category_id]
-      @campaigns = Campaign.all.where(category_id: params[:category_id], approved: true)
+      @campaigns = Campaign.all.where(category_id: params[:category_id], approved: true, closed_date: nil)
     end
-
 
     @root = true if params[:q].nil? && params[:tag].nil? && params[:category_id].nil?
 

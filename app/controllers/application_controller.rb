@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   before_filter :title_search
 
   def title_search
-    @q = Campaign.search(params[:q])
+    @q = Campaign.where(approved: true, closed_date: nil).search(params[:q])
   end
 
   def get_language
