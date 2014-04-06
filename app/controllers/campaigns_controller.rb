@@ -9,7 +9,7 @@ class CampaignsController < ApplicationController
     if params[:tag]
       @campaigns = Campaign.tagged_with(params[:tag])
     elsif params[:category_id]
-      @campaigns = Campaign.all.where(category_id: params[:category_id])
+      @campaigns = Campaign.all.where(category_id: params[:category_id], approved: true)
     end
 
 
