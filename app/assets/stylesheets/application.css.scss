@@ -11,7 +11,6 @@
  *= require_self
  *= require_tree
  *= require select2
- * require jquery.rambling.slider
  */
 
 @import "zebra-datepicker/default";
@@ -22,6 +21,11 @@ body { background-color: #f3f3f3 !important; margin:0px; }
   background: #ddd url(/images/pattern4.jpg) repeat top left !important;
   // background: #0099cc;
   min-height:850px;
+}
+
+::selection {
+  background: #bfa57c;
+  color: #fff;
 }
 
 .theme-default #slider { height: 535px !important; }
@@ -201,7 +205,7 @@ ui.grid > .row > img, .ui.grid > .row > .column > img { height: 80px; width: 80p
     -ms-transition: all .2s;
     -o-transition: all .2s;
     transition: all .2s;
-    background-image: url(card_logos.png);
+    background-image: url(/card_logos.png);
     background-position: 0 0;
     float: left;
     height: 32px;
@@ -211,22 +215,15 @@ ui.grid > .row > img, .ui.grid > .row > .column > img { height: 80px; width: 80p
   }
 
   li:last-child { margin-right: 0 }
-
   .visa_electron { background-position: 204px 0 }
-
   .mastercard { background-position: 153px 0 }
-
   .maestro { background-position: 102px 0 }
-
   .amex { background-position: 51px 0 }
-
   .visa.off { background-position: 0 32px }
-
   .visa_electron.off { background-position: 204px 32px }
-
   .mastercard.off { background-position: 153px 32px }
-
   .maestro.off { background-position: 102px 32px }
-
   .amex.off { background-position: 51px 32px }
 }
+
+.button.Zebra_DatePicker_Icon{ background: url('/images/calendar.png') !important; }

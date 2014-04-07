@@ -20,7 +20,7 @@ gem 'select2-rails'
 gem 'chartkick'
 gem 'thumbs_up'
 #gem 'wkhtmltopdf-binary'
-gem 'rambling-slider-rails', :git => 'https://github.com/gonzedge/rambling-slider-rails'
+# gem 'rambling-slider-rails', :git => 'https://github.com/gonzedge/rambling-slider-rails'
 gem 'zebra-datepicker-rails'
 
 gem 'balanced', git: 'https://github.com/balanced/balanced-ruby'

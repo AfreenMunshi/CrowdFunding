@@ -18,7 +18,6 @@
 //= require zebra-datepicker/core
 //= require jquery
 //= require campaigns
-// require jquery.rambling.slider
 //= require bank_account_submission
 //= require credit_card_submission
 //= require highcharts
@@ -62,7 +61,7 @@ $(function(){
         $(".cards ." + e.card_type.name).removeClass("off");
         e.card_type.name === "maestro" ? $(".vertical.maestro").slideDown({duration: 200}).animate({opacity: 1}, {queue: !1}) : $(".vertical.maestro").slideUp({duration: 200}).animate({opacity: 0}, {queue: !1,duration: 200});
         var is_valid = e.length_valid && e.luhn_valid;
-        is_valid && $('#credit-card-form').submit();
+        is_valid //&& $('#credit-card-form').submit();
         return is_valid ? $("#card_number").addClass("valid") : $("#card_number").removeClass("valid")
       },
       {accept: ["visa", "visa_electron", "mastercard", "maestro", "amex"]}
@@ -72,11 +71,11 @@ $(function(){
 });
 
   $(window).load(function(){
-    if( $('#slider').length ){
-      $('#slider').ramblingSlider({
-        // adaptImages: true,
-        useLargerImage: false,
-        alignBottom: true
+    if( $('.banner').length ){
+      $('.banner').unslider({
+        dots: true,
+        fluid: true,
+        delay: 2000
       });
     }
   });
