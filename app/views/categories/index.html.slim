@@ -15,16 +15,16 @@ script src="http://code.highcharts.com/modules/exporting.src.js"
     br
   .ui.horizontal.icon.divider
     i.browser.icon
-  p
-    center
-      strong
-        = t 'categories.index.classBirth'
-    br
-    /= column_chart data, :download => true
-    = column_chart User.group("year(bday)").count, :download => true
-    br
-  .ui.horizontal.icon.divider
-    i.browser.icon
+  / p
+  /   center
+  /     strong
+  /       = t 'categories.index.classBirth'
+  /   br
+  /   /= column_chart data, :download => true
+  /   = column_chart User.group("year(bday)").count, :download => true
+  /   br
+  / .ui.horizontal.icon.divider
+  /   i.browser.icon
   p
     center
       strong
