@@ -30,51 +30,52 @@ html[lang="en"]
       /     #slider.ramblingSlider style='width:100%;  margin:0px auto 0 auto;'
 
       .banner-wrapper
+        = semantic_flash
         .banner
           ul
             li.one
               h1 Preserving hearts
               p the red ones*
-              a class="btn" href="#download"
-                | Download
+              /a class="btn" href="#download"
+                /| Download
             li.two
               h1 Educating India
               p Q1: spot the teacher
-              a class="btn" href="#download"
-                | Download
+              /a class="btn" href="#download"
+                /| Download
             li.three
               h1 Help the needy
               p You got too much in ur pockets.
-              a class="btn" href="#download"
-                | Download
+              /a class="btn" href="#download"
+                /| Download
             li.four
               h1 The last ultimatum
               p Next ultimatum - Coming Soon!
-              a class="btn" href="#download"
-                | Download
+              /a class="btn" href="#download"
+                /| Download
             li.five
               h1 Ok. Guys Money.
               p which you'll be donating soon!
-              a class="btn" href="#download"
-                | Download
+              /a class="btn" href="#download"
+                /| Download
             li.six
               h1 Protecting mother earth
               p Specially the flying fish*
-              a class="btn" href="#download"
-                | Download
+              /a class="btn" href="#download"
+                /| Download
             li.seven
               h1 Hope is a good thing
               p No comments
-              a class="btn" href="#download"
-                | Download
+              /a class="btn" href="#download"
+                /| Download
             li.eight
               h1 Helping hands
               p Lets make it big - hand by hand
-              a class="btn" href="#download"
-                | Download
+              /a class="btn" href="#download"
+                /| Download
 
     .ui.basic.segment.no_margin.body_container
-      = semantic_flash
+      = semantic_flash unless @root == true
 
       /.ui.segment.basic.full.width.no_radius.no_pad.main_container
       = yield

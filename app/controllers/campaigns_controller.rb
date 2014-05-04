@@ -51,7 +51,8 @@ class CampaignsController < ApplicationController
       @campaign.add_details(params[:balancedBankAccountURI])
 
       CampaignMailer.welcome_email(@campaign.user, @campaign).deliver
-      redirect_to campaign_path(I18n.locale, @campaign.id), notice: 'Campaign was successfully created.'
+      # redirect_to campaign_path(I18n.locale, @campaign.id), notice: 'Campaign was successfully created.'
+      redirect_to root_path, notice: 'Your campaign has been created successfully. It will be published once approved by admin.'
     else
       render action: 'new'
     end
