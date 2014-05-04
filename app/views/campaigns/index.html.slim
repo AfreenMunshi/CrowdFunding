@@ -36,7 +36,7 @@ script src="//unslider.com/unslider.min.js" type="text/javascript"
             = t 'campaigns.index.popular'
           .ui.invisible.clearing.divider
 
-          - @campaigns.first(2).each do |campaign|
+          - Campaigns.first(2).each do |campaign|
             = render partial: 'campaign_item', locals: { campaign: campaign }
 
       .ui.vertical.divider
@@ -48,7 +48,7 @@ script src="//unslider.com/unslider.min.js" type="text/javascript"
             = t 'campaigns.index.newlyLaun'
           .ui.invisible.clearing.divider
 
-          - @campaigns.last(2).each do |campaign|
+          - Campaigns.last(2).each do |campaign|
             = render partial: 'campaign_item', locals: { campaign: campaign }
 
 
