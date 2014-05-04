@@ -54,6 +54,6 @@
             - if @related_campaign.count.zero?
               h3 style='margin:10px 300px;'
                 | No Similar Campaign Found!
-            else
+            - else
               - @related_campaign.each do |campaign|
                 = render partial: 'campaigns/campaign_item', locals: { campaign: campaign }
