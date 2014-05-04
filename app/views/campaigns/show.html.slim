@@ -1,7 +1,7 @@
 - content_for :title do
   = @campaign.title
 .ui.basic.segment.no_radius.paged.campaign_show style='width:1140px !important; overflow:hidden; margin-bottom: 50px; !important'
-  - if true#(Time.now - @campaign.created_at)/1.hour < 24
+  - if (@campaign.id > Campaign.last.id - 2)
     a.ui.right.teal.corner.label
       .text
        = t 'campaigns.show.new'
