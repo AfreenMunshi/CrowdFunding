@@ -28,6 +28,11 @@
         = f.email_field :email, :autofocus => true
         i.user.icon
     .field
+      label Phone
+      .ui.left.labeled.icon.input
+        = f.number_field :phone
+        i.phone.icon
+    .field
       label Password
       .ui.left.labeled.icon.input
         = f.password_field :password

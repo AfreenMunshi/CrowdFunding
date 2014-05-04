@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   has_many :campaigns
   has_many :transactions
+
+  attr_accessor :phone
   acts_as_voter
 
   def find_or_create_customer_uri
