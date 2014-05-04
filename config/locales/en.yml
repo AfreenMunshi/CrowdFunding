@@ -148,7 +148,7 @@ en:
 
     show:
       trans: Transaction
-      suggestion: Some Similar Campaigns you would like to Contribute to
+      suggestion: Similar Campaigns you may want to contribute
       thanksTrans: Thanks for the contribution
       verifyTrans: Please verify your transaction
       campaignTrans: Campaign

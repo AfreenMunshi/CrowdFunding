@@ -6,7 +6,8 @@
         th
           = t 'transactions.show.trans'
         th
-          = t 'transactions.show.suggestion'
+        /th
+          /= t 'transactions.show.suggestion'
     tbody
       tr
         td
@@ -16,17 +17,23 @@
           - else
             p
               = t 'transactions.show.verifyTrans'
-          p
-            strong
-              = t 'transactions.show.campaignTrans'
-            = @transaction.campaign.title
-          p
-            strong
-              = t 'transactions.show.amountTrans'
-            = @transaction.amount
+          table.ui.fluid.table
+            tr
+              td
+                strong
+                  = t 'transactions.show.campaignTrans'
+              td
+                = @transaction.campaign.title
+            tr
+              td
+                strong
+                  = t 'transactions.show.amountTrans'
+              td
+                = @transaction.amount
 
+        td
           - if !@transaction.verified
-            = form_tag(verify_transaction_path(I18n.locale, @transaction.id), method: :post) do
+            = form_tag(verify_transaction_path(I18n.locale, @transaction.id), method: :post, style:'width: 300px; float: left; margin-left: 170px;') do
               .ui.form.segment
                 .field
                   .ui.labeled.icon.input
@@ -34,9 +41,19 @@
                     = number_field_tag 'code'
 
                     = submit_tag 'Save' , class: 'ui blue submit button'
-            = link_to 'Regenerate OTP code', otp_regenerate_path(I18n.locale, @transaction), method: :post
-        td
+            = link_to 'Regenerate OTP code', otp_regenerate_path(I18n.locale, @transaction), method: :post, style: 'margin: 55px 35px; float: left;'
+      tr
+        td colspan=2
+      tr
+        th colspan=2
+          = t 'transactions.show.suggestion'
+      tr
+        td colspan=2
           .ui.basic.stackable.items.segment.no_radius.paged
             .ui.header
-            - @related_campaign.each do |campaign|
-              = render partial: 'campaigns/campaign_item', locals: { campaign: campaign }
+            - if @related_campaign.count.zero?
+              h3 style='margin:10px 300px;'
+                | No Similar Campaign Found!
+            else
+              - @related_campaign.each do |campaign|
+                = render partial: 'campaigns/campaign_item', locals: { campaign: campaign }
